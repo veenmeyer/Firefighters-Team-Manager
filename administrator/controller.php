@@ -56,7 +56,7 @@ class FirefightersController extends JControllerLegacy {
 		<tr>
 		<div class="alert alert-danger j-toggle-main " style="">
 		<button type="button" class="close" data-dismiss="alert">&times;</button>
-		<a target="_blank" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9HDFKVJSKSEFY"><span style="float:left;"><img border=0  width="100px" src="https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif" /></span></a>
+		<a target="_blank" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=XPQALX4UFFGM4"><span style="float:left;"><img border=0  width="100px" src="https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif" /></span></a>
 		Unterstützen Sie bitte die Weiterentwicklung unseres Projekts FIREFIGHTERS TEAM MANAGER mit einer Spende, damit wir unsere Software auch weiterhin kostenlos und werbefrei zur Verfügung stellen können.<br/><small>Dieses Fenster wird nach der Eingabe des Validationsschlüssel automatisch ausgeblendet</small>.  
 		</div>        
 		</tr>
@@ -66,7 +66,7 @@ class FirefightersController extends JControllerLegacy {
 <?php	// Catch Sites 
 
 		$j_version = new JVersion;
-		$response = @file("http://einsatzkomponente.de/gateway/ftm_validation.php?validation=".$params->get('validation_key','0')."&domain=".$_SERVER['SERVER_NAME']."&version=".$j_version->getShortVersion()."&version=".$version); // Request absetzen
+		$response = @file("http://einsatzkomponente.de/gateway/ftm_validation.php?validation=".$params->get('validation_key','0')."&domain=".$_SERVER['SERVER_NAME']."&version=".$j_version->getShortVersion()."&ftmversion=".$version); // Request absetzen
 
 		
         $view = JFactory::getApplication()->input->getCmd('view', 'kontrollcenter');

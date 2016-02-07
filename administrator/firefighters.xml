@@ -63,7 +63,6 @@
             <filename>controller.php</filename>
             <filename>index.html</filename>
             <filename>firefighters.php</filename>
-            <filename>CHANGELOG.php</filename>
             <folder>controllers</folder>
             <folder>assets</folder>
             <folder>helpers</folder>
