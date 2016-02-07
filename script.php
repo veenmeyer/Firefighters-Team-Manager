@@ -55,10 +55,10 @@ class com_firefightersInstallerScript
 		$parent->getParent()->setRedirectURL('index.php?option=com_firefighters&view=installation');
 	}
 
-	public function update($parent)
+	public function update($parent) 
 	{
 		//$this->db_update($parent);
-		$parent->getParent()->setRedirectURL('index.php?option=com_firefighters&view=update');
+		$parent->getParent()->setRedirectURL('index.php?option=com_firefighters&view=kontrollcenter');
 	}
 
 	public function uninstall($parent)
