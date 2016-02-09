@@ -67,7 +67,6 @@ class FirefightersModelMitglieder extends JModelList {
 
         $published = $app->getUserStateFromRequest($this->context . '.filter.state', 'filter_published', '', 'string');
         $this->setState('filter.state', $published);
-
         
 		//Filtering dienstgrad
 		$this->setState('filter.dienstgrad', $app->getUserStateFromRequest($this->context.'.filter.dienstgrad', 'filter_dienstgrad', '', 'string'));
@@ -145,7 +144,7 @@ class FirefightersModelMitglieder extends JModelList {
 		$query->select('created_by.name AS created_by');
 		$query->join('LEFT', '#__users AS created_by ON created_by.id = a.created_by');
 
-        
+       
 
 		// Filter by published state
 		$published = $this->getState('filter.state');
@@ -204,10 +203,13 @@ class FirefightersModelMitglieder extends JModelList {
     }
 
     public function getItems() {
+		
+			
         $items = parent::getItems();
-        
+		
 		foreach ($items as $oneItem) {
 
+		
 			if (isset($oneItem->dienstgrad)) {
 				$values = explode(',', $oneItem->dienstgrad);
 

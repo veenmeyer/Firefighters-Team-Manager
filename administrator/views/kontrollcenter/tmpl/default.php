@@ -30,6 +30,7 @@ $userId	= $user->get('id');
 if (!empty($this->extra_sidebar)) {
     $this->sidebar .= $this->extra_sidebar;
 }
+
 ?>
 <form action="<?php echo JRoute::_('index.php?option=com_firefighters&view=kontrollcenters'); ?>" method="post" name="adminForm" id="adminForm">
 <?php if(!empty($this->sidebar)): ?>
@@ -127,8 +128,10 @@ Unterstützen Sie die Weiterentwicklung unseres Projekts FIREFIGHTERS TEAM MANAG
 							<b>Premiumfunktionen:</b></br>
 							<?php if ($this->params->get('ftm')) : ?>
 							<?php echo '<span style="margin-bottom:5px;" class="label label-success">unlimitierte Anzahl von Mitglieder</span></br>';?>
+							<?php echo '<span style="margin-bottom:5px;" class="label label-success">unlimitierte Anzahl von Terminen</span></br>';?>
 							<?php else:?>
 							<?php echo '<span style="margin-bottom:5px;text-decoration: line-through;" class="label label-important">unlimitierte Anzahl von Mitglieder</span></br>';?>
+							<?php echo '<span style="margin-bottom:5px;text-decoration: line-through;" class="label label-important">unlimitierte Anzahl von Terminen</span></br>';?>
 							<?php endif;?>
 							<hr>
 						<b>Informationen:</b></br>
