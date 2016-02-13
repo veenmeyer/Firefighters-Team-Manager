@@ -7,7 +7,7 @@
     <author>Ralf Meyer</author>
     <authorEmail>ralf.meyer@einsatzkomponente.de</authorEmail>
     <authorUrl>http://einsatzkomponente.de</authorUrl>
-    <version>1.00_beta</version>
+    <version>1.01</version>
     <description>Komponente zur Mannschafts- und Terminverwaltung der Feuerwehren</description>
     
     <scriptfile>script.php</scriptfile>
@@ -22,6 +22,13 @@
             <file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
         </sql>
     </uninstall>
+	
+<update>
+    <schemas>
+        <schemapath type="mysql">sql/updates/mysql</schemapath>
+    </schemas>
+</update>
+
 
     <files folder="site">
         <filename>index.html</filename>

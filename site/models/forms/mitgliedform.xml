@@ -137,7 +137,8 @@
                 
             label="COM_FIREFIGHTERS_FORM_LBL_MITGLIED_GEBURTSDATUM"
             description="COM_FIREFIGHTERS_FORM_DESC_MITGLIED_GEBURTSDATUM" 
-                
+            format="%Y-%m-%d"
+            default="0000-00-00" 
                 
                 
             menu_published="0"
@@ -150,7 +151,8 @@
                 
             label="COM_FIREFIGHTERS_FORM_LBL_MITGLIED_EINTRITTSDATUM"
             description="COM_FIREFIGHTERS_FORM_DESC_MITGLIED_EINTRITTSDATUM" 
-                
+            format="%Y-%m-%d"
+            default="0000-00-00" 
                 
                 
             menu_published="0"
@@ -163,7 +165,8 @@
                 
             label="COM_FIREFIGHTERS_FORM_LBL_MITGLIED_AUSTRITTSDATUM"
             description="COM_FIREFIGHTERS_FORM_DESC_MITGLIED_AUSTRITTSDATUM" 
-                
+            format="%Y-%m-%d"
+            default="0000-00-00" 
                 
                 
             menu_published="0"

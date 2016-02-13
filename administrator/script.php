@@ -15,6 +15,8 @@ class com_firefightersInstallerScript
 {
 	public function preflight($type, $parent)
 	{
+		
+	
 		$jversion = new JVersion();
  
 		// Installing component manifest file version
