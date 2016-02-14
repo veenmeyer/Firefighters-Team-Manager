@@ -16,30 +16,6 @@ class com_firefightersInstallerScript
 	public function preflight($type, $parent)
 	{
 		
-		    if ( $type == 'update' ) 
-    {
-        $this->oldRelease = $this->getParam('version');
-        if (version_compare($this->oldRelease, $this->release, 'lt'))
-        {
-            //Repair table #__schema which was not used before
-            //Just create a dataset with extension id and old version (before update).
-            $db = JFactory::getDbo();
-            $query = $db->getQuery(true);
-            $query->select($db->quoteName('extension_id'))
-                ->from('#__extensions')
-                ->where($db->quoteName('type') . ' = ' . $db->quote('component') . ' AND ' . $db->quoteName('element') . ' = ' . $db->quote('com_firefighters') . ' AND ' . $db->quoteName('name') . ' = ' . $db->quote('com_firefighters'));
-            $db->setQuery($query);
-            if ($eid = $db->loadResult())
-            {
-                $query->clear();
-                $query->insert($db->quoteName('#__schemas'));
-                $query->columns(array($db->quoteName('extension_id'), $db->quoteName('version_id')));
-                $query->values($eid . ', ' . $db->quote($this->oldRelease));
-                $db->setQuery($query);
-                $db->execute();
-            }
-        }
-    }
 	
 		$jversion = new JVersion();
  

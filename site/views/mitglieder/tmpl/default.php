@@ -121,6 +121,14 @@ $canDelete = $user->authorise('core.delete', 'com_firefighters');
 					<?php echo '<b>Alter : </b>'.floor((time() - strtotime($item->geburtsdatum)) / 31558149.540288); ?>
 					<?php endif; ?>
 					<?php endif; ?>
+				<br/>
+					<?php if ($this->params->get('show_eintrittsdatum','1')) : ?>
+					<?php if ($item->eintrittsdatum != '0000-00-00') : ?>
+					<?php //echo '<b>Eintrittsjahr : </b>'.date('Y', strtotime($item->eintrittsdatum)); ?>
+					<?php echo 'Seit '.floor((time() - strtotime($item->eintrittsdatum)) / 31558149.540288).' Jahr(en) Mitglied in der Feuerwehr'; ?>
+					<?php endif; ?>
+					<?php endif; ?>
+					
 				<br/><br/>
 				
 					<?php if ($item->funktion) : ?>
@@ -139,11 +147,6 @@ $canDelete = $user->authorise('core.delete', 'com_firefighters');
 					<?php echo '<b>Ausbildung : </b>'.$item->ausbildungen; ?><br/>
 					<?php endif; ?>
 					
-					<?php if ($this->params->get('show_eintrittsdatum','1')) : ?>
-					<?php if ($item->eintrittsdatum != '0000-00-00') : ?>
-					<?php echo '<b>Eintrittsdatum : </b>'.$item->eintrittsdatum; ?>
-					<?php endif; ?>
-					<?php endif; ?>
 				
 				
 				</td>
