@@ -48,15 +48,11 @@
             option_off="Yes" /> 
 
        <field name="bild" type="media"
-                
             label="COM_FIREFIGHTERS_FORM_LBL_MITGLIED_BILD"
             description="COM_FIREFIGHTERS_FORM_DESC_MITGLIED_BILD" 
-                
-                
-                
             menu_published="0"
             filter="raw"
-            directory="images"
+            directory="com_firefighters/images/mitglieder"   
             option_on="Yes"
             option_off="Yes" /> 
 
