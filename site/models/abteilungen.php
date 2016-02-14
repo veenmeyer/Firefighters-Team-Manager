@@ -188,8 +188,11 @@ $query->where('a.state = 1');
         
 
         // Add the list ordering clause.
-        $orderCol = $this->state->get('list.ordering');
-        $orderDirn = $this->state->get('list.direction');
+        //$orderCol = $this->state->get('list.ordering');
+        //$orderDirn = $this->state->get('list.direction');
+		$orderCol = 'ordering';
+        $orderDirn = 'ASC';
+
         if ($orderCol && $orderDirn)
         {
             $query->order($db->escape($orderCol . ' ' . $orderDirn));
