@@ -227,12 +227,20 @@ if (!empty($this->extra_sidebar)) {
 					<?php echo $item->abteilungen; ?>
 				</td>
 				<td>
-
-					<?php echo $item->datum_start; ?>
+					<?php $curDate = strtotime($item->datum_start); 
+						  $curTime = date('H:i', $curDate);
+						  echo date('d.m.Y ', $curDate); 
+						  if ($curTime != '00:00') :
+							echo'@ '.date('H:i ', $curDate).' Uhr';
+						  endif;
+					?>
 				</td>
 				<td>
 
-					<?php echo $item->datum_ende; ?>
+					<?php if ($item->datum_ende != '0000-00-00 00:00:00') :
+							echo $item->datum_ende;
+						endif;
+					?>
 				</td>
 				<td>
 				<?php if ($item->email_gesendet == 1): ?>

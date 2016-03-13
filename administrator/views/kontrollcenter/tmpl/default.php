@@ -22,8 +22,10 @@ $document->addStyleSheet('components/com_firefighters/assets/css/firefighters.cs
 $db = JFactory::getDbo();
 $db->setQuery('SELECT manifest_cache FROM #__extensions WHERE name = "com_firefighters"');
 $params = json_decode( $db->loadResult(), true );
+
 $user	= JFactory::getUser();
 $userId	= $user->get('id');
+
 ?>
 
 <?php
@@ -48,13 +50,32 @@ if (!empty($this->extra_sidebar)) {
         
 			  <div class="btn-group btn-group-justified">
 						
-	    					<a class="btn" href="index.php?option=com_firefighters&view=einsatzberichte">
-		    				<img style="width:32px;height:32px;" alt="<?php echo JText::_('COM_FIREFIGHTERS_TITLE'); ?>" src="components/com_firefighters/assets/images/liste.png" /><br/>
-		    				<span style="font-size:11px;"><?php echo JText::_('COM_FIREFIGHTERS_TITLE'); ?></span>
+	    					<a class="btn" href="index.php?option=com_firefighters&view=termine">
+		    				<img style="width:32px;height:32px;" alt="<?php echo JText::_('Termine'); ?>" src="components/com_firefighters/assets/images/l_termine.png" /><br/>
+		    				<span style="font-size:11px;"><?php echo JText::_('Termine'); ?></span>
 	    					</a>
 							
+	    					<a class="btn" href="index.php?option=com_firefighters&view=mitglieder">
+		    				<img style="width:32px;height:32px;" alt="<?php echo JText::_('Termine'); ?>" src="components/com_firefighters/assets/images/l_mitglieder.png" /><br/>
+		    				<span style="font-size:11px;"><?php echo JText::_('Mitglieder'); ?></span>
+	    					</a>
 
-				</div>
+	    					<a class="btn" href="index.php?option=com_firefighters&view=abteilungen">
+		    				<img style="width:32px;height:32px;" alt="<?php echo JText::_('Abteilungen'); ?>" src="components/com_firefighters/assets/images/l_abteilungen.png" /><br/>
+		    				<span style="font-size:11px;"><?php echo JText::_('Abteilungen'); ?></span>
+	    					</a>
+							
+	    					<a class="btn" href="index.php?option=com_firefighters&view=dienstgrade">
+		    				<img style="width:32px;height:32px;" alt="<?php echo JText::_('Dienstgrade'); ?>" src="components/com_firefighters/assets/images/l_dienstgrade.png" /><br/>
+		    				<span style="font-size:11px;"><?php echo JText::_('Dienstgrade'); ?></span>
+	    					</a>
+							
+	    					<a class="btn" href="index.php?option=com_firefighters&view=ausbildungen">
+		    				<img style="width:32px;height:32px;" alt="<?php echo JText::_('Ausbildungen'); ?>" src="components/com_firefighters/assets/images/l_ausbildungen.png" /><br/>
+		    				<span style="font-size:11px;"><?php echo JText::_('Ausbildungen'); ?></span>
+	    					</a>
+							
+							</div>
 					
 					
 			<table class="table"> 

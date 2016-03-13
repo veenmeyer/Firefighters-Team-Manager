@@ -122,8 +122,8 @@ $params->set('ftm', '0');
 		$paramms = json_decode( $db->loadResult(), true );
         $version = $paramms['version'];
         if($version!=str_replace("Premium","",$version)):
-		$paramms = JComponentHelper::getParams('com_firefighters');
-		$paramms->set('ftm', '1');
+		$params = JComponentHelper::getParams('com_firefighters');
+		$params->set('ftm', '1');
 		$response_code='12';
 		endif;  
 

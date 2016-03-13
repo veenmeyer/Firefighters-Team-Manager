@@ -80,4 +80,11 @@
 			<language tag="de-DE">de-DE/de-DE.com_firefighters.sys.ini</language>
         </languages>
     </administration>
+	
+<!-- UPDATESERVER DEFINITION -->
+	<updateservers>
+		<!-- Note: No spaces or linebreaks allowed between the server tags -->
+		<server type="extension" priority="1" name="com_firefighters">http://www.feuerwehr-veenhusen.de/update/com_einsatzkomponente-update.xml</server>
+	</updateservers>
+	
 </extension>

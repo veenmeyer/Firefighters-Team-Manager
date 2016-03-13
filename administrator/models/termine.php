@@ -71,7 +71,7 @@ class FirefightersModelTermine extends JModelList {
         $this->setState('params', $params);
 
         // List state information.
-        parent::populateState('a.name', 'asc');
+        parent::populateState('a.datum_start', 'desc');
     }
 
     /**

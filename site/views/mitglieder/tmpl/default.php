@@ -47,7 +47,7 @@ $canDelete = $user->authorise('core.delete', 'com_firefighters');
 			
 				<?php if ($this->params->get('show_passbild','1')) : ?>
 				<th class='left'>
-				<?php echo JHtml::_('grid.sort',  'COM_FIREFIGHTERS_MITGLIEDER_BILD', 'a.bild', $listDirn, $listOrder); ?>
+				<?php echo 'Foto'; ?>
 				</th>
 				<?php endif;?>
 				
@@ -57,7 +57,7 @@ $canDelete = $user->authorise('core.delete', 'com_firefighters');
 				<?php endif;?>
 				
     			<th class='left'>
-				<?php echo JHtml::_('grid.sort',  'COM_FIREFIGHTERS_MITGLIEDER_NAME', 'a.name', $listDirn, $listOrder); ?>
+				<?php echo 'Mitglied'; ?>
 				</th>
 
     				<?php if ($canEdit || $canDelete): ?>
@@ -113,23 +113,29 @@ $canDelete = $user->authorise('core.delete', 'com_firefighters');
 					<?php echo JHtml::_('jgrid.checkedout', $i, $item->editor, $item->checked_out_time, 'mitglieder.', $canCheckin); ?>
 				<?php endif; ?>
 				
+				<?php if ($this->params->get('show_mitlgied_detail_link','1')) : ?>
 				<a href="<?php echo JRoute::_('index.php?option=com_firefighters&view=mitglied&id='.(int) $item->id); ?>">
-				<?php echo '<span style="font-size:20px;font-weight:bold;">'.$this->escape($item->name).', '.$this->escape($item->vorname).'</span>'; ?></a>
+				<?php echo '<span style="font-size:20px;font-weight:bold;">'.$this->escape($item->name).', '.$this->escape($item->vorname).'</span>'; ?></a> 
+				<?php endif; ?>
+				<?php if (!$this->params->get('show_mitlgied_detail_link','1')) : ?>
+				<?php echo '<span style="color:#d63b37;font-size:20px;font-weight:bold;">'.$this->escape($item->name).', '.$this->escape($item->vorname).'</span>'; ?>
+				<?php endif; ?>
+				
 				<br/>				
 					<?php if ($this->params->get('show_alter','1')) : ?>
-					<?php if ($item->geburtsdatum != '0000-00-00') : ?>
+					<?php if ($item->geburtsdatum != '0000-00-00 00:00:00') : ?>
 					<?php echo '<b>Alter : </b>'.floor((time() - strtotime($item->geburtsdatum)) / 31558149.540288); ?>
-					<?php endif; ?>
-					<?php endif; ?>
 				<br/>
+					<?php endif; ?>
+					<?php endif; ?>
 					<?php if ($this->params->get('show_eintrittsdatum','1')) : ?>
-					<?php if ($item->eintrittsdatum != '0000-00-00') : ?>
+					<?php if ($item->eintrittsdatum != '0000-00-00 00:00:00') : ?>
 					<?php //echo '<b>Eintrittsjahr : </b>'.date('Y', strtotime($item->eintrittsdatum)); ?>
 					<?php echo 'Seit '.floor((time() - strtotime($item->eintrittsdatum)) / 31558149.540288).' Jahr(en) Mitglied in der Feuerwehr'; ?>
+				<br/><br/>
 					<?php endif; ?>
 					<?php endif; ?>
 					
-				<br/><br/>
 				
 					<?php if ($item->funktion) : ?>
 					<?php echo '<b>Funktion		: '.$item->funktion.'</b>'; ?><br/><br/>

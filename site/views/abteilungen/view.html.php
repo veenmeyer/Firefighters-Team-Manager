@@ -32,7 +32,11 @@ class FirefightersViewAbteilungen extends JViewLegacy {
         $this->items = $this->get('Items');
         $this->pagination = $this->get('Pagination');
         $this->params = $app->getParams('com_firefighters');
-        
+      
+		$document = JFactory::getDocument();
+        // Import CSS
+		$document->addStyleSheet('components/com_einsatzkomponente/assets/css/firefighters.css');
+		$document->addStyleDeclaration($this->params->get('abteilungen_css','')); 
 
         // Check for errors.
         if (count($errors = $this->get('Errors'))) {

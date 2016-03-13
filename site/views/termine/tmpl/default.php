@@ -124,7 +124,15 @@ $canDelete = $user->authorise('core.delete', 'com_firefighters');
 					<?php echo $item->abteilungen; ?>
 				</td>
     	<td>
-			<?php echo '<span style="white-space:nowrap">'.date('<b>d.m.Y</b> @ H:i', strtotime($item->datum_start)).' Uhr</span>';  ?>
+			<?php 	
+						  $curDate = strtotime($item->datum_start); 
+						  $curTime = date('H:i', $curDate);
+						  echo '<span style="white-space:nowrap">'.date('<b>d.m.Y</b> ', $curDate); 
+						  if ($curTime != '00:00') :
+							echo'@ '.date('H:i ', $curDate).' Uhr';
+						  endif;
+					echo '</span>';  
+			?>
     	</td>
 			
 		<?php if ($this->params->get('show_termine_ende','1')) : ?>

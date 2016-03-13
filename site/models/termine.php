@@ -204,7 +204,7 @@ $query->where('a.state = 1');
         //$orderCol = $this->state->get('list.ordering');
         //$orderDirn = $this->state->get('list.direction');
         $orderCol = 'datum_start';
-        $orderDirn = 'ASC';
+        $orderDirn = 'DESC';
         if ($orderCol && $orderDirn)
         {
             $query->order($db->escape($orderCol . ' ' . $orderDirn));

@@ -8,7 +8,20 @@
 		class="alert alert-info" 
 		description="Hier können Sie entscheiden, welche Daten im Frontend angezeigt werden sollen."
 		/>
-	
+		
+	  		<field
+				name="show_mitlgied_detail_link"
+				type="radio"
+				class="btn-group"
+				default="1"
+				label="Detaillink :"
+				description="" >
+					<option
+						value="0">Nein</option>
+					<option
+						value="1">Ja</option>
+	  		</field>
+		
 	  		<field
 				name="show_passbild"
 				type="radio"
@@ -62,8 +75,34 @@
 	  		</field>
 
 			</fieldset>
+
+    <fieldset label="Abteilungen" name="ftm_abteilung_anzeige">
+	
+<field name="note_show_1" 
+		type="note" 
+		label="Abteilung Anzeige Einstellungen :" 
+		class="alert alert-info" 
+		description="Hier können Sie entscheiden, welche Daten im Frontend angezeigt werden sollen."
+		/>
 		
-    <fieldset label="Termine" name="termine_anzeige">
+	  		<field
+				name="show_abteilung_detail_link"
+				type="radio"
+				class="btn-group"
+				default="1"
+				label="Detaillink :"
+				description="" >
+					<option
+						value="0">Nein</option>
+					<option
+						value="1">Ja</option>
+	  		</field>
+		
+	  	
+			</fieldset>
+
+
+			<fieldset label="Termine" name="termine_anzeige">
 	
 <field name="note_termine" 
 		type="note" 
@@ -131,8 +170,17 @@
 				description="Füge hier den zusätzlichen CSS-Code für die Einsatz-Übersicht ein." 
 				rows="10" 
 				cols="40" />
-		
-		<field 	name="termine_css" 
+				
+		<field 	name="abteilungen_css" 
+				type="textarea" 
+				filter="raw" 
+				default="" 
+				label="Abteilungen-Übersicht" 
+				description="Füge hier den zusätzlichen CSS-Code für die Abteilungen-Übersicht ein." 
+				rows="10" 
+				cols="40" />
+
+				<field 	name="termine_css" 
 				type="textarea" 
 				filter="raw" 
 				default=".ftm_termine_image {max-width:150px !important;}" 
