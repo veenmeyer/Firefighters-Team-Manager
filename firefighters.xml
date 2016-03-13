@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="component" version="3.0" method="upgrade">
     <name>com_firefighters</name>
-    <creationDate>2016-02-14</creationDate> 
+    <creationDate>2016-03-13</creationDate> 
     <copyright>Copyright (C) 2015. Alle Rechte vorbehalten.</copyright>
     <license>GNU General Public License Version 2 oder später; siehe LICENSE.txt</license>
     <author>Ralf Meyer</author>
@@ -23,12 +23,6 @@
         </sql>
     </uninstall>
 	
-<update>
-    <schemas>
-        <schemapath type="mysql">sql/updates/mysql</schemapath>
-    </schemas>
-</update>
-
 
     <files folder="site">
         <filename>index.html</filename>
@@ -86,4 +80,11 @@
 			<language tag="de-DE">de-DE/de-DE.com_firefighters.sys.ini</language>
         </languages>
     </administration>
+	
+<!-- UPDATESERVER DEFINITION -->
+	<updateservers>
+		<!-- Note: No spaces or linebreaks allowed between the server tags -->
+		<server type="extension" priority="1" name="com_firefighters">http://www.feuerwehr-veenhusen.de/update/com_einsatzkomponente-update.xml</server>
+	</updateservers>
+	
 </extension>
