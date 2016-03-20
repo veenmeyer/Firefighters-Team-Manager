@@ -7,7 +7,7 @@
     <author>Ralf Meyer</author>
     <authorEmail>ralf.meyer@einsatzkomponente.de</authorEmail>
     <authorUrl>http://einsatzkomponente.de</authorUrl>
-    <version>1.02</version>
+    <version>1.03_beta</version>
     <description>Komponente zur Mannschafts- und Terminverwaltung der Feuerwehren</description>
      
     <scriptfile>script.php</scriptfile>
@@ -63,6 +63,7 @@
             <filename>config.xml</filename>
             <filename>controller.php</filename>
             <filename>index.html</filename>
+            <filename>CHANGELOG.php</filename>
             <filename>firefighters.php</filename>
             <folder>controllers</folder>
             <folder>assets</folder>
