@@ -56,6 +56,11 @@ class FirefightersViewTermin extends JViewLegacy {
             }
         }
 
+		$document = JFactory::getDocument();
+        // Import CSS
+		$document->addStyleSheet('components/com_firefighters/assets/css/firefighters.css');
+		$document->addStyleDeclaration($this->params->get('termin_css','')); 
+
         $this->_prepareDocument();
 
         parent::display($tpl);

@@ -55,6 +55,11 @@ class FirefightersViewMitglied extends JViewLegacy {
                 throw new Exception(JText::_('JERROR_ALERTNOAUTHOR'));
             }
         }
+		
+		$document = JFactory::getDocument();
+        // Import CSS
+		$document->addStyleSheet('components/com_firefighters/assets/css/firefighters.css');
+		$document->addStyleDeclaration($this->params->get('mitglied_css','')); 
 
         $this->_prepareDocument();
 

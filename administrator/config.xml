@@ -183,7 +183,7 @@
 				<field 	name="termine_css" 
 				type="textarea" 
 				filter="raw" 
-				default=".ftm_termine_image {max-width:150px !important;}" 
+				default=".ftm_termine_image {}" 
 				label="Termine-Übersicht" 
 				description="Füge hier den zusätzlichen CSS-Code für die Termine-Übersicht ein." 
 				rows="10" 

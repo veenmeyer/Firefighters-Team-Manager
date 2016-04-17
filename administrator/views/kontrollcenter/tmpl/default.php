@@ -191,7 +191,7 @@ Unterstützen Sie die Weiterentwicklung unseres Projekts FIREFIGHTERS TEAM MANAG
 								}
 						?>
 					<hr>
-						Aktuellste Version: <iframe  frameborder="0" height="30px" width="250px" src="http://www.feuerwehr-veenhusen.de/images/firefightersJ30/index.html" scrolling="no"></iframe>
+						Aktuellste Version: <iframe  frameborder="0" height="30px" width="250px" src="https://www.feuerwehr-veenhusen.de/images/firefightersJ30/index.html" scrolling="no"></iframe>
 						
 </div> 
           
@@ -217,7 +217,7 @@ Unterstützen Sie die Weiterentwicklung unseres Projekts FIREFIGHTERS TEAM MANAG
 						<a target="_blank" href="http://www.leitstelle-joomla.de" style="text-decoration:underline">Testseite für die Einsatzkomponente V3.x für J3</a>
 						</li>
 						<li>
-						<a target="_blank" href="http://www.feuerwehr-veenhusen.de" style="text-decoration:underline">Freiwillige Feuerwehr Veenhusen </a><font-size:small>(über ein paar nette im Gästebuch würde ich mich sehr freuen  lg Ralf Meyer )</font-size>
+						<a target="_blank" href="https://www.feuerwehr-veenhusen.de" style="text-decoration:underline">Freiwillige Feuerwehr Veenhusen </a><font-size:small>(über ein paar nette im Gästebuch würde ich mich sehr freuen  lg Ralf Meyer )</font-size>
 						</li>
 						</ul>
 						</div>
@@ -228,7 +228,7 @@ Unterstützen Sie die Weiterentwicklung unseres Projekts FIREFIGHTERS TEAM MANAG
 			<tfoot>
 				<tr>
 					<td colspan="10">
-						<?php echo 'Copyright (C) 2013 by Ralf Meyer. All rights reserved.
+						<?php echo 'Copyright (C) 2016 by Ralf Meyer. All rights reserved.
  *  GNU General Public License version 2 or later'; ?>
 					</td>
 				</tr>
@@ -265,13 +265,13 @@ Unterstützen Sie die Weiterentwicklung unseres Projekts FIREFIGHTERS TEAM MANAG
 					continue;
 					break;
 				case '-':
-					$ret .= ''.$line.'</br>';
+					$ret .= '<li><span style="font-size:8pt;color:#ff0000;">Removed:</span> '.substr($line, 1).'</li>';
 					break;
 				case '+':
-					$ret .= '<span style="font-size:8pt;color:#ff0000;">Added:</span> '.$line."</br>";
+					$ret .= '<li><span style="font-size:8pt;color:#ff0000;">Added:</span> '.substr($line, 1)."</li>";
 					break;
 				case '#':
-					$ret .= '<span style="font-size:8pt;color:#00e600;">Bugfix:</span> '.$line."</br>";
+					$ret .= '<li><span style="font-size:8pt;color:#00e600;">Bugfix:</span> '.substr($line, 1)."</li>";
 					break;
 
 				default:

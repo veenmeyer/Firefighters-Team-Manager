@@ -40,7 +40,7 @@ class FirefightersViewTermine extends JViewLegacy {
 
 		$document = JFactory::getDocument();
         // Import CSS
-		$document->addStyleSheet('components/com_einsatzkomponente/assets/css/firefighters.css');
+		$document->addStyleSheet('components/com_firefighters/assets/css/firefighters.css');
 		$document->addStyleDeclaration($this->params->get('termine_css','')); 
 		
 		//Komponentenversion aus Datenbank lesen
