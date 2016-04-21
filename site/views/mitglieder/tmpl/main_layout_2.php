@@ -140,6 +140,12 @@ defined('_JEXEC') or die;
 					<?php echo '<b>Ausbildung : </b>'.$item->ausbildungen; ?><br/>
 					<?php endif; ?>
 					
+					<?php if ($this->params->get('show_email','1')) : ?>
+					<?php if ($item->emailadresse) : ?>
+					<br>
+					<?php echo '<b>Kontakt : </b><i class="icon-envelope"></i> '.JHTML::_('email.cloak', $item->emailadresse); ?> <br>
+					<?php endif;?>
+					<?php endif;?> 
 				
 				
 				</td>
@@ -203,6 +209,15 @@ defined('_JEXEC') or die;
 					<?php echo '<b>Ausbildungen : </b>'.$item->ausbildungen; ?><br/>
 				</span>
 					<?php endif; ?>
+			
+					<?php if ($this->params->get('show_email','1')) : ?>
+					<?php if ($item->emailadresse) : ?>
+					<br>
+				<span>
+					<?php echo '<b>Kontakt : </b><i class="icon-envelope"></i> '.JHTML::_('email.cloak', $item->emailadresse); ?> <br>
+				</span>
+					<?php endif;?>
+					<?php endif;?>
 			
     </center>
     <hr>

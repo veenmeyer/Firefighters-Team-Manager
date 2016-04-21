@@ -73,6 +73,19 @@
 					<option
 						value="1">Ja</option>
 	  		</field>
+			
+	  		<field
+				name="show_email"
+				type="radio"
+				class="btn-group"
+				default="1"
+				label="Emailadresse :"
+				description="" >
+					<option
+						value="0">ausblenden</option>
+					<option
+						value="1">einblenden</option>
+	  		</field>
 
 			</fieldset>
 

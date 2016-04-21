@@ -34,15 +34,20 @@ if (!$canEdit && JFactory::getUser()->authorise('core.edit.own', 'com_firefighte
         <small><cite title="Source Title"><?php echo $this->item->dienstgrad; ?>  <i class="icon-map-marker"></i></cite></small>
 		<?php endif;?>
 		
-				<br/>				
+				<br/>	
+					<?php if ($this->params->get('show_alter','1')) : ?>
 					<?php if ($this->item->geburtsdatum != '0000-00-00 00:00:00') : ?>
 					<?php echo 'Alter : '.floor((time() - strtotime($this->item->geburtsdatum)) / 31558149.540288); ?>
+					<?php endif;?>
 				<br/>
 					<?php endif; ?>
+					
+					<?php if ($this->params->get('show_eintrittsdatum','1')) : ?>
 					<?php if ($this->item->eintrittsdatum != '0000-00-00 00:00:00') : ?>
 					<?php //echo 'Eintrittsjahr : '.date('Y', strtotime($item->eintrittsdatum)); ?>
 					<?php echo 'Seit '.floor((time() - strtotime($this->item->eintrittsdatum)) / 31558149.540288).' Jahr(en) Mitglied in der Feuerwehr'; ?>
 				<br/><br/>
+					<?php endif; ?>
 					<?php endif; ?>
 					
 		<p>
@@ -53,13 +58,17 @@ if (!$canEdit && JFactory::getUser()->authorise('core.edit.own', 'com_firefighte
         <?php echo 'Abteilung(-en) : '.$this->item->abteilungen; ?> <br>
 		<?php endif;?>
 		<?php if ($this->item->ausbildungen) : ?>
-        <?php echo 'Ausbildung(-en) : '.$this->item->ausbildungen; ?>  <br><br>
+        <?php echo 'Ausbildung(-en) : '.$this->item->ausbildungen; ?>  <br>
 		<?php endif;?>
+		
+		<?php if ($this->params->get('show_email','1')) : ?>
 		<?php if ($this->item->emailadresse) : ?>
+		<br>
         <?php echo 'Kontakt : <i class="icon-envelope"></i> '.JHTML::_('email.cloak', $this->item->emailadresse); ?> <br>
 		<?php endif;?>
+		<?php endif;?>
 
-      </p>
+		</p>
     </div>
  </blockquote>
   </div>
