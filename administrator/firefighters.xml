@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="component" version="3.0" method="upgrade">
     <name>com_firefighters</name>
-    <creationDate>2016-09-21</creationDate> 
-    <copyright>Copyright (C) 2016. Alle Rechte vorbehalten.</copyright>
+    <creationDate>2016-04-17</creationDate> 
+    <copyright>Copyright (C) 2015. Alle Rechte vorbehalten.</copyright>
     <license>GNU General Public License Version 2 oder später; siehe LICENSE.txt</license>
     <author>Ralf Meyer</author>
     <authorEmail>ralf.meyer@einsatzkomponente.de</authorEmail>
     <authorUrl>http://einsatzkomponente.de</authorUrl>
-    <version>1.04_beta</version>
+    <version>1.03</version>
     <description>Komponente zur Mannschafts- und Terminverwaltung der Feuerwehren</description>
      
     <scriptfile>script.php</scriptfile>
