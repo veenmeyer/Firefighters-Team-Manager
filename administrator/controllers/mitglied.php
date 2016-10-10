@@ -24,9 +24,20 @@ class FirefightersControllerMitglied extends JControllerForm
     }
 
 	function save() {
+
+		$db = JFactory::getDbo();
+		$db->setQuery('SELECT manifest_cache FROM #__extensions WHERE name = "com_firefighters"');
+		$parameter = json_decode( $db->loadResult(), true );
+        $version = $parameter['version'];
+
 		$params = JComponentHelper::getParams('com_firefighters');
-		
-		if (!$params['ftm']) :  
+        if($version!=str_replace("Premium","",$version)):
+		$params->set('ftm', '1');
+		else:
+		$params->set('ftm', '0');
+		endif; 
+
+		if (!$params[ftm]) :  
 					$db = JFactory::getDbo();
 					$query_2 = $db->getQuery(true);
 					$query_2
@@ -39,12 +50,12 @@ class FirefightersControllerMitglied extends JControllerForm
 					JLog::add(JText::_('Mitgliederanzahl beschränkt auf 5 !'), JLog::WARNING, 'jerror');
 					$this->setRedirect('index.php?option=com_firefighters&view=mitglieder', $msg); 
 					else:
-					$return = parent::save();
+					return parent::save();
 					endif;
 		else:
-		parent::save();
+		return parent::save();
 		endif;
-		return $return;
+		return ;
 		
 	}
 	
