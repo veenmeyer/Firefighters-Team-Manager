@@ -7,7 +7,7 @@
     <author>Ralf Meyer</author>
     <authorEmail>ralf.meyer@einsatzkomponente.de</authorEmail>
     <authorUrl>http://einsatzkomponente.de</authorUrl>
-    <version>1.03_beta</version>
+    <version>1.03</version>
     <description>Komponente zur Mannschafts- und Terminverwaltung der Feuerwehren</description>
      
     <scriptfile>script.php</scriptfile>

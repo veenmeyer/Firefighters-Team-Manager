@@ -11,6 +11,32 @@
             name="basic"
 			label="Filter">
 
+<<<<<<< HEAD
+ <field name="filter_abteilungen" 
+		type="sql" 
+		class="inputbox" 
+		label = "Filter Abteilung :"
+		query="SELECT '' AS `id`, '- alle anzeigen -' AS `name` UNION SELECT `id`, `name` FROM `#__firefighters_abteilungen`" 
+		key_field="id" 
+		value_field="name"/>  
+		
+ <field name="filter_dienstgrad" 
+		type="sql" 
+		class="inputbox" 
+		label = "Filter Dienstgrad :"
+		query="SELECT '' AS `id`, '- alle anzeigen -' AS `name` UNION SELECT `id`, `name` FROM `#__firefighters_dienstgrade`" 
+		key_field="id" 
+		value_field="name"/>  
+
+ <field name="filter_ausbildungen" 
+		type="sql" 
+		class="inputbox" 
+		label = "Filter Ausbildung :"
+		query="SELECT '' AS `id`, '- alle anzeigen -' AS `name` UNION SELECT `id`, `name` FROM `#__firefighters_ausbildungen`" 
+		key_field="id" 
+		value_field="name"/>  
+		
+=======
 			
 >>>>>>> refs/remotes/origin/master
 			
