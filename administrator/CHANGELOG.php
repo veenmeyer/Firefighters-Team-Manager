@@ -2,7 +2,6 @@
 <h1>Firefighters Team Manager für das Joomla-CMS</h1>
 <hr>
 
-<<<<<<< HEAD
 <h3>Changelog <small>Version 1.04_beta</small></h3>
 <ul>
 + Filtermöglichkeit im Menüpunkt Mitglieder 
@@ -22,7 +21,6 @@
 # Changlog-Anzeige
 </ul>
 
-=======
 <h3>Changelog <small>Version 1.03</small></h3>
 <ul>
 + Main-Layout_2 für Mitglieder mit Modal-Detailansicht
@@ -37,7 +35,6 @@
 # Changlog-Anzeige
 </ul>
 
->>>>>>> refs/remotes/origin/master
 <h3>Changelog <small>Version 1.00</small></h3>
 <ul>
 + Start der Komponente

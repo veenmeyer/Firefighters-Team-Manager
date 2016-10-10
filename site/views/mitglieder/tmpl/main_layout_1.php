@@ -16,11 +16,7 @@ defined('_JEXEC') or die;
 
     <?php //echo JLayoutHelper::render('default_filter', array('view' => $this), dirname(__FILE__)); ?>
 	
-<<<<<<< HEAD
     <table class="table table-striped mitglieder_table" id = "mitgliedList" >
-=======
-    <table class="table table-striped" id = "mitgliedList" >
->>>>>>> refs/remotes/origin/master
         <thead >
             <tr >
 			
@@ -72,11 +68,7 @@ defined('_JEXEC') or die;
 
 
 				<?php if ($this->params->get('show_passbild','1')) : ?>
-<<<<<<< HEAD
 				<td class="mitglieder_passbild">
-=======
-				<td>
->>>>>>> refs/remotes/origin/master
 				<?php if ($item->bild) : ?>
 					<img class="ftm_passbild" src="<?php echo JURI::Root();?><?php echo $item->bild;?>" alt="<?php echo $item->vorname.' '.$item->name;?>" title="<?php echo $item->vorname.' '.$item->name;?>"/>
 				<?php endif;?>
@@ -84,22 +76,14 @@ defined('_JEXEC') or die;
 				<?php endif;?>
 	
 				<?php if ($this->params->get('show_dienstgrad_image','1')) : ?>
-<<<<<<< HEAD
 				<td class="mitglieder_dienstgrad_image">
-=======
-				<td>
->>>>>>> refs/remotes/origin/master
 				<?php if ($item->dienstgrad_image) : ?>
 					<img class="ftm_dienstgrad_image" src="<?php echo JURI::Root();?><?php echo $item->dienstgrad_image;?>" alt="<?php echo $item->dienstgrad;?>" title="<?php echo $item->dienstgrad;?>"/>
 				<?php endif;?>
 				</td>
 				<?php endif;?>
 				
-<<<<<<< HEAD
             	<td class="mitglieder_details">
-=======
-            	<td>
->>>>>>> refs/remotes/origin/master
 				<?php if (isset($item->checked_out) && $item->checked_out) : ?>
 					<?php echo JHtml::_('jgrid.checkedout', $i, $item->editor, $item->checked_out_time, 'mitglieder.', $canCheckin); ?>
 				<?php endif; ?>
@@ -123,22 +107,12 @@ defined('_JEXEC') or die;
 					<?php if ($item->eintrittsdatum != '0000-00-00 00:00:00') : ?>
 					<?php //echo '<b>Eintrittsjahr : </b>'.date('Y', strtotime($item->eintrittsdatum)); ?>
 					<?php echo 'Seit '.floor((time() - strtotime($item->eintrittsdatum)) / 31558149.540288).' Jahr(en) Mitglied in der Feuerwehr'; ?>
-<<<<<<< HEAD
 				<br/>
 					<?php endif; ?>
 					<?php endif; ?>
 				<br/>
 					<?php if ($item->funktion) : ?>
 					<?php echo '<b>Funktion		: </b><span class="mitglieder_funktion">'.$item->funktion.'</span>'; ?><br/><br/>
-=======
-				<br/><br/>
-					<?php endif; ?>
-					<?php endif; ?>
-					
-				
-					<?php if ($item->funktion) : ?>
-					<?php echo '<b>Funktion		: '.$item->funktion.'</b>'; ?><br/><br/>
->>>>>>> refs/remotes/origin/master
 					<?php endif; ?>
 				
 					<?php if ($item->dienstgrad) : ?>

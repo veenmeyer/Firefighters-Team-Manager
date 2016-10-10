@@ -11,7 +11,6 @@
             name="basic"
 			label="Filter">
 
-<<<<<<< HEAD
  <field name="filter_abteilungen" 
 		type="sql" 
 		class="inputbox" 
@@ -36,9 +35,6 @@
 		key_field="id" 
 		value_field="name"/>  
 		
-=======
-			
->>>>>>> refs/remotes/origin/master
 			
 <!--<field name="note_filter_auswahl" 
 		  type="note" 
