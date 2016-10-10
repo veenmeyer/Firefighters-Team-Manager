@@ -26,6 +26,9 @@ $params = json_decode( $db->loadResult(), true );
 $user	= JFactory::getUser();
 $userId	= $user->get('id');
 
+require_once JPATH_SITE.'/administrator/components/com_firefighters/helpers/firefighters.php'; 
+$val= FirefightersHelper::getValidation();
+
 ?>
 
 <?php
@@ -115,7 +118,7 @@ Unterstützen Sie die Weiterentwicklung unseres Projekts FIREFIGHTERS TEAM MANAG
 						<dl class="dl-horizontal">
 							<dt>Version:</dt>
 							<dd><?php echo $params['version'];?>
-							<?php if ($this->params->get('ftm')) : ?>
+							<?php if ($val) : ?>
 							<?php echo '<span class="label label-success"> ( validiert ) </span>';?>
                             <?php else:?>
 							<?php echo '<span class="label label-important"> ( nicht validiert ) </span><br/>siehe Optionen / Info';?>
@@ -147,7 +150,7 @@ Unterstützen Sie die Weiterentwicklung unseres Projekts FIREFIGHTERS TEAM MANAG
 						</dl>
 						<hr>
 							<b>Premiumfunktionen:</b></br>
-							<?php if ($this->params->get('ftm')) : ?>
+							<?php if ($val) : ?>
 							<?php echo '<span style="margin-bottom:5px;" class="label label-success">unlimitierte Anzahl von Mitglieder</span></br>';?>
 							<?php echo '<span style="margin-bottom:5px;" class="label label-success">unlimitierte Anzahl von Terminen</span></br>';?>
 							<?php else:?>
