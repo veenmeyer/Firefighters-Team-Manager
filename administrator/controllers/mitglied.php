@@ -23,7 +23,7 @@ class FirefightersControllerMitglied extends JControllerForm
         parent::__construct();
     }
 
-	function save() {
+	function save($key = NULL, $urlVar = NULL) {
 
 		$db = JFactory::getDbo();
 		$db->setQuery('SELECT manifest_cache FROM #__extensions WHERE name = "com_firefighters"');
@@ -50,14 +50,15 @@ class FirefightersControllerMitglied extends JControllerForm
 					JLog::add(JText::_('Mitgliederanzahl beschränkt auf 5 !'), JLog::WARNING, 'jerror');
 					$this->setRedirect('index.php?option=com_firefighters&view=mitglieder', $msg); 
 					else:
-					return parent::save();
+					parent::save();
 					endif;
 		else:
-		return parent::save();
+		parent::save();
 		endif;
 		return ;
 		
 	}
-	
+
+
 
 }

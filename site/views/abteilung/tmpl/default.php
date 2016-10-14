@@ -9,6 +9,11 @@
 // no direct access
 defined('_JEXEC') or die;
 
+//Load admin language file
+$lang = JFactory::getLanguage();
+$lang->load('com_firefighters', JPATH_ADMINISTRATOR);
+
+
 $canEdit = JFactory::getUser()->authorise('core.edit', 'com_firefighters.' . $this->item->id);
 if (!$canEdit && JFactory::getUser()->authorise('core.edit.own', 'com_firefighters' . $this->item->id)) {
 	$canEdit = JFactory::getUser()->id == $this->item->created_by;

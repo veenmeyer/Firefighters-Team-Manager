@@ -18,6 +18,10 @@ JHtml::_('behavior.keepalive');
 // Import CSS
 $document = JFactory::getDocument();
 $document->addStyleSheet('components/com_firefighters/assets/css/firefighters.css');
+
+// Import CSS
+$document = JFactory::getDocument();
+$document->addStyleSheet('components/com_firefighters/assets/css/firefighters.css');
 ?>
 <script type="text/javascript">
     js = jQuery.noConflict();

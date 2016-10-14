@@ -114,6 +114,31 @@
 	  	
 			</fieldset>
 
+    <fieldset label="Ausbildungen" name="ftm_ausbildungen_anzeige">
+	
+<field name="note_show_1" 
+		type="note" 
+		label="Ausbildunge Anzeige Einstellungen :" 
+		class="alert alert-info" 
+		description="Hier können Sie entscheiden, welche Daten im Frontend angezeigt werden sollen."
+		/>
+		
+	  		<field
+				name="show_ausbildung_detail_link"
+				type="radio"
+				class="btn-group"
+				default="1"
+				label="Detaillink :"
+				description="" >
+					<option
+						value="0">Nein</option>
+					<option
+						value="1">Ja</option>
+	  		</field>
+		
+	  	
+			</fieldset>
+			
 
 			<fieldset label="Termine" name="termine_anzeige">
 	
@@ -190,6 +215,15 @@
 				default="" 
 				label="Abteilungen-Übersicht" 
 				description="Füge hier den zusätzlichen CSS-Code für die Abteilungen-Übersicht ein." 
+				rows="10" 
+				cols="40" />
+				
+		<field 	name="ausbildungen_css" 
+				type="textarea" 
+				filter="raw" 
+				default="" 
+				label="Ausbildungen-Übersicht" 
+				description="Füge hier den zusätzlichen CSS-Code für die Ausbildungen-Übersicht ein." 
 				rows="10" 
 				cols="40" />
 

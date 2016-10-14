@@ -27,10 +27,7 @@ $canCheckin = $user->authorise('core.manage', 'com_firefighters');
 $canChange = $user->authorise('core.edit.state', 'com_firefighters');
 $canDelete = $user->authorise('core.delete', 'com_firefighters');
 
-$canEdit = JFactory::getUser()->authorise('core.edit', 'com_firefighters.' . $this->item->id);
-if (!$canEdit && JFactory::getUser()->authorise('core.edit.own', 'com_firefighters' . $this->item->id)) {
-	$canEdit = JFactory::getUser()->id == $this->item->created_by;
-}
+$canEdit = JFactory::getUser()->authorise('core.edit', 'com_firefighters');
 
 ?>
 

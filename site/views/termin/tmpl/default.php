@@ -14,6 +14,20 @@ defined('_JEXEC') or die;
 $lang = JFactory::getLanguage();
 $lang->load('com_firefighters', JPATH_ADMINISTRATOR);
 
+$user = JFactory::getUser();
+$userId = $user->get('id');
+$listOrder = $this->state->get('list.ordering');
+$listDirn = $this->state->get('list.direction');
+$canCreate = $user->authorise('core.create', 'com_firefighters');
+$canCheckin = $user->authorise('core.manage', 'com_firefighters');
+$canChange = $user->authorise('core.edit.state', 'com_firefighters');
+$canDelete = $user->authorise('core.delete', 'com_firefighters');
+
+$canEdit = JFactory::getUser()->authorise('core.edit', 'com_firefighters.' . $this->item->id);
+if (!$canEdit && JFactory::getUser()->authorise('core.edit.own', 'com_firefighters' . $this->item->id)) {
+	$canEdit = JFactory::getUser()->id == $this->item->created_by;
+}
+
 ?>
 <input type="button" class="btn ftm_back_button" value="Zurück" onClick="history.back();"></br>
 <?php
