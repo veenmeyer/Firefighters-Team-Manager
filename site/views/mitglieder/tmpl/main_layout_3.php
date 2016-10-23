@@ -10,80 +10,92 @@
 defined('_JEXEC') or die;
 
 ?>
+<style>
+/*  SECTIONS  */
+
+.mitglieder_passbild {width:350px;}
+.ftm_passbild, .ftm_dienstgrad_image {margin-bottom:5px;padding-bottom:5px;}
+
+
+.span_1_of_2,.span_2_of_2 {margin-top:20px;margin-bottom:10px;}
+
+.section {
+	clear: both;
+	padding: 0px;
+	margin: 0px;
+}
+
+/*  COLUMN SETUP  */
+.col {
+	display: block;
+	float:left;
+}
+.col:first-child {  }
+
+/*  GROUPING  */
+.group:before,
+.group:after { content:""; display:table; }
+.group:after { clear:both;}
+.group { zoom:1; /* For IE 6/7 */ }
+
+/*  GRID OF TWO  */
+/*.span_2_of_2 {
+	width: 49.9%;
+} */
+.span_1_of_2 {
+	width: 49.9%;
+}
+
+/*  GO FULL WIDTH AT LESS THAN 640 PIXELS */
+
+@media only screen and (max-width: 480px) {
+	.col { 
+	display: block;
+	float:left;
+	}
+}
+
+@media only screen and (max-width: 640) {
+	.span_2_of_2, .span_1_of_2 { width: 100%; }
+	.mitglieder_passbild {width:250px;}
+}
+
+</style>
 
 <form action="<?php echo JRoute::_('index.php?option=com_firefighters&view=mitglieder'); ?>" method="post" name="adminForm" id="adminForm">
 
 
     <?php //echo JLayoutHelper::render('default_filter', array('view' => $this), dirname(__FILE__)); ?>
 	
-    <table class="table table-striped" id = "mitgliedList" >
-        <thead >
-            <tr >
-			
-				<?php if ($this->params->get('show_passbild','1')) : ?>
-				<th class='left'>
-				<?php echo 'Foto'; ?>
-				</th>
-				<?php endif;?>
-				
-				<?php if ($this->params->get('show_dienstgrad_image','1')) : ?>
-				<th class='left'>
-				</th>
-				<?php endif;?>
-				
-    			<th class='left'>
-				<?php echo 'Mitglied'; ?>
-				</th>
 
-    				<?php if ($canEdit || $canDelete): ?>
-					<th class="center">
-				<?php echo JText::_('COM_FIREFIGHTERS_MITGLIEDER_ACTIONS'); ?>
-				</th>
-				<?php endif; ?>
+<div class="section group">
 
-    </tr>
-    </thead>
-    <tfoot>
-    <tr>
-        <td colspan="<?php echo isset($this->items[0]) ? count(get_object_vars($this->items[0])) : 10; ?>">
-            <?php echo $this->pagination->getListFooter(); ?>
-        </td>
-    </tr>
-		<?php if (!$this->params->get('ftm')) : ?>
-        <tr><!-- Bitte das Copyright nicht entfernen. Danke. -->
-        <td colspan="<?php echo isset($this->items[0]) ? count(get_object_vars($this->items[0])) : 10; ?>">
-			<span class="copyright">Firefighters Team Manager V<?php echo $this->version; ?>  (C) 2015 by Ralf Meyer ( <a class="copyright_link" href="http://einsatzkomponente.de" target="_blank">www.einsatzkomponente.de</a> )</span></td>
-        </tr>
-	<?php endif; ?>
-    </tfoot>
-    <tbody>
+<?php $a = 1;?>
     <?php foreach ($this->items as $i => $item) : ?>
         <?php $canEdit = $user->authorise('core.edit', 'com_firefighters'); ?>
 
         				<?php if (!$canEdit && $user->authorise('core.edit.own', 'com_firefighters')): ?>
 					<?php $canEdit = JFactory::getUser()->id == $item->created_by; ?>
 				<?php endif; ?>
-
-        <tr class="row<?php echo $i % 2; ?>">
-
+				
+				
+	<div class="col span_<?php echo $a; ?>_of_2 ">
 
 				<?php if ($this->params->get('show_passbild','1')) : ?>
-				<td>
+				<div class="mitglieder_passbild">
 				<?php if ($item->bild) : ?>
 					<img class="ftm_passbild" src="<?php echo JURI::Root();?><?php echo $item->bild;?>" alt="<?php echo $item->vorname.' '.$item->name;?>" title="<?php echo $item->vorname.' '.$item->name;?>"/>
 				<?php endif;?>
-				</td>
 				<?php endif;?>
 	
 				<?php if ($this->params->get('show_dienstgrad_image','1')) : ?>
-				<td>
 				<?php if ($item->dienstgrad_image) : ?>
 					<img class="ftm_dienstgrad_image" src="<?php echo JURI::Root();?><?php echo $item->dienstgrad_image;?>" alt="<?php echo $item->dienstgrad;?>" title="<?php echo $item->dienstgrad;?>"/>
 				<?php endif;?>
-				</td>
+				</div>
 				<?php endif;?>
 				
-            	<td>
+            	<span class="mitglieder_details">
 				<?php if (isset($item->checked_out) && $item->checked_out) : ?>
 					<?php echo JHtml::_('jgrid.checkedout', $i, $item->editor, $item->checked_out_time, 'mitglieder.', $canCheckin); ?>
 				<?php endif; ?>
@@ -107,13 +119,12 @@ defined('_JEXEC') or die;
 					<?php if ($item->eintrittsdatum != '0000-00-00 00:00:00') : ?>
 					<?php //echo '<b>Eintrittsjahr : </b>'.date('Y', strtotime($item->eintrittsdatum)); ?>
 					<?php echo 'Seit '.floor((time() - strtotime($item->eintrittsdatum)) / 31558149.540288).' Jahr(en) Mitglied in der Feuerwehr'; ?>
-				<br/><br/>
+				<br/>
 					<?php endif; ?>
 					<?php endif; ?>
-					
-				
+				<br/>
 					<?php if ($item->funktion) : ?>
-					<?php echo '<b>Funktion		: '.$item->funktion.'</b>'; ?><br/><br/>
+					<?php echo '<b>Funktion		: </b><span class="mitglieder_funktion">'.$item->funktion.'</span>'; ?><br/><br/>
 					<?php endif; ?>
 				
 					<?php if ($item->dienstgrad) : ?>
@@ -128,25 +139,47 @@ defined('_JEXEC') or die;
 					<?php echo '<b>Ausbildung : </b>'.$item->ausbildungen; ?><br/>
 					<?php endif; ?>
 					
+					<?php if ($this->params->get('show_email','1')) : ?>
+					<?php if ($item->emailadresse) : ?>
+					<br>
+					<?php echo '<b>Kontakt : </b><i class="icon-envelope"></i> '.JHTML::_('email.cloak', $item->emailadresse); ?> <br>
+					<?php endif;?>
+					<?php endif;?>
 				
-				
-				</td>
+				</span>
 
 
             				<?php if ($canEdit || $canDelete): ?>
-					<td class="center">
+					<span class="center">
 						<?php if ($canEdit): ?>
 							<a href="<?php echo JRoute::_('index.php?option=com_firefighters&task=mitgliedform.edit&id=' . $item->id, false, 2); ?>" class="btn btn-mini" type="button"><i class="icon-edit" ></i></a>
 						<?php endif; ?>
 						<?php if ($canDelete): ?>
 							<button data-item-id="<?php echo $item->id; ?>" class="btn btn-mini delete-button" type="button"><i class="icon-trash" ></i></button>
 						<?php endif; ?>
-					</td>
+					</span>
 				<?php endif; ?>
-
-        </tr>
+	<?php //$a++; if ($a > 2) : echo'</br></br>';endif;?>
+	</div>
+	<?php $a++; if ($a > 2) : $a=1;endif;?>
     <?php endforeach; ?>
-    </tbody>
+  </div>
+	
+	
+    <tfoot>
+    <tr>
+        <td colspan="<?php echo isset($this->items[0]) ? count(get_object_vars($this->items[0])) : 10; ?>">
+            <?php echo $this->pagination->getListFooter(); ?>
+        </td>
+    </tr>
+		<?php if (!$this->params->get('ftm')) : ?>
+        <tr><!-- Bitte das Copyright nicht entfernen. Danke. -->
+        <td colspan="<?php echo isset($this->items[0]) ? count(get_object_vars($this->items[0])) : 10; ?>">
+			<span class="copyright">Firefighters Team Manager V<?php echo $this->version; ?>  (C) 2016 by Ralf Meyer ( <a class="copyright_link" href="http://einsatzkomponente.de" target="_blank">www.einsatzkomponente.de</a> )</span></td>
+        </tr>
+	<?php endif; ?>
+    </tfoot>
+	
     </table>
 
     <?php if ($canCreate): ?>

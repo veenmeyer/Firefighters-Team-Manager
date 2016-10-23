@@ -9,6 +9,11 @@
 // no direct access
 defined('_JEXEC') or die;
 
+//Load admin language file
+$lang = JFactory::getLanguage();
+$lang->load('com_firefighters', JPATH_ADMINISTRATOR);
+
+
 JHtml::addIncludePath(JPATH_COMPONENT . '/helpers/html');
 JHtml::_('bootstrap.tooltip');
 JHtml::_('behavior.multiselect');
@@ -27,7 +32,10 @@ $canDelete = $user->authorise('core.delete', 'com_firefighters');
 
 <form action="<?php echo JRoute::_('index.php?option=com_firefighters&view=dienstgrade'); ?>" method="post" name="adminForm" id="adminForm">
 
-    <?php echo JLayoutHelper::render('default_filter', array('view' => $this), dirname(__FILE__)); ?>
+    <?php 
+	//echo JLayoutHelper::render('default_filter', array('view' => $this), dirname(__FILE__));
+	?>
+	
     <table class="table table-striped" id = "dienstgradList" >
         <thead >
             <tr >
@@ -68,6 +76,12 @@ $canDelete = $user->authorise('core.delete', 'com_firefighters');
             <?php echo $this->pagination->getListFooter(); ?>
         </td>
     </tr>
+		<?php if (!$this->params->get('ftm')) : ?>
+        <tr><!-- Bitte das Copyright nicht entfernen. Danke. -->
+        <td colspan="<?php echo isset($this->items[0]) ? count(get_object_vars($this->items[0])) : 10; ?>">
+			<span class="copyright">Firefighters Team Manager V<?php echo $this->version; ?>  (C) 2016 by Ralf Meyer ( <a class="copyright_link" href="http://einsatzkomponente.de" target="_blank">www.einsatzkomponente.de</a> )</span></td>
+        </tr>
+	<?php endif; ?>
     </tfoot>
     <tbody>
     <?php foreach ($this->items as $i => $item) : ?>

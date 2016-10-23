@@ -2,7 +2,7 @@
 /**
  * @version     3.0.0
  * @package     com_firefighters
- * @copyright   Copyright (C) 2013 by Ralf Meyer. All rights reserved.
+ * @copyright   Copyright (C) 2016 by Ralf Meyer. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  * @author      Ralf Meyer <webmaster@feuerwehr-veenhusen.de> - http://einsatzkomponente.de
  */
@@ -164,17 +164,18 @@ Unterstützen Sie die Weiterentwicklung unseres Projekts FIREFIGHTERS TEAM MANAG
 						<!--<a target="_blank" style="margin-bottom:5px;" class="label label-info" href="https://github.com/veenmeyer/Einsatzkomponente">Link zu GitHub</a> -->			
 					</br>
 						<!-- Button to trigger modal -->
-						<a href="#myModal" role="button" style="margin-bottom:5px;" class="label label-info" data-toggle="modal">Verfügbare Module ...</a>
+						<a href="#myModal" role="button" style="margin-bottom:5px;" class="label label-info" data-toggle="modal">Verfügbare Module und Plugins ...</a>
      
 						<!-- Modal -->
 						<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 						<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-						<h3 id="myModalLabel">Verfügbare Module</h3>
+						<h3 id="myModalLabel">Verfügbare Module und Plugins</h3>
 						</div>
 						<div class="modal-body">
 						<ul>
-						<li><a href="http://www.einsatzkomponente.de/wsif/index.php/Category/6-Module-f%C3%BCr-die-Einsatzkomponente-V3/" target="_blank" class="">mod_ftm_kalender</a> (Modul zur Anzeige der nächsten Termine auf einer Modulposition)</li>
+						<li><a href="http://einsatzkomponente.de/wsif/index.php/Category/12-Module-f%C3%BCr-Firefighters-Team-Manager/" target="_blank" class="">mod_ftm_kalender</a> (Modul zur Anzeige der nächsten Termine auf einer Modulposition)</li>
+						<li><a href="http://einsatzkomponente.de/wsif/index.php/Category/13-Premiumbereich-FTM-nur-f%C3%BCr-Premium-FTM-Benutzer-zug%C3%A4nglich/" target="_blank" class="">plg_system_ftm_event_email</a> (Plugin zum Verschicken von Erinnerungs-Emails für bevorstehende Termine. )</li>
 						</ul>
 						<h4>Mehr Infos dazu auf <a href="http://www.einsatzkomponente.de/" target="_blank" class="">www.einsatzkomponente.de</a></h4>
 						</div>
@@ -217,7 +218,7 @@ Unterstützen Sie die Weiterentwicklung unseres Projekts FIREFIGHTERS TEAM MANAG
 						<a target="_blank" href="http://einsatzkomponente.de" style="text-decoration:underline">Supportforum für die Einsatzkomponente</a>
 						</li>
 						<li>
-						<a target="_blank" href="http://www.leitstelle-joomla.de" style="text-decoration:underline">Testseite für die Einsatzkomponente V3.x für J3</a>
+						<a target="_blank" href="http://demo.einsatzkomponente.de/" style="text-decoration:underline">Testseite für die Einsatzkomponente V3.x für J3</a>
 						</li>
 						<li>
 						<a target="_blank" href="https://www.feuerwehr-veenhusen.de" style="text-decoration:underline">Freiwillige Feuerwehr Veenhusen </a><font-size:small>(über ein paar nette im Gästebuch würde ich mich sehr freuen  lg Ralf Meyer )</font-size>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <config>
-    <fieldset label="Mitlgieder" name="ftm_anzeige">
+    <fieldset label="Mitglieder" name="ftm_anzeige">
 	
 <field name="note_show" 
 		type="note" 
@@ -9,6 +9,25 @@
 		description="Hier können Sie entscheiden, welche Daten im Frontend angezeigt werden sollen."
 		/>
 		
+			  <field
+			name="display_mitglieder_bootstrap"
+			type="radio"
+			class="btn-group"
+			default="0"
+			label="Bootstrap CSS+JS :"
+			description="Hier kann die Bootstrap CSS und Javascript manuell nachgeladen werden.">
+			
+			<option
+				value="0">JNO</option>
+			<option
+				value="1">JYES</option>
+	  </field>
+		<field
+			name="spacer6"
+			type="spacer"
+			hr="true"
+		/>
+
 	  		<field
 				name="show_mitlgied_detail_link"
 				type="radio"
@@ -98,6 +117,25 @@
 		description="Hier können Sie entscheiden, welche Daten im Frontend angezeigt werden sollen."
 		/>
 		
+			  <field
+			name="display_abteilungen_bootstrap"
+			type="radio"
+			class="btn-group"
+			default="0"
+			label="Bootstrap CSS+JS :"
+			description="Hier kann die Bootstrap CSS und Javascript manuell nachgeladen werden.">
+			
+			<option
+				value="0">JNO</option>
+			<option
+				value="1">JYES</option>
+	  </field>
+		<field
+			name="spacer7"
+			type="spacer"
+			hr="true"
+		/>
+		
 	  		<field
 				name="show_abteilung_detail_link"
 				type="radio"
@@ -123,6 +161,25 @@
 		description="Hier können Sie entscheiden, welche Daten im Frontend angezeigt werden sollen."
 		/>
 		
+			  <field
+			name="display_ausbildungen_bootstrap"
+			type="radio"
+			class="btn-group"
+			default="0"
+			label="Bootstrap CSS+JS :"
+			description="Hier kann die Bootstrap CSS und Javascript manuell nachgeladen werden.">
+			
+			<option
+				value="0">JNO</option>
+			<option
+				value="1">JYES</option>
+	  </field>
+		<field
+			name="spacer8"
+			type="spacer"
+			hr="true"
+		/>
+		
 	  		<field
 				name="show_ausbildung_detail_link"
 				type="radio"
@@ -139,6 +196,51 @@
 	  	
 			</fieldset>
 			
+    <fieldset label="Dienstgrade" name="ftm_dienstgrade_anzeige">
+	
+<field name="note_show_1" 
+		type="note" 
+		label="Dienstgrade Anzeige Einstellungen :" 
+		class="alert alert-info" 
+		description="Hier können Sie entscheiden, welche Daten im Frontend angezeigt werden sollen."
+		/>
+		
+			  <field
+			name="display_dienstgrade_bootstrap"
+			type="radio"
+			class="btn-group"
+			default="0"
+			label="Bootstrap CSS+JS :"
+			description="Hier kann die Bootstrap CSS und Javascript manuell nachgeladen werden.">
+			
+			<option
+				value="0">JNO</option>
+			<option
+				value="1">JYES</option>
+	  </field>
+		<field
+			name="spacer9"
+			type="spacer"
+			hr="true"
+		/>
+		
+	  		<field
+				name="show_dienstgrad_detail_link"
+				type="radio"
+				class="btn-group"
+				default="1"
+				label="Detaillink :"
+				description="" >
+					<option
+						value="0">Nein</option>
+					<option
+						value="1">Ja</option>
+	  		</field>
+		
+	  	
+			</fieldset>
+			
+			
 
 			<fieldset label="Termine" name="termine_anzeige">
 	
@@ -147,6 +249,25 @@
 		label="Allgemeine Anzeige der Termine :" 
 		class="alert alert-info" 
 		description="Hier können Sie entscheiden, welche Daten im Frontend angezeigt werden sollen."
+		/>
+	
+			  <field
+			name="display_termine_bootstrap"
+			type="radio"
+			class="btn-group"
+			default="0"
+			label="Bootstrap CSS+JS :"
+			description="Hier kann die Bootstrap CSS und Javascript manuell nachgeladen werden.">
+			
+			<option
+				value="0">JNO</option>
+			<option
+				value="1">JYES</option>
+	  </field>
+		<field
+			name="spacer6"
+			type="spacer"
+			hr="true"
 		/>
 	
 	  		<field
@@ -205,7 +326,7 @@
 				filter="raw" 
 				default=".ftm_passbild {max-width:150px !important;}" 
 				label="Mitglieder-Übersicht" 
-				description="Füge hier den zusätzlichen CSS-Code für die Einsatz-Übersicht ein." 
+				description="Füge hier den zusätzlichen CSS-Code für die Mitglieder-Übersicht ein." 
 				rows="10" 
 				cols="40" />
 				
@@ -233,6 +354,15 @@
 				default=".ftm_termine_image {}" 
 				label="Termine-Übersicht" 
 				description="Füge hier den zusätzlichen CSS-Code für die Termine-Übersicht ein." 
+				rows="10" 
+				cols="40" />
+				
+		<field 	name="dienstgrade_css" 
+				type="textarea" 
+				filter="raw" 
+				default="" 
+				label="Dienstgrade-Übersicht" 
+				description="Füge hier den zusätzlichen CSS-Code für die Dienstgrade-Übersicht ein." 
 				rows="10" 
 				cols="40" />
 				

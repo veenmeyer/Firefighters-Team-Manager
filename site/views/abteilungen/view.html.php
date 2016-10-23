@@ -39,6 +39,13 @@ class FirefightersViewAbteilungen extends JViewLegacy {
       
 		$document = JFactory::getDocument();
         // Import CSS
+		if ($this->params->get('display_abteilungen_bootstrap','0')) :
+		// Import Bootstrap
+		JHtml::_('bootstrap.framework');
+		$document->addStyleSheet($this->baseurl . '/media/jui/css/bootstrap.min.css');
+		$document->addStyleSheet($this->baseurl.'/media/jui/css/icomoon.css');
+		endif;
+
 		$document->addStyleSheet('components/com_einsatzkomponente/assets/css/firefighters.css');
 		$document->addStyleDeclaration($this->params->get('abteilungen_css','')); 
 

@@ -4,6 +4,7 @@
 
 <h3>Changelog <small>Version 1.04_beta</small></h3>
 <ul>
++ Main-Layout_3 für Mitglieder
 + Filtermöglichkeit im Menüpunkt Mitglieder 
 </ul>
 

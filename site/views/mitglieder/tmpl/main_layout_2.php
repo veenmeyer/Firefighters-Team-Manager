@@ -64,7 +64,7 @@ defined('_JEXEC') or die;
 		<?php if (!$this->params->get('ftm')) : ?>
         <tr><!-- Bitte das Copyright nicht entfernen. Danke. -->
         <td colspan="<?php echo isset($this->items[0]) ? count(get_object_vars($this->items[0])) : 10; ?>">
-			<span class="copyright">Firefighters Team Manager V<?php echo $this->version; ?>  (C) 2015 by Ralf Meyer ( <a class="copyright_link" href="http://einsatzkomponente.de" target="_blank">www.einsatzkomponente.de</a> )</span></td>
+			<span class="copyright">Firefighters Team Manager V<?php echo $this->version; ?>  (C) 2016 by Ralf Meyer ( <a class="copyright_link" href="http://einsatzkomponente.de" target="_blank">www.einsatzkomponente.de</a> )</span></td>
         </tr>
 	<?php endif; ?>
     </tfoot>
@@ -168,7 +168,7 @@ defined('_JEXEC') or die;
             <div class="modal hide" id="aboutModal_<?php echo $item->id;?>">
 			    <div class="modal-header">
 			        <button type="button" class="close" data-dismiss="modal">x</button>
-			        <h3>Ãœber <?php echo $this->escape($item->vorname).' '.$this->escape($item->name);?></h3>
+			        <h3><?php echo $this->escape($item->vorname).' '.$this->escape($item->name);?></h3>
 			    </div>
 			        <div class="modal-body" style="text-align:center;">
 			        <div class="row-fluid">
