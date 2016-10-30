@@ -48,10 +48,21 @@ class FirefightersViewMitglieder extends JViewLegacy {
 		endif;
 
         // Import CSS
+		$document->addScript('components/com_firefighters/assets/highslide/highslide-with-gallery.js');
+		$document->addScript('components/com_firefighters/assets/highslide/highslide.config.js');		
+		$document->addStyleSheet('components/com_firefighters/assets/highslide/highslide.css'); 
 		$document->addStyleSheet('components/com_einsatzkomponente/assets/css/firefighters.css');
 		$document->addStyleDeclaration($this->params->get('mitglieder_css','')); 
 		
-		//Komponentenversion aus Datenbank lesen
+?>
+    <script type="text/javascript">
+	// override Highslide settings here
+    // instead of editing the highslide.js file
+    hs.graphicsDir = '<?php echo JURI::Root();?>components/com_firefighters/assets/highslide/graphics/';
+    </script>
+ <?php 	
+
+ //Komponentenversion aus Datenbank lesen
 		$this->version 		= FirefightersHelper::getVersion (); 
 		
         // Check for errors.

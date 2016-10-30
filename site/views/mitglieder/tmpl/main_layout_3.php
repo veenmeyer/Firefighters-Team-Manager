@@ -83,10 +83,15 @@ defined('_JEXEC') or die;
 
 				<?php if ($this->params->get('show_passbild','1')) : ?>
 				<div class="mitglieder_passbild">
+<!--Titelbild mit Highslide JS-->
+
 				<?php if ($item->bild) : ?>
-					<img class="ftm_passbild" src="<?php echo JURI::Root();?><?php echo $item->bild;?>" alt="<?php echo $item->vorname.' '.$item->name;?>" title="<?php echo $item->vorname.' '.$item->name;?>"/>
+<a href="<?php echo JURI::Root().$item->bild;?>" rel="highslide[<?php echo $item->id; ?>]" class="highslide" onClick="return hs.expand(this, { captionText: '<?php echo $item->vorname.' '.$item->name;?>' });" alt ="<?php echo $item->vorname.' '.$item->name;?>">
+                  <img class="ftm_passbild" src="<?php echo JURI::Root().$item->bild;?>"  alt="<?php echo $item->vorname.' '.$item->name;?>" title="<?php echo $item->vorname.' '.$item->name;?>"/>
+                  </a>
 				<?php endif;?>
 				<?php endif;?>
+<!--Titelbild mit Highslide JS  ENDE--> 
 	
 				<?php if ($this->params->get('show_dienstgrad_image','1')) : ?>
 				<?php if ($item->dienstgrad_image) : ?>
