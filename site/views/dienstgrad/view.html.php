@@ -34,6 +34,20 @@ class FirefightersViewDienstgrad extends JViewLegacy {
         $this->item = $this->get('Data');
         $this->params = $app->getParams('com_firefighters');
 
+		
+		$document = JFactory::getDocument();
+        // Import CSS
+		if ($this->params->get('display_dienstgrade_bootstrap','0')) :
+		// Import Bootstrap
+		JHtml::_('bootstrap.framework');
+		$document->addStyleSheet($this->baseurl . '/media/jui/css/bootstrap.min.css');
+		$document->addStyleSheet($this->baseurl.'/media/jui/css/icomoon.css');
+		endif;
+
+		$document->addStyleSheet('components/com_einsatzkomponente/assets/css/firefighters.css');
+		$document->addStyleDeclaration($this->params->get('dienstgrad_detail_css','')); 
+
+		
         if (!empty($this->item)) {
             
 		$this->form		= $this->get('Form');

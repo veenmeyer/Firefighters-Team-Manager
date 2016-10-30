@@ -330,7 +330,16 @@
 				rows="10" 
 				cols="40" />
 				
-		<field 	name="abteilungen_css" 
+		<field 	name="mitglied_detail_css" 
+				type="textarea" 
+				filter="raw" 
+				default="" 
+				label="Mitglied-Detail-Ansicht" 
+				description="Füge hier den zusätzlichen CSS-Code für die Mitglied-Detail-Ansicht ein." 
+				rows="10" 
+				cols="40" />
+
+				<field 	name="abteilungen_css" 
 				type="textarea" 
 				filter="raw" 
 				default="" 
@@ -339,12 +348,30 @@
 				rows="10" 
 				cols="40" />
 				
-		<field 	name="ausbildungen_css" 
+				<field 	name="abteilung_detail_css" 
+				type="textarea" 
+				filter="raw" 
+				default="" 
+				label="Abteilung-Detail-Ansicht" 
+				description="Füge hier den zusätzlichen CSS-Code für die Abteilung-Detail-Ansicht ein." 
+				rows="10" 
+				cols="40" />
+
+				<field 	name="ausbildungen_css" 
 				type="textarea" 
 				filter="raw" 
 				default="" 
 				label="Ausbildungen-Übersicht" 
 				description="Füge hier den zusätzlichen CSS-Code für die Ausbildungen-Übersicht ein." 
+				rows="10" 
+				cols="40" />
+
+				<field 	name="ausbildung_detail_css" 
+				type="textarea" 
+				filter="raw" 
+				default="" 
+				label="Ausbildung-Detail-Ansicht" 
+				description="Füge hier den zusätzlichen CSS-Code für die Ausbildung-Detail-Ansicht ein." 
 				rows="10" 
 				cols="40" />
 
@@ -356,6 +383,16 @@
 				description="Füge hier den zusätzlichen CSS-Code für die Termine-Übersicht ein." 
 				rows="10" 
 				cols="40" />
+
+				<field 	name="termin_detail_css" 
+				type="textarea" 
+				filter="raw" 
+				default="" 
+				label="Termin-Detail-Ansicht" 
+				description="Füge hier den zusätzlichen CSS-Code für die Termine-Detail-Ansicht ein." 
+				rows="10" 
+				cols="40" />
+
 				
 		<field 	name="dienstgrade_css" 
 				type="textarea" 
@@ -365,8 +402,17 @@
 				description="Füge hier den zusätzlichen CSS-Code für die Dienstgrade-Übersicht ein." 
 				rows="10" 
 				cols="40" />
-				
-	</fieldset>
+
+		<field 	name="dienstgrad_detail_css" 
+				type="textarea" 
+				filter="raw" 
+				default="" 
+				label="Dienstgrad-Detail-Ansicht" 
+				description="Füge hier den zusätzlichen CSS-Code für die Dienstgrad-Detail-Ansicht ein." 
+				rows="10" 
+				cols="40" />
+
+</fieldset>
 			
 			
     <fieldset 

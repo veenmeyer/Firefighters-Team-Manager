@@ -34,6 +34,28 @@ class FirefightersViewMitglied extends JViewLegacy {
         $this->item = $this->get('Data');
         $this->params = $app->getParams('com_firefighters');
 
+		$document = JFactory::getDocument();
+        // Import CSS
+		if ($this->params->get('display_mitglieder_bootstrap','0')) :
+		// Import Bootstrap
+		JHtml::_('bootstrap.framework');
+		$document->addStyleSheet($this->baseurl . '/media/jui/css/bootstrap.min.css');
+		$document->addStyleSheet($this->baseurl.'/media/jui/css/icomoon.css');
+		endif;
+
+		$document->addScript('components/com_firefighters/assets/highslide/highslide-with-gallery.js');
+		$document->addScript('components/com_firefighters/assets/highslide/highslide.config.js');		
+		$document->addStyleSheet('components/com_firefighters/assets/highslide/highslide.css'); 
+		$document->addStyleSheet('components/com_firefighters/assets/css/firefighters.css');
+		$document->addStyleDeclaration($this->params->get('mitglied_detail_css','')); 
+
+?>
+    <script type="text/javascript">
+	// override Highslide settings here
+    // instead of editing the highslide.js file
+    hs.graphicsDir = '<?php echo JURI::Root();?>components/com_firefighters/assets/highslide/graphics/';
+    </script>
+ <?php 	
         if (!empty($this->item)) {
             
 		$this->form		= $this->get('Form');

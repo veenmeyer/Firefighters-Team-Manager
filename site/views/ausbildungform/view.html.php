@@ -35,6 +35,20 @@ class FirefightersViewAusbildungform extends JViewLegacy {
         $this->params = $app->getParams('com_firefighters');
         $this->form		= $this->get('Form');
 
+		
+		$document = JFactory::getDocument();
+        // Import CSS
+		if ($this->params->get('display_ausbildungen_bootstrap','0')) :
+		// Import Bootstrap
+		JHtml::_('bootstrap.framework');
+		$document->addStyleSheet($this->baseurl . '/media/jui/css/bootstrap.min.css');
+		$document->addStyleSheet($this->baseurl.'/media/jui/css/icomoon.css');
+		endif;
+
+		$document->addStyleSheet('components/com_einsatzkomponente/assets/css/firefighters.css');
+		$document->addStyleDeclaration($this->params->get('ausbildung_detail_css','')); 
+
+		
         // Check for errors.
         if (count($errors = $this->get('Errors'))) {
             throw new Exception(implode("\n", $errors));

@@ -4,6 +4,8 @@
 
 <h3>Changelog <small>Version 1.04_beta</small></h3>
 <ul>
++ Highslide-Lightbox in Mitglied-Detailansicht hinzugefügt
++ weitere Custom-CSS Boxen für Detail-Layouts
 + Main-Layout_3 für Mitglieder
 + Filtermöglichkeit im Menüpunkt Mitglieder 
 </ul>

@@ -21,11 +21,19 @@ if (!$canEdit && JFactory::getUser()->authorise('core.edit.own', 'com_firefighte
 <div class="container">
   <div class="row">
 	
-				<div class="span2">
+	
+<!--Titelbild mit Highslide JS-->
+
 				<?php if ($this->item->bild) : ?>
-					<img class="img-rounded ftm_passbild" src="<?php echo JURI::Root();?><?php echo $this->item->bild;?>" alt="<?php echo $this->item->vorname.' '.$this->item->name;?>" title="<?php echo $this->item->vorname.' '.$this->item->name;?>"/>
-				<?php endif;?>
+				<div class="span2">
+<a href="<?php echo JURI::Root().$this->item->bild;?>" rel="highslide[<?php echo $this->item->id; ?>]" class="highslide" onClick="return hs.expand(this, { captionText: '<?php echo $this->item->vorname.' '.$this->item->name;?>' });" alt ="<?php echo $this->item->vorname.' '.$this->item->name;?>">
+                  <img class="" src="<?php echo JURI::Root().$this->item->bild;?>"  alt="<?php echo $this->item->vorname.' '.$this->item->name;?>" title="<?php echo $this->item->vorname.' '.$this->item->name;?>"/>
+                  </a>
 				</div>
+				<?php endif;?>
+
+<!--Titelbild mit Highslide JS  ENDE--> 
+
 
     <div class="span4">
       <blockquote>
