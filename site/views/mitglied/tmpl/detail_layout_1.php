@@ -36,7 +36,6 @@ if (!$canEdit && JFactory::getUser()->authorise('core.edit.own', 'com_firefighte
 
 
     <div class="span4">
-      <blockquote>
         <p><?php echo $this->item->vorname.' '.$this->item->name; ?></p>
 		<?php if ($this->item->dienstgrad) : ?>
         <small><cite title="Source Title"><?php echo $this->item->dienstgrad; ?>  <i class="icon-map-marker"></i></cite></small>
@@ -78,7 +77,6 @@ if (!$canEdit && JFactory::getUser()->authorise('core.edit.own', 'com_firefighte
 
 		</p>
     </div>
- </blockquote>
   </div>
 </div>
 

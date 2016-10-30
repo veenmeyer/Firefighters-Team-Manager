@@ -102,10 +102,10 @@ defined('_JEXEC') or die;
 				
 				<?php if ($this->params->get('show_mitlgied_detail_link','1')) : ?>
 				<a href="#aboutModal_<?php echo $item->id;?>" data-toggle="modal">
-				<?php echo '<span style="font-size:20px;font-weight:bold;">'.$this->escape($item->name).', '.$this->escape($item->vorname).'</span>'; ?></a> 
+				<?php echo '<span style="font-size:20px;font-weight:bold;" class="mitlgied_detail_link">'.$this->escape($item->name).', '.$this->escape($item->vorname).'</span>'; ?></a> 
 				<?php endif; ?>
 				<?php if (!$this->params->get('show_mitlgied_detail_link','1')) : ?>
-				<?php echo '<span style="color:#d63b37;font-size:20px;font-weight:bold;">'.$this->escape($item->name).', '.$this->escape($item->vorname).'</span>'; ?>
+				<?php echo '<span style="color:#d63b37;font-size:20px;font-weight:bold;" class="mitlgied_detail_link">'.$this->escape($item->name).', '.$this->escape($item->vorname).'</span>'; ?>
 				<?php endif; ?>
 				
 				<br/>				
