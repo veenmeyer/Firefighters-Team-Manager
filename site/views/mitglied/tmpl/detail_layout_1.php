@@ -36,12 +36,14 @@ if (!$canEdit && JFactory::getUser()->authorise('core.edit.own', 'com_firefighte
 
 
     <div class="span4">
-        <p><?php echo $this->item->vorname.' '.$this->item->name; ?></p>
-		<?php if ($this->item->dienstgrad) : ?>
-        <small><cite title="Source Title"><?php echo $this->item->dienstgrad; ?>  <i class="icon-map-marker"></i></cite></small>
-		<?php endif;?>
+        <p>
+			<?php echo '<span class="ftm_detail_1_name">'.$this->item->vorname.' '.$this->item->name.'</span>'; ?>
+			<br/>	
+			<?php if ($this->item->dienstgrad) : ?>
+			<?php echo '( '.$this->item->dienstgrad.' )'; ?>
+			<?php endif;?>
+		</p>
 		
-				<br/>	
 					<?php if ($this->params->get('show_alter','1')) : ?>
 					<?php if ($this->item->geburtsdatum != '0000-00-00 00:00:00') : ?>
 					<?php echo 'Alter : '.floor((time() - strtotime($this->item->geburtsdatum)) / 31558149.540288); ?>
