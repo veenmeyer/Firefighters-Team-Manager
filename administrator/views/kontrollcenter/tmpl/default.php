@@ -161,7 +161,6 @@ Unterstützen Sie die Weiterentwicklung unseres Projekts FIREFIGHTERS TEAM MANAG
 						<b>Informationen:</b></br>
 						<a target="_blank" style="margin-bottom:5px;" style="margin-bottom:5px;" class="label label-info" href="http://www.einsatzkomponente.de">Download-Link Webseite</a> 
 						<br/>
-						<!--<a target="_blank" style="margin-bottom:5px;" class="label label-info" href="https://github.com/veenmeyer/Einsatzkomponente">Link zu GitHub</a> -->			
 					</br>
 						<!-- Button to trigger modal -->
 						<a href="#myModal" role="button" style="margin-bottom:5px;" class="label label-info" data-toggle="modal">Verfügbare Module und Plugins ...</a>
@@ -189,7 +188,7 @@ Unterstützen Sie die Weiterentwicklung unseres Projekts FIREFIGHTERS TEAM MANAG
 						
 						<?php 
 							if( ini_get('allow_url_fopen') ) {
-								echo '<span class="label label-success">allow_url_fopen aktiv</span>';
+								echo '<span class="label label-success">allow_url_fopen aktiv</span> <span class="icon-info-2 large-icon" style="font-size:18px;" title="Diese PHP-Funktion ist leider auf Ihrem Server deaktiviert. Die Funktion wird zwingend für den Fall einer Online-Validation benötigt. Bei einigen Webhoster kann man die Funktion im Controlpanel des Webhostes selbst aktivieren. Ansonsten einfach mal beim Support des Webhosters anfragen, ob diese Funktion freigeschaltet werden kann."> </span>';
 								} else {
 								echo '<span class="label label-important">allow_url_fopen deaktiviert</span>';
 								}

@@ -42,6 +42,11 @@ if (!$canEdit && JFactory::getUser()->authorise('core.edit.own', 'com_firefighte
 			<?php if ($this->item->dienstgrad) : ?>
 			<?php echo '( '.$this->item->dienstgrad.' )'; ?>
 			<?php endif;?>
+				<?php if ($this->params->get('show_dienstgrad_image','1')) : ?>
+				<?php if ($this->item->dienstgrad_image) : ?>
+					<img class="ftm_detail_3_dienstgrad_image" src="<?php echo JURI::Root();?><?php echo $this->item->dienstgrad_image;?>" alt="<?php echo $this->item->dienstgrad;?>" title="<?php echo $this->item->dienstgrad;?>"/>
+				<?php endif;?>
+				<?php endif;?>
 		</p>
 		
 					<?php if ($this->params->get('show_alter','1')) : ?>
