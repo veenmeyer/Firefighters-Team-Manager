@@ -97,8 +97,8 @@ defined('_JEXEC') or die;
 				<?php if ($item->dienstgrad_image) : ?>
 					<img class="ftm_dienstgrad_image" src="<?php echo JURI::Root();?><?php echo $item->dienstgrad_image;?>" alt="<?php echo $item->dienstgrad;?>" title="<?php echo $item->dienstgrad;?>"/>
 				<?php endif;?>
-				</div>
 				<?php endif;?>
+				</div>
 				
             	<span class="mitglieder_details">
 				<?php if (isset($item->checked_out) && $item->checked_out) : ?>
