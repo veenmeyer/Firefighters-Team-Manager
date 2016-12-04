@@ -75,7 +75,7 @@
              /> 
 
        <field name="kommando" type="radio" buttons="true"
-                                                class="btn-group btn-group-yesno" default="1"
+                                                class="btn-group btn-group-yesno" default="0"
         
         
             label="COM_FIREFIGHTERS_FORM_LBL_MITGLIED_KOMMANDO"
