@@ -13,7 +13,7 @@
 
 			
 			
-<!--<field name="note_filter_auswahl" 
+<field name="note_filter_auswahl" 
 		  type="note" 
 		  class="alert alert-grey"
 		  label="Auswahl filtern nach :" 
@@ -36,6 +36,7 @@
 		hr="true"
 />
 
+<!--
 	
 <field
 		name="show_filter_auswahl_orga"
@@ -46,14 +47,17 @@
 		description="">
 			<option	value="0">verstecken</option>
 			<option	value="1">anzeigen</option>
-</field>
- <field name="filter_auswahl_orga" 
+</field> -->
+
+ <field name="filter_abteilungen" 
 		type="sql" 
 		class="inputbox" 
-		label = "Filter Organisation :"
-		query="SELECT '' AS `id`, '- alle anzeigen -' AS `name` UNION SELECT `id`, `name` FROM `#__eiko_organisationen`" 
+		label = "Filter Abteilungen :"
+		query="SELECT '' AS `id`, '- alle anzeigen -' AS `name` UNION SELECT `id`, `name` FROM `#__firefighters_abteilungen`" 
 		key_field="id" 
 		value_field="name"/>  
+		
+<!--
 <field
 		name="spacer1"
 		type="spacer"

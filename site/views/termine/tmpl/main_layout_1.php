@@ -14,13 +14,12 @@ defined('_JEXEC') or die;
 
 <form action="<?php echo JRoute::_('index.php?option=com_firefighters&view=termine'); ?>" method="post" name="adminForm" id="adminForm">
 
-    <?php //echo JLayoutHelper::render('default_filter', array('view' => $this), dirname(__FILE__)); ?>
-
-
-
    <div class="container">
 		<div class="row">
 			<div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
+    <?php echo JLayoutHelper::render('default_filter', array('view' => $this), dirname(__FILE__)); ?>
+	</br>
+
 				<ul class="event-list">
 				
 				    <?php foreach ($this->items as $i => $item) : ?>
@@ -108,7 +107,6 @@ defined('_JEXEC') or die;
     <input type="hidden" name="filter_order" value="<?php echo $listOrder; ?>"/>
     <input type="hidden" name="filter_order_Dir" value="<?php echo $listDirn; ?>"/>
     <?php echo JHtml::_('form.token'); ?>
-</form>
     <tfoot>
     <tr>
         <td colspan="<?php echo isset($this->items[0]) ? count(get_object_vars($this->items[0])) : 10; ?>">
@@ -122,6 +120,7 @@ defined('_JEXEC') or die;
         </tr>
 	<?php endif; ?>
     </tfoot>
+</form>
 
 <script type="text/javascript">
 
