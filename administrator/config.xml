@@ -45,65 +45,134 @@
 				name="show_passbild"
 				type="radio"
 				class="btn-group"
-				default="1"
+				default="0"
 				label="Passbilder :"
 				description="" >
 					<option
-						value="0">Nein</option>
+						value="1">Detail</option>
 					<option
-						value="1">Ja</option>
+						value="0">beide</option>
+					<option
+						value="2">Übersicht</option>
 	  		</field>
 			
 	  		<field
 				name="show_dienstgrad_image"
 				type="radio"
 				class="btn-group"
-				default="1"
+				default="0"
 				label="Dienstgradabzeichen :"
 				description="" >
 					<option
-						value="0">Nein</option>
+						value="1">Detail</option>
 					<option
-						value="1">Ja</option>
+						value="0">beide</option>
+					<option
+						value="2">Übersicht</option>
 	  		</field>
 			
 	  		<field
 				name="show_eintrittsdatum"
 				type="radio"
 				class="btn-group"
-				default="1"
+				default="0"
 				label="Eintrittsdatum :"
 				description="" >
 					<option
-						value="0">Nein</option>
+						value="1">Detail</option>
 					<option
-						value="1">Ja</option>
+						value="0">beide</option>
+					<option
+						value="2">Übersicht</option>
 	  		</field>
 
 	  		<field
 				name="show_alter"
 				type="radio"
 				class="btn-group"
-				default="1"
+				default="0"
 				label="Alter :"
 				description="" >
 					<option
-						value="0">Nein</option>
+						value="1">Detail</option>
 					<option
-						value="1">Ja</option>
+						value="0">beide</option>
+					<option
+						value="2">Übersicht</option>
 	  		</field>
 			
 	  		<field
 				name="show_email"
 				type="radio"
 				class="btn-group"
-				default="1"
+				default="0"
 				label="Emailadresse :"
 				description="" >
 					<option
-						value="0">ausblenden</option>
+						value="1">Detail</option>
 					<option
-						value="1">einblenden</option>
+						value="0">beide</option>
+					<option
+						value="2">Übersicht</option>
+	  		</field>
+
+	  		<field
+				name="show_ausbildungen"
+				type="radio"
+				class="btn-group"
+				default="0"
+				label="Ausbildungen :"
+				description="Wo sollen die Ausbildungen angezeigt werden ?" >
+					<option
+						value="1">Detail</option>
+					<option
+						value="0">beide</option>
+					<option
+						value="2">Übersicht</option>
+	  		</field>
+	  		<field
+				name="show_abteilungen"
+				type="radio"
+				class="btn-group"
+				default="0"
+				label="Abteilungen :"
+				description="Wo sollen die Abteilungen angezeigt werden ?" >
+					<option
+						value="1">Detail</option>
+					<option
+						value="0">beide</option>
+					<option
+						value="2">Übersicht</option>
+	  		</field>
+	
+	  		<field
+				name="show_dienstgrad"
+				type="radio"
+				class="btn-group"
+				default="0"
+				label="Dienstgrade :"
+				description="Wo sollen die Dienstgrade angezeigt werden ?" >
+					<option
+						value="1">Detail</option>
+					<option
+						value="0">beide</option>
+					<option
+						value="2">Übersicht</option>
+	  		</field>
+
+	  		<field
+				name="show_funktionen"
+				type="radio"
+				class="btn-group"
+				default="0"
+				label="Funktionen :"
+				description="Wo sollen die Funktionen angezeigt werden ?" >
+					<option
+						value="1">Detail</option>
+					<option
+						value="0">beide</option>
+					<option
+						value="2">Übersicht</option>
 	  		</field>
 
 			</fieldset>

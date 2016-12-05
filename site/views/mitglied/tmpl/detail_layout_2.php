@@ -92,7 +92,8 @@ if (!$canEdit && JFactory::getUser()->authorise('core.edit.own', 'com_firefighte
 			<th><?php echo JText::_('COM_FIREFIGHTERS_FORM_LBL_MITGLIED_CREATED_BY'); ?></th>
 			<td><?php echo $this->item->created_by_name; ?></td>
 </tr>
-
+<tr><td><input style="float:left;" type="button" class="btn ftm_back_button" value="Zurück" onClick="history.back();"></br>
+</td><td></td>
         </table>
     </div>
     <?php if($canEdit): ?>

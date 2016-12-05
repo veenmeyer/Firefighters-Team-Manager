@@ -179,12 +179,13 @@
 			position: relative;
 			height: 120px;
 			text-align: left;
-			padding-right: 40px;
+			padding-left: 10px;
+			padding-right: 10px;
 		}	
 		.event-list > li > .info > .ftm_termine_title, 
 		.event-list > li > .info > .ftm_termine_desc, 
 		.event-list > li > .info > .ftm_termine_abt {
-			padding-left: 10px;
+			padding-left: 0px;
 		}
 		.ftm_termine_abt {
 			padding-top: 10px;
@@ -224,3 +225,5 @@
 
 .ftm_detail_1_name {font-weight:bold;font-size:larger;}
 .ftm_detail_3_dienstgrad_image {float:right;}
+
+.ftm_img_ausbildung_detail_1 {max-width:250px;}

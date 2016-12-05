@@ -81,7 +81,7 @@ defined('_JEXEC') or die;
 				
 	<div class="col span_<?php echo $a; ?>_of_2 ">
 
-				<?php if ($this->params->get('show_passbild','1')) : ?>
+				<?php if ($this->params->get('show_passbild','0') == '0'  OR $this->params->get('show_passbild','0') == '2') : ?>
 				<div class="mitglieder_passbild">
 <!--Titelbild mit Highslide JS-->
 
@@ -93,7 +93,7 @@ defined('_JEXEC') or die;
 				<?php endif;?>
 <!--Titelbild mit Highslide JS  ENDE--> 
 	
-				<?php if ($this->params->get('show_dienstgrad_image','1')) : ?>
+					<?php if ($this->params->get('show_dienstgrad_image','0') == '0'  OR $this->params->get('show_dienstgrad_image','0') == '2') : ?>
 				<?php if ($item->dienstgrad_image) : ?>
 					<img class="ftm_dienstgrad_image" src="<?php echo JURI::Root();?><?php echo $item->dienstgrad_image;?>" alt="<?php echo $item->dienstgrad;?>" title="<?php echo $item->dienstgrad;?>"/>
 				<?php endif;?>
@@ -114,13 +114,13 @@ defined('_JEXEC') or die;
 				<?php endif; ?>
 				
 				<br/>				
-					<?php if ($this->params->get('show_alter','1')) : ?>
+					<?php if ($this->params->get('show_alter','0') == '0'  OR $this->params->get('show_alter','0') == '2') : ?>
 					<?php if ($item->geburtsdatum != '0000-00-00 00:00:00') : ?>
 					<?php echo '<b>Alter : </b>'.floor((time() - strtotime($item->geburtsdatum)) / 31558149.540288); ?>
 				<br/>
 					<?php endif; ?>
 					<?php endif; ?>
-					<?php if ($this->params->get('show_eintrittsdatum','1')) : ?>
+					<?php if ($this->params->get('show_eintrittsdatum','0') == '0'  OR $this->params->get('show_eintrittsdatum','0') == '2') : ?>
 					<?php if ($item->eintrittsdatum != '0000-00-00 00:00:00') : ?>
 					<?php //echo '<b>Eintrittsjahr : </b>'.date('Y', strtotime($item->eintrittsdatum)); ?>
 					<?php echo 'Seit '.floor((time() - strtotime($item->eintrittsdatum)) / 31558149.540288).' Jahr(en) Mitglied in der Feuerwehr'; ?>
@@ -128,23 +128,31 @@ defined('_JEXEC') or die;
 					<?php endif; ?>
 					<?php endif; ?>
 				<br/>
+					<?php if ($this->params->get('show_funktionen','0') == '0'  OR $this->params->get('show_funktionen','0') == '2') : ?>
 					<?php if ($item->funktion) : ?>
 					<?php echo '<b>Funktion		: </b><span class="mitglieder_funktion">'.$item->funktion.'</span>'; ?><br/><br/>
 					<?php endif; ?>
-				
+					<?php endif; ?>
+
+					<?php if ($this->params->get('show_dienstgrad','0') == '0'  OR $this->params->get('show_dienstgrad','0') == '2') : ?>
 					<?php if ($item->dienstgrad) : ?>
 					<?php echo '<b>Dienstgrad : </b>'.$item->dienstgrad; ?><br/>
 					<?php endif; ?>
+					<?php endif; ?>
 
+					<?php if ($this->params->get('show_abteilungen','0') == '0'  OR $this->params->get('show_abteilungen','0') == '2') : ?>
 					<?php if ($item->abteilungen) : ?>
 					<?php echo '<b>Abteilungen : </b>'.$item->abteilungen; ?><br/>
 					<?php endif; ?>
+					<?php endif; ?>
 
+					<?php if ($this->params->get('show_ausbildungen','0') == '0'  OR $this->params->get('show_ausbildungen','0') == '2') : ?>
 					<?php if ($item->ausbildungen) : ?>
 					<?php echo '<b>Ausbildung : </b>'.$item->ausbildungen; ?><br/>
 					<?php endif; ?>
+					<?php endif; ?>
 					
-					<?php if ($this->params->get('show_email','1')) : ?>
+					<?php if ($this->params->get('show_email','0') == '0'  OR $this->params->get('show_email','0') == '2') : ?>
 					<?php if ($item->emailadresse) : ?>
 					<br>
 					<?php echo '<b>Kontakt : </b><i class="icon-envelope"></i> '.JHTML::_('email.cloak', $item->emailadresse); ?> <br>

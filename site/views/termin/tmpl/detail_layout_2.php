@@ -3,7 +3,7 @@
  * @version     1.0.0
  * @package     com_firefighters
  * @copyright   Copyright (C) 2014. Alle Rechte vorbehalten.
- * @license     GNU General Public License Version 2 oder sp‰ter; siehe LICENSE.txt
+ * @license     GNU General Public License Version 2 oder sp√§ter; siehe LICENSE.txt
  * @author      Ralf Meyer <ralf.meyer@mail.de> - http://einsatzkomponente.de
  */
 // no direct access
@@ -63,7 +63,12 @@ if (!$canEdit && JFactory::getUser()->authorise('core.edit.own', 'com_firefighte
 			<th><?php echo JText::_('COM_FIREFIGHTERS_FORM_LBL_TERMIN_CREATED_BY'); ?></th>
 			<td><?php echo $this->item->created_by_name; ?></td>
 </tr>
-
+<tr>
+			<td></td>
+			<td>
+			<input style="float:left;" type="button" class="btn eiko_back_button" value="Zur√ºck" onClick="history.back();">
+			</td>
+</tr>
         </table>
     </div>
     <?php if($canEdit): ?>
@@ -82,7 +87,7 @@ endif;
  * @version     1.0.0
  * @package     com_firefighters
  * @copyright   Copyright (C) 2014. Alle Rechte vorbehalten.
- * @license     GNU General Public License Version 2 oder sp‰ter; siehe LICENSE.txt
+ * @license     GNU General Public License Version 2 oder sp√§ter; siehe LICENSE.txt
  * @author      Ralf Meyer <ralf.meyer@mail.de> - http://einsatzkomponente.de
  */
 // no direct access
