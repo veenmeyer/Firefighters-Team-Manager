@@ -157,11 +157,19 @@ Unterstützen Sie die Weiterentwicklung unseres Projekts FIREFIGHTERS TEAM MANAG
 							<?php echo '<span style="margin-bottom:5px;text-decoration: line-through;" class="label label-important">unlimitierte Anzahl von Mitglieder</span></br>';?>
 							<?php echo '<span style="margin-bottom:5px;text-decoration: line-through;" class="label label-important">unlimitierte Anzahl von Terminen</span></br>';?>
 							<?php endif;?>
+							
+							<?php $plugin = JPluginHelper::getPlugin('system', 'ftm_event_mail') ;
+							if ($plugin) : 
+							?>
+												<span class="label label-success">Das Plugin ftm_event_mail ist aktivert</span>
+							<?php else : ?>
+												<span class="label label-important">Das Plugin <b>ftm_event_mail</b> ist nicht aktivert</span><span class="icon-info-2 large-icon" style="font-size:18px;" title="Diese Plugin wird benötigt, wenn Errinnerungsmails zu den Terminen versandt werden sollen. Du findest das Plugin im Downloadcenter bei einsatzkomponente.de"> </span>
+							<?php endif;?>
+							
 							<hr>
 						<b>Informationen:</b></br>
 						<a target="_blank" style="margin-bottom:5px;" style="margin-bottom:5px;" class="label label-info" href="http://www.einsatzkomponente.de">Download-Link Webseite</a> 
 						<br/>
-					</br>
 						<!-- Button to trigger modal -->
 						<a href="#myModal" role="button" style="margin-bottom:5px;" class="label label-info" data-toggle="modal">Verfügbare Module und Plugins ...</a>
      
@@ -188,9 +196,9 @@ Unterstützen Sie die Weiterentwicklung unseres Projekts FIREFIGHTERS TEAM MANAG
 						
 						<?php 
 							if( ini_get('allow_url_fopen') ) {
-								echo '<span class="label label-success">allow_url_fopen aktiv</span> <span class="icon-info-2 large-icon" style="font-size:18px;" title="Diese PHP-Funktion ist leider auf Ihrem Server deaktiviert. Die Funktion wird zwingend für den Fall einer Online-Validation benötigt. Bei einigen Webhoster kann man die Funktion im Controlpanel des Webhostes selbst aktivieren. Ansonsten einfach mal beim Support des Webhosters anfragen, ob diese Funktion freigeschaltet werden kann."> </span>';
+								echo '<span class="label label-success">allow_url_fopen aktiv</span> ';
 								} else {
-								echo '<span class="label label-important">allow_url_fopen deaktiviert</span>';
+								echo '<span class="label label-important">allow_url_fopen deaktiviert</span> <span class="icon-info-2 large-icon" style="font-size:18px;" title="Diese PHP-Funktion ist leider auf Ihrem Server deaktiviert. Die Funktion wird zwingend für den Fall einer Online-Validation benötigt. Bei einigen Webhoster kann man die Funktion im Controlpanel des Webhostes selbst aktivieren. Ansonsten einfach mal beim Support des Webhosters anfragen, ob diese Funktion freigeschaltet werden kann."> </span>';
 								}
 						?>
 					<hr>
@@ -220,7 +228,7 @@ Unterstützen Sie die Weiterentwicklung unseres Projekts FIREFIGHTERS TEAM MANAG
 						<a target="_blank" href="https://demo.einsatzkomponente.de/" style="text-decoration:underline">Testseite für die Einsatzkomponente V3.x für J3</a>
 						</li>
 						<li>
-						<a target="_blank" href="https://www.feuerwehr-veenhusen.de" style="text-decoration:underline">Freiwillige Feuerwehr Veenhusen </a><font-size:small>(über ein paar nette im Gästebuch würde ich mich sehr freuen  lg Ralf Meyer )</font-size>
+						<a target="_blank" href="https://www.feuerwehr-veenhusen.de" style="text-decoration:underline">Freiwillige Feuerwehr Veenhusen </a>
 						</li>
 						</ul>
 						</div>

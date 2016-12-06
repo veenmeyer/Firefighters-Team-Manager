@@ -49,7 +49,7 @@ defined('_JEXEC') or die;
 
     				<?php if ($canEdit || $canDelete): ?>
 					<th class="center">
-				<?php echo JText::_('COM_FIREFIGHTERS_MITGLIEDER_ACTIONS'); ?>
+				<?php echo JText::_('Admin-Aktionen'); ?>
 				</th>
 				<?php endif; ?>
 
@@ -251,7 +251,7 @@ defined('_JEXEC') or die;
     <?php if ($canCreate): ?>
         <a href="<?php echo JRoute::_('index.php?option=com_firefighters&task=mitgliedform.edit&id=0', false, 2); ?>"
            class="btn btn-success btn-small"><i
-                class="icon-plus"></i> <?php echo JText::_('COM_FIREFIGHTERS_ADD_ITEM'); ?></a>
+                class="icon-plus"></i> <?php echo JText::_('Mitglied hinzufügen'); ?></a>
     <?php endif; ?>
 
     <input type="hidden" name="task" value=""/>

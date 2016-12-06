@@ -4,6 +4,7 @@
 
 <h3>Changelog <small>Version 1.04_beta</small></h3>
 <ul>
++ Formulare für das Eintragen bearbeitet
 # Pagination in Terminübersicht
 # Pagination in Mitgliederübersicht
 + Filtermöglichkeit im Menüpunkt Termine

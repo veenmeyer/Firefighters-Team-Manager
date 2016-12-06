@@ -43,50 +43,45 @@
             query="SELECT 0 AS `id`, '- Please select Abteilungen -' AS `val` UNION SELECT `id`, `name` AS val FROM `#__firefighters_abteilungen`" key_field="id" value_field="val"
              /> 
 
-       <field name="beschreibung" type="editor"
-                
-            label="COM_FIREFIGHTERS_FORM_LBL_TERMIN_BESCHREIBUNG"
-            description="COM_FIREFIGHTERS_FORM_DESC_TERMIN_BESCHREIBUNG" 
-                
-                
-                
-            menu_published="0"
-            filter="raw"
-            option_on="Yes"
-            option_off="Yes" /> 
+       <field 	name="beschreibung" 
+				type="editor"
+				label="COM_FIREFIGHTERS_FORM_LBL_TERMIN_BESCHREIBUNG"
+				description="COM_FIREFIGHTERS_FORM_DESC_TERMIN_BESCHREIBUNG" 
+				menu_published="0"
+				filter="raw"
+				option_on="Yes"
+				option_off="Yes" /> 
 
-       <field name="datum_start" type="calendar" class="inputbox"
-         required="true" 
-        
-         default="0000-00-00 00:00:00" 
-        
-            label="COM_FIREFIGHTERS_FORM_LBL_TERMIN_DATUM_START"
-            description="COM_FIREFIGHTERS_FORM_DESC_TERMIN_DATUM_START" 
-        format="%Y-%m-%d %H:%M:%S"
-        filter="safehtml" /> 
+       <field 	name="datum_start" 
+				type="calendar" 
+				class="inputbox"
+				required="true" 
+				label="COM_FIREFIGHTERS_FORM_LBL_TERMIN_DATUM_START"
+				description="COM_FIREFIGHTERS_FORM_DESC_TERMIN_DATUM_START" 
+				format="%Y-%m-%d %H:%M:%S"
+				filter="safehtml" /> 
 
-       <field name="datum_ende" type="calendar" class="inputbox"
-        
-        
-         default="0000-00-00 00:00:00" 
-        
-            label="COM_FIREFIGHTERS_FORM_LBL_TERMIN_DATUM_ENDE"
-            description="COM_FIREFIGHTERS_FORM_DESC_TERMIN_DATUM_ENDE" 
-        format="%Y-%m-%d %H:%M:%S"
-        filter="safehtml" /> 
+       <field 	name="datum_ende" 
+				type="calendar" 
+				class="inputbox"
+				label="COM_FIREFIGHTERS_FORM_LBL_TERMIN_DATUM_ENDE"
+				description="COM_FIREFIGHTERS_FORM_DESC_TERMIN_DATUM_ENDE" 
+				format="%Y-%m-%d %H:%M:%S"
+				filter="safehtml" /> 
 
-       <field name="email_gesendet" type="text" size="40" class="inputbox"
-                                                    
-            label="COM_FIREFIGHTERS_FORM_LBL_TERMIN_EMAIL_GESENDET"
-            description="COM_FIREFIGHTERS_FORM_DESC_TERMIN_EMAIL_GESENDET" 
-                                                    
-                                                    
-                                                    
-                                                    filter="safehtml" /> 
+       <field 	name="email_gesendet" 
+				type="text" 
+				size="40" 
+				class="inputbox"
+				label="COM_FIREFIGHTERS_FORM_LBL_TERMIN_EMAIL_GESENDET"
+				description="COM_FIREFIGHTERS_FORM_DESC_TERMIN_EMAIL_GESENDET" 
+                filter="safehtml" /> 
 
-       <field name="created_by" type="createdby" default="" 
-            label="COM_FIREFIGHTERS_FORM_LBL_TERMIN_CREATED_BY"
-            description="COM_FIREFIGHTERS_FORM_DESC_TERMIN_CREATED_BY"  /> 
+       <field 	name="created_by" 
+				type="createdby" 
+				default="" 
+				label="COM_FIREFIGHTERS_FORM_LBL_TERMIN_CREATED_BY"
+				description="COM_FIREFIGHTERS_FORM_DESC_TERMIN_CREATED_BY"  /> 
 
          <field
         name="state"

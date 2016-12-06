@@ -2,29 +2,23 @@
 <form>
 	<fieldset>
 
-              <field name="id" type="text" default="0" label="COM_FIREFIGHTERS_FORM_LBL_MITGLIED_ID"
+       <field name="id" type="text" default="0" label="COM_FIREFIGHTERS_FORM_LBL_MITGLIED_ID"
             readonly="true" class="readonly"
             description="JGLOBAL_FIELD_ID_DESC" /> 
 
        <field name="name" type="text"
-                
             label="COM_FIREFIGHTERS_FORM_LBL_MITGLIED_NAME"
             description="COM_FIREFIGHTERS_FORM_DESC_MITGLIED_NAME" 
-                
-                
-                 required="true" 
+            required="true" 
             class="ftm_name"
             filter="safehtml"
             size="100"
             maxlength="500" /> 
 
        <field name="vorname" type="text"
-                
             label="COM_FIREFIGHTERS_FORM_LBL_MITGLIED_VORNAME"
             description="COM_FIREFIGHTERS_FORM_DESC_MITGLIED_VORNAME" 
-                
-                
-                 required="true" 
+            required="true" 
             menu_published="0"
             class="ftm_vorname"
             filter="safehtml"
@@ -34,12 +28,8 @@
             option_off="Yes" /> 
 
        <field name="name_eiko" type="text"
-                
             label="COM_FIREFIGHTERS_FORM_LBL_MITGLIED_NAME_EIKO"
             description="COM_FIREFIGHTERS_FORM_DESC_MITGLIED_NAME_EIKO" 
-                
-                
-                
             menu_published="0"
             filter="safehtml"
             size="100"
@@ -48,15 +38,12 @@
             option_off="Yes" /> 
 
        <field name="bild" type="media"
-                
             label="COM_FIREFIGHTERS_FORM_LBL_MITGLIED_BILD"
             description="COM_FIREFIGHTERS_FORM_DESC_MITGLIED_BILD" 
-                
-                
-                
             menu_published="0"
             filter="raw"
-            directory="images"
+            default="images/com_firefighters/images/mitglieder/dummy.jpg"   
+            directory="com_firefighters/images/mitglieder"   
             option_on="Yes"
             option_off="Yes" /> 
 
@@ -66,7 +53,7 @@
 
        <field name="filter_dienstgrad" type="sql" class="inputbox"
             onchange="this.form.submit();"
-            query="SELECT 0 AS `id`, '- Please select Dienstgrad -' AS `name` UNION SELECT `id`, `name` FROM `#__firefighters_dienstgrade`" key_field="id" value_field="name"
+            query="SELECT 0 AS `id`, '- Dienstgrad -' AS `name` UNION SELECT `id`, `name` FROM `#__firefighters_dienstgrade`" key_field="id" value_field="name"
              /> 
 
  <field name="abteilungen" type="foreignkey" class="inputbox"
@@ -75,32 +62,28 @@
 
        <field name="filter_abteilungen" type="sql" class="inputbox"
             onchange="this.form.submit();"
-            query="SELECT 0 AS `id`, '- Please select Abteilung(-en) -' AS `name` UNION SELECT `id`, `name` FROM `#__firefighters_abteilungen`" key_field="id" value_field="name"
+            query="SELECT 0 AS `id`, '- Abteilung(-en) -' AS `name` UNION SELECT `id`, `name` FROM `#__firefighters_abteilungen`" key_field="id" value_field="name"
              /> 
 
-       <field name="kommando" type="radio" buttons="true"
-                                                class="btn-group btn-group-yesno" default="1"
-        
-        
-            label="COM_FIREFIGHTERS_FORM_LBL_MITGLIED_KOMMANDO"
-            description="COM_FIREFIGHTERS_FORM_DESC_MITGLIED_KOMMANDO" ><option value="1">COM_FIREFIGHTERS_MITGLIEDER_KOMMANDO_OPTION_ON</option><option value="0">COM_FIREFIGHTERS_MITGLIEDER_KOMMANDO_OPTION_OFF</option></field> 
+       <field name="kommando" 
+				type="radio" 
+				buttons="true"
+                class="btn-group btn-group-yesno" 
+				default="0"
+				label="COM_FIREFIGHTERS_FORM_LBL_MITGLIED_KOMMANDO"
+				description="COM_FIREFIGHTERS_FORM_DESC_MITGLIED_KOMMANDO" >
+				<option value="1">COM_FIREFIGHTERS_MITGLIEDER_KOMMANDO_OPTION_ON</option>
+				<option value="0">COM_FIREFIGHTERS_MITGLIEDER_KOMMANDO_OPTION_OFF</option>
+		</field> 
 
        <field name="kommando" type="text" size="40" class="inputbox"
-        
-            label="COM_FIREFIGHTERS_FORM_LBL_MITGLIED_KOMMANDO"
-            description="COM_FIREFIGHTERS_FORM_DESC_MITGLIED_KOMMANDO" 
-        
-        
-        
-        filter="safehtml" /> 
+				label="COM_FIREFIGHTERS_FORM_LBL_MITGLIED_KOMMANDO"
+				description="COM_FIREFIGHTERS_FORM_DESC_MITGLIED_KOMMANDO" 
+				filter="safehtml" /> 
 
        <field name="funktion" type="text"
-                
             label="COM_FIREFIGHTERS_FORM_LBL_MITGLIED_FUNKTION"
             description="COM_FIREFIGHTERS_FORM_DESC_MITGLIED_FUNKTION" 
-                
-                
-                
             menu_published="0"
             class="ftm_funktion"
             filter="safehtml"
@@ -110,12 +93,8 @@
             option_off="Yes" /> 
 
        <field name="mehr_funktionen" type="text"
-                
             label="COM_FIREFIGHTERS_FORM_LBL_MITGLIED_MEHR_FUNKTIONEN"
             description="COM_FIREFIGHTERS_FORM_DESC_MITGLIED_MEHR_FUNKTIONEN" 
-                
-                
-                
             menu_published="0"
             class="ftm_people_mehr_funktionen"
             filter="safehtml"
@@ -138,9 +117,7 @@
             label="COM_FIREFIGHTERS_FORM_LBL_MITGLIED_GEBURTSDATUM"
             description="COM_FIREFIGHTERS_FORM_DESC_MITGLIED_GEBURTSDATUM" 
             format="%Y-%m-%d"
-            default="0000-00-00" 
-                
-                
+            default="" 
             menu_published="0"
             class="ftm_geburtsdatum"
             filter="safehtml"
@@ -152,9 +129,7 @@
             label="COM_FIREFIGHTERS_FORM_LBL_MITGLIED_EINTRITTSDATUM"
             description="COM_FIREFIGHTERS_FORM_DESC_MITGLIED_EINTRITTSDATUM" 
             format="%Y-%m-%d"
-            default="0000-00-00" 
-                
-                
+            default="" 
             menu_published="0"
             class="ftm_eintrittsdatum"
             filter="safehtml"
@@ -162,13 +137,10 @@
             option_off="Yes" /> 
 
        <field name="austrittsdatum" type="calendar"
-                
             label="COM_FIREFIGHTERS_FORM_LBL_MITGLIED_AUSTRITTSDATUM"
             description="COM_FIREFIGHTERS_FORM_DESC_MITGLIED_AUSTRITTSDATUM" 
             format="%Y-%m-%d"
-            default="0000-00-00" 
-                
-                
+            default="" 
             menu_published="0"
             class="ftm_austrittsdatum"
             filter="safehtml"
@@ -184,11 +156,11 @@
 
        <field name="filter_missions_eiko" type="sql" class="inputbox"
             onchange="this.form.submit();"
-            query="SELECT 0 AS `id`, '- Please select Einsätze -' AS `datum_start` UNION SELECT `id`, `datum_start` FROM `#__firefighters_termine`" key_field="id" value_field="datum_start"
+            query="SELECT 0 AS `id`, '- Einsätze -' AS `datum_start` UNION SELECT `id`, `datum_start` FROM `#__firefighters_termine`" key_field="id" value_field="datum_start"
              /> 
 
        <field name="created_by" type="createdby" default="" 
-            label="COM_FIREFIGHTERS_FORM_LBL_MITGLIED_CREATED_BY"
+            label="Erstellt von"
             description="COM_FIREFIGHTERS_FORM_DESC_MITGLIED_CREATED_BY"  /> 
 
          <field
