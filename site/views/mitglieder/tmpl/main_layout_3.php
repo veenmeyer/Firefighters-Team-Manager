@@ -79,7 +79,7 @@ defined('_JEXEC') or die;
 				<?php endif; ?>
 				
 				
-	<div class="col span_<?php echo $a; ?>_of_2 ">
+	<div class="col span_<?php echo $a; ?>_of_2">
 
 				<?php if ($this->params->get('show_passbild','0') == '0'  OR $this->params->get('show_passbild','0') == '2') : ?>
 				<div class="mitglieder_passbild">
@@ -174,7 +174,7 @@ defined('_JEXEC') or die;
 				<?php endif; ?>
 	<?php //$a++; if ($a > 2) : echo'</br></br>';endif;?>
 	</div>
-	<?php $a++; if ($a > 2) : $a=1;endif;?>
+	<?php $a++; if ($a > 2) : $a=1;echo '<div style="clear:both;"> </div>';endif;?>
     <?php endforeach; ?>
   </div>
 	
