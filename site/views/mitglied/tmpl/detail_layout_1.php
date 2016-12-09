@@ -76,17 +76,48 @@ if (!$canEdit && JFactory::getUser()->authorise('core.edit.own', 'com_firefighte
 		<?php endif;?>
 		<?php endif;?>
 		
-		<?php if ($this->params->get('show_abteilungen','0') == '0'  OR $this->params->get('show_abteilungen','0') == '1') : ?>
-		<?php if ($this->item->abteilungen) : ?>
-        <?php echo 'Abteilung(-en) : '.$this->item->abteilungen; ?> <br>
-		<?php endif;?>
-		<?php endif;?>
 		
-		<?php if ($this->params->get('show_ausbildungen','0') == '0'  OR $this->params->get('show_ausbildungen','0') == '1') : ?>
-		<?php if ($this->item->ausbildungen) : ?>
-        <?php echo 'Ausbildung(-en) : '.$this->item->ausbildungen; ?>  <br>
-		<?php endif;?>
-		<?php endif;?>
+					<?php if ($this->params->get('show_abteilungen_list','1') == '1') : ?>
+					<?php if ($this->params->get('show_abteilungen','0') == '0'  OR $this->params->get('show_abteilungen','0') == '2') : ?>
+					<?php if ($this->item->abteilungen) : ?>
+					<?php echo 'Abteilung(-en) : '.$this->item->abteilungen; ?> <br>
+					<?php endif;?>
+					<?php endif; ?>
+					<?php endif; ?>
+	
+					<?php if ($this->params->get('show_abteilungen_list','1') == '0') : ?>
+					<?php if ($this->params->get('show_abteilungen','0') == '0'  OR $this->params->get('show_abteilungen','0') == '2') : ?>
+					<?php if ($this->item->abteilungen) : ?>
+					<?php $abteilungen = explode (',',$this->item->abteilungen);?>
+					<?php echo '<table style="border:0px;margin-left:-2px;margin-top:5px;padding-top:5px;"><tr><td style="vertical-align:top">Abteilung(-en) : </td><td>'; ?>
+					<?php foreach ( $abteilungen as $abteilung) :  ?>
+					<?php echo '<li>'.$abteilung.'</li>';?>
+					<?php endforeach; ?>
+					<?php echo '</td></tr></table>';?>
+					<?php endif; ?>
+					<?php endif; ?>
+					<?php endif; ?>
+		
+					<?php if ($this->params->get('show_ausbildungen_list','1') == '1') : ?>
+					<?php if ($this->params->get('show_ausbildungen','0') == '0'  OR $this->params->get('show_ausbildungen','0') == '2') : ?>
+					<?php if ($this->item->ausbildungen) : ?>
+					<?php echo 'Ausbildung(-en) : '.$this->item->ausbildungen; ?><br/>
+					<?php endif; ?>
+					<?php endif; ?>
+					<?php endif; ?>
+					
+					<?php if ($this->params->get('show_ausbildungen_list','1') == '0') : ?>
+					<?php if ($this->params->get('show_ausbildungen','0') == '0'  OR $this->params->get('show_ausbildungen','0') == '2') : ?>
+					<?php if ($this->item->ausbildungen) : ?>
+					<?php $ausbildungen = explode (',',$this->item->ausbildungen);?>
+					<?php echo '<table style="border:0px;margin-left:-2px;margin-top:5px;padding-top:5px;"><tr><td style="vertical-align:top">Ausbildung(-en) : </td><td>'; ?>
+					<?php foreach ( $ausbildungen as $ausbildung) :  ?>
+					<?php echo '<li>'.$ausbildung.'</li>';?>
+					<?php endforeach; ?>
+					<?php echo '</td></tr></table><br/>';?>
+					<?php endif; ?>
+					<?php endif; ?>
+					<?php endif; ?>
 
 		<?php if ($this->params->get('show_email','0') == '0'  OR $this->params->get('show_email','0') == '1') : ?>
 			<?php if ($this->item->emailadresse) : ?>
