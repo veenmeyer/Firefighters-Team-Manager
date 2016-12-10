@@ -50,7 +50,7 @@ $canDelete = $user->authorise('core.delete', 'com_firefighters');
 
     				<?php if ($canEdit || $canDelete): ?>
 					<th class="center">
-				<?php echo JText::_('COM_FIREFIGHTERS_DIENSTGRADE_ACTIONS'); ?>
+				<?php echo JText::_('Admin-Action'); ?>
 				</th>
 				<?php endif; ?>
 
@@ -126,7 +126,7 @@ $canDelete = $user->authorise('core.delete', 'com_firefighters');
     <?php if ($canCreate): ?>
         <a href="<?php echo JRoute::_('index.php?option=com_firefighters&task=dienstgradform.edit&id=0', false, 2); ?>"
            class="btn btn-success btn-small"><i
-                class="icon-plus"></i> <?php echo JText::_('COM_FIREFIGHTERS_ADD_ITEM'); ?></a>
+                class="icon-plus"></i> <?php echo JText::_('Dienstgrad hinzufügen'); ?></a>
     <?php endif; ?>
 
     <input type="hidden" name="task" value=""/>

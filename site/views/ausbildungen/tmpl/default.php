@@ -53,7 +53,7 @@ $canDelete = $user->authorise('core.delete', 'com_firefighters');
 
     				<?php if ($canEdit || $canDelete): ?>
 					<th class="center">
-				<?php echo JText::_('COM_FIREFIGHTERS_AUSBILDUNGEN_ACTIONS'); ?>
+				<?php echo JText::_('Admin-Action'); ?>
 				</th>
 				<?php endif; ?>
 
@@ -107,6 +107,8 @@ $canDelete = $user->authorise('core.delete', 'com_firefighters');
 				<?php $Desc = JHTML::_('content.prepare', $item->beschreibung); ?>
 				<?php echo $Desc; ?>
 				<?php endif; ?>
+				
+				<p><a href="<?php echo JRoute::_('index.php?option=com_firefighters&view=ausbildung&id='.(int) $item->id); ?>" class="btn btn-primary" role="button">Details</a></p>
 				</td>
 
 
@@ -129,7 +131,7 @@ $canDelete = $user->authorise('core.delete', 'com_firefighters');
     <?php if ($canCreate): ?>
         <a href="<?php echo JRoute::_('index.php?option=com_firefighters&task=ausbildungform.edit&id=0', false, 2); ?>"
            class="btn btn-success btn-small"><i
-                class="icon-plus"></i> <?php echo JText::_('COM_FIREFIGHTERS_ADD_ITEM'); ?></a>
+                class="icon-plus"></i> <?php echo JText::_('Ausbildung hinzufügen'); ?></a>
     <?php endif; ?>
 
     <input type="hidden" name="task" value=""/>
