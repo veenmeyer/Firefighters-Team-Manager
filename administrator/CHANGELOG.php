@@ -2,7 +2,12 @@
 <h1>Firefighters Team Manager für das Joomla-CMS</h1>
 <hr>
 
-<h3>Changelog <small>Version 1.04_beta</small></h3>
+<h3>Changelog <small>Version 1.05</small></h3>
+<ul>
+# One-Click Update (per Joomla Installer)
+</ul>
+
+<h3>Changelog <small>Version 1.04</small></h3>
 <ul>
 + Formulare für das Eintragen bearbeitet
 # Pagination in Terminübersicht
