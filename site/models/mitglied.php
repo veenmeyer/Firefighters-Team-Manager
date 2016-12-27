@@ -94,13 +94,14 @@ class FirefightersModelMitglied extends JModelItem {
 					$db = JFactory::getDbo();
 					$query = $db->getQuery(true);
 					$query
-							->select('name')
+							->select('name,bild')
 							->from('`#__firefighters_dienstgrade`')
 							->where('id = ' . $db->quote($db->escape($value)));
 					$db->setQuery($query);
 					$results = $db->loadObject();
 					if ($results) {
 						$textValue[] = $results->name;
+						$this->_item->dienstgrad_image = $results->bild;
 					}
 				}
 

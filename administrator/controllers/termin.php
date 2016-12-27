@@ -23,29 +23,30 @@ class FirefightersControllerTermin extends JControllerForm
         parent::__construct();
     }
 
-		function save() {
-		$params = JComponentHelper::getParams('com_firefighters');
-		
-		if (!$params['ftm']) :  
-					$db = JFactory::getDbo();
-					$query_2 = $db->getQuery(true);
-					$query_2
-							->select('COUNT(id)') 
-							->from('`#__firefighters_termine`');
-							//->where('id = ' . $db->quote($db->escape($value)));
-					$db->setQuery($query_2);
-					$result = $db->loadResult();
-					if ($result > 4) : 
-					JLog::add(JText::_('Terminanzahl beschränkt auf 5 !'), JLog::WARNING, 'jerror');
-					$this->setRedirect('index.php?option=com_firefighters&view=termine', $msg); 
-					else:
-					$return = parent::save();
-					endif;
-		else:
-		parent::save();
-		endif;
-		return $return;
-		
+function save($key = NULL, $urlVar = NULL) {
+ 			
+ 		require_once JPATH_SITE.'/administrator/components/com_firefighters/helpers/firefighters.php'; 
+ 		$val= FirefightersHelper::getValidation();
+ 		
+ 		if (!$val) :  
+ 					$db = JFactory::getDbo();
+ 					$query_2 = $db->getQuery(true);
+ 					$query_2
+ 							->select('COUNT(id)') 
+ 							->from('`#__firefighters_termine`');
+ 							//->where('id = ' . $db->quote($db->escape($value)));
+ 					$db->setQuery($query_2);
+ 					$result = $db->loadResult();
+ 					if ($result > 4) : 
+ 					JLog::add(JText::_('Terminanzahl beschränkt auf 5 !'), JLog::WARNING, 'jerror');
+ 					$this->setRedirect('index.php?option=com_firefighters&view=termine', $msg); 
+ 					else:
+ 					return parent::save();
+ 					endif;
+ 		else:
+ 		return parent::save();
+ 		endif;
+ 		return;		
 	}
 
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <config>
-    <fieldset label="Mitlgieder" name="ftm_anzeige">
+    <fieldset label="Mitglieder" name="ftm_anzeige">
 	
 <field name="note_show" 
 		type="note" 
@@ -9,6 +9,25 @@
 		description="Hier können Sie entscheiden, welche Daten im Frontend angezeigt werden sollen."
 		/>
 		
+			  <field
+			name="display_mitglieder_bootstrap"
+			type="radio"
+			class="btn-group"
+			default="0"
+			label="Bootstrap CSS+JS :"
+			description="Hier kann die Bootstrap CSS und Javascript manuell nachgeladen werden.">
+			
+			<option
+				value="0">JNO</option>
+			<option
+				value="1">JYES</option>
+	  </field>
+		<field
+			name="spacer6"
+			type="spacer"
+			hr="true"
+		/>
+
 	  		<field
 				name="show_mitlgied_detail_link"
 				type="radio"
@@ -26,65 +45,160 @@
 				name="show_passbild"
 				type="radio"
 				class="btn-group"
-				default="1"
+				default="0"
 				label="Passbilder :"
 				description="" >
 					<option
-						value="0">Nein</option>
+						value="1">Detail</option>
 					<option
-						value="1">Ja</option>
+						value="0">beide</option>
+					<option
+						value="2">Übersicht</option>
 	  		</field>
 			
 	  		<field
 				name="show_dienstgrad_image"
 				type="radio"
 				class="btn-group"
-				default="1"
+				default="0"
 				label="Dienstgradabzeichen :"
 				description="" >
 					<option
-						value="0">Nein</option>
+						value="1">Detail</option>
 					<option
-						value="1">Ja</option>
+						value="0">beide</option>
+					<option
+						value="2">Übersicht</option>
 	  		</field>
 			
 	  		<field
 				name="show_eintrittsdatum"
 				type="radio"
 				class="btn-group"
-				default="1"
+				default="0"
 				label="Eintrittsdatum :"
 				description="" >
 					<option
-						value="0">Nein</option>
+						value="1">Detail</option>
 					<option
-						value="1">Ja</option>
+						value="0">beide</option>
+					<option
+						value="2">Übersicht</option>
 	  		</field>
 
 	  		<field
 				name="show_alter"
 				type="radio"
 				class="btn-group"
-				default="1"
+				default="0"
 				label="Alter :"
 				description="" >
 					<option
-						value="0">Nein</option>
+						value="1">Detail</option>
 					<option
-						value="1">Ja</option>
+						value="0">beide</option>
+					<option
+						value="2">Übersicht</option>
 	  		</field>
 			
 	  		<field
 				name="show_email"
 				type="radio"
 				class="btn-group"
-				default="1"
+				default="0"
 				label="Emailadresse :"
 				description="" >
 					<option
-						value="0">ausblenden</option>
+						value="1">Detail</option>
 					<option
-						value="1">einblenden</option>
+						value="0">beide</option>
+					<option
+						value="2">Übersicht</option>
+	  		</field>
+
+	  		<field
+				name="show_ausbildungen"
+				type="radio"
+				class="btn-group"
+				default="0"
+				label="Ausbildungen :"
+				description="Wo sollen die Ausbildungen angezeigt werden ?" >
+					<option
+						value="1">Detail</option>
+					<option
+						value="0">beide</option>
+					<option
+						value="2">Übersicht</option>
+	  		</field>
+	  		<field
+				name="show_abteilungen"
+				type="radio"
+				class="btn-group"
+				default="0"
+				label="Abteilungen :"
+				description="Wo sollen die Abteilungen angezeigt werden ?" >
+					<option
+						value="1">Detail</option>
+					<option
+						value="0">beide</option>
+					<option
+						value="2">Übersicht</option>
+	  		</field>
+	
+	  		<field
+				name="show_dienstgrad"
+				type="radio"
+				class="btn-group"
+				default="0"
+				label="Dienstgrade :"
+				description="Wo sollen die Dienstgrade angezeigt werden ?" >
+					<option
+						value="1">Detail</option>
+					<option
+						value="0">beide</option>
+					<option
+						value="2">Übersicht</option>
+	  		</field>
+
+	  		<field
+				name="show_funktionen"
+				type="radio"
+				class="btn-group"
+				default="0"
+				label="Funktionen :"
+				description="Wo sollen die Funktionen angezeigt werden ?" >
+					<option
+						value="1">Detail</option>
+					<option
+						value="0">beide</option>
+					<option
+						value="2">Übersicht</option>
+	  		</field>
+			
+	  		<field
+				name="show_abteilungen_list"
+				type="radio"
+				class="btn-group"
+				default="1"
+				label="Anzeige Abteilungen :"
+				description="Wie sollen die Abteilungen aufgelistet werden ? (nur main_layout_3)" >
+					<option
+						value="1">nebeneinander</option>
+					<option
+						value="0">untereinander</option>
+	  		</field>
+			
+	  		<field
+				name="show_ausbildungen_list"
+				type="radio"
+				class="btn-group"
+				default="1"
+				label="Anzeige Ausbildung :"
+				description="Wie sollen die Ausbildungen aufgelistet werden ?  (nur main_layout_3)" >
+					<option
+						value="1">nebeneinander</option>
+					<option
+						value="0">untereinander</option>
 	  		</field>
 
 			</fieldset>
@@ -96,6 +210,25 @@
 		label="Abteilung Anzeige Einstellungen :" 
 		class="alert alert-info" 
 		description="Hier können Sie entscheiden, welche Daten im Frontend angezeigt werden sollen."
+		/>
+		
+			  <field
+			name="display_abteilungen_bootstrap"
+			type="radio"
+			class="btn-group"
+			default="0"
+			label="Bootstrap CSS+JS :"
+			description="Hier kann die Bootstrap CSS und Javascript manuell nachgeladen werden.">
+			
+			<option
+				value="0">JNO</option>
+			<option
+				value="1">JYES</option>
+	  </field>
+		<field
+			name="spacer7"
+			type="spacer"
+			hr="true"
 		/>
 		
 	  		<field
@@ -114,6 +247,95 @@
 	  	
 			</fieldset>
 
+    <fieldset label="Ausbildungen" name="ftm_ausbildungen_anzeige">
+	
+<field name="note_show_1" 
+		type="note" 
+		label="Ausbildunge Anzeige Einstellungen :" 
+		class="alert alert-info" 
+		description="Hier können Sie entscheiden, welche Daten im Frontend angezeigt werden sollen."
+		/>
+		
+			  <field
+			name="display_ausbildungen_bootstrap"
+			type="radio"
+			class="btn-group"
+			default="0"
+			label="Bootstrap CSS+JS :"
+			description="Hier kann die Bootstrap CSS und Javascript manuell nachgeladen werden.">
+			
+			<option
+				value="0">JNO</option>
+			<option
+				value="1">JYES</option>
+	  </field>
+		<field
+			name="spacer8"
+			type="spacer"
+			hr="true"
+		/>
+		
+	  		<field
+				name="show_ausbildung_detail_link"
+				type="radio"
+				class="btn-group"
+				default="1"
+				label="Detaillink :"
+				description="" >
+					<option
+						value="0">Nein</option>
+					<option
+						value="1">Ja</option>
+	  		</field>
+		
+	  	
+			</fieldset>
+			
+    <fieldset label="Dienstgrade" name="ftm_dienstgrade_anzeige">
+	
+<field name="note_show_1" 
+		type="note" 
+		label="Dienstgrade Anzeige Einstellungen :" 
+		class="alert alert-info" 
+		description="Hier können Sie entscheiden, welche Daten im Frontend angezeigt werden sollen."
+		/>
+		
+			  <field
+			name="display_dienstgrade_bootstrap"
+			type="radio"
+			class="btn-group"
+			default="0"
+			label="Bootstrap CSS+JS :"
+			description="Hier kann die Bootstrap CSS und Javascript manuell nachgeladen werden.">
+			
+			<option
+				value="0">JNO</option>
+			<option
+				value="1">JYES</option>
+	  </field>
+		<field
+			name="spacer9"
+			type="spacer"
+			hr="true"
+		/>
+		
+	  		<field
+				name="show_dienstgrad_detail_link"
+				type="radio"
+				class="btn-group"
+				default="1"
+				label="Detaillink :"
+				description="" >
+					<option
+						value="0">Nein</option>
+					<option
+						value="1">Ja</option>
+	  		</field>
+		
+	  	
+			</fieldset>
+			
+			
 
 			<fieldset label="Termine" name="termine_anzeige">
 	
@@ -122,6 +344,25 @@
 		label="Allgemeine Anzeige der Termine :" 
 		class="alert alert-info" 
 		description="Hier können Sie entscheiden, welche Daten im Frontend angezeigt werden sollen."
+		/>
+	
+			  <field
+			name="display_termine_bootstrap"
+			type="radio"
+			class="btn-group"
+			default="0"
+			label="Bootstrap CSS+JS :"
+			description="Hier kann die Bootstrap CSS und Javascript manuell nachgeladen werden.">
+			
+			<option
+				value="0">JNO</option>
+			<option
+				value="1">JYES</option>
+	  </field>
+		<field
+			name="spacer6"
+			type="spacer"
+			hr="true"
 		/>
 	
 	  		<field
@@ -180,16 +421,52 @@
 				filter="raw" 
 				default=".ftm_passbild {max-width:150px !important;}" 
 				label="Mitglieder-Übersicht" 
-				description="Füge hier den zusätzlichen CSS-Code für die Einsatz-Übersicht ein." 
+				description="Füge hier den zusätzlichen CSS-Code für die Mitglieder-Übersicht ein." 
 				rows="10" 
 				cols="40" />
 				
-		<field 	name="abteilungen_css" 
+		<field 	name="mitglied_detail_css" 
+				type="textarea" 
+				filter="raw" 
+				default="" 
+				label="Mitglied-Detail-Ansicht" 
+				description="Füge hier den zusätzlichen CSS-Code für die Mitglied-Detail-Ansicht ein." 
+				rows="10" 
+				cols="40" />
+
+				<field 	name="abteilungen_css" 
 				type="textarea" 
 				filter="raw" 
 				default="" 
 				label="Abteilungen-Übersicht" 
 				description="Füge hier den zusätzlichen CSS-Code für die Abteilungen-Übersicht ein." 
+				rows="10" 
+				cols="40" />
+				
+				<field 	name="abteilung_detail_css" 
+				type="textarea" 
+				filter="raw" 
+				default="" 
+				label="Abteilung-Detail-Ansicht" 
+				description="Füge hier den zusätzlichen CSS-Code für die Abteilung-Detail-Ansicht ein." 
+				rows="10" 
+				cols="40" />
+
+				<field 	name="ausbildungen_css" 
+				type="textarea" 
+				filter="raw" 
+				default="" 
+				label="Ausbildungen-Übersicht" 
+				description="Füge hier den zusätzlichen CSS-Code für die Ausbildungen-Übersicht ein." 
+				rows="10" 
+				cols="40" />
+
+				<field 	name="ausbildung_detail_css" 
+				type="textarea" 
+				filter="raw" 
+				default="" 
+				label="Ausbildung-Detail-Ansicht" 
+				description="Füge hier den zusätzlichen CSS-Code für die Ausbildung-Detail-Ansicht ein." 
 				rows="10" 
 				cols="40" />
 
@@ -201,8 +478,36 @@
 				description="Füge hier den zusätzlichen CSS-Code für die Termine-Übersicht ein." 
 				rows="10" 
 				cols="40" />
+
+				<field 	name="termin_detail_css" 
+				type="textarea" 
+				filter="raw" 
+				default="" 
+				label="Termin-Detail-Ansicht" 
+				description="Füge hier den zusätzlichen CSS-Code für die Termine-Detail-Ansicht ein." 
+				rows="10" 
+				cols="40" />
+
 				
-	</fieldset>
+		<field 	name="dienstgrade_css" 
+				type="textarea" 
+				filter="raw" 
+				default="" 
+				label="Dienstgrade-Übersicht" 
+				description="Füge hier den zusätzlichen CSS-Code für die Dienstgrade-Übersicht ein." 
+				rows="10" 
+				cols="40" />
+
+		<field 	name="dienstgrad_detail_css" 
+				type="textarea" 
+				filter="raw" 
+				default="" 
+				label="Dienstgrad-Detail-Ansicht" 
+				description="Füge hier den zusätzlichen CSS-Code für die Dienstgrad-Detail-Ansicht ein." 
+				rows="10" 
+				cols="40" />
+
+</fieldset>
 			
 			
     <fieldset 

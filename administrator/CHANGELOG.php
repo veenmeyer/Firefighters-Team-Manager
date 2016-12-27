@@ -2,6 +2,18 @@
 <h1>Firefighters Team Manager für das Joomla-CMS</h1>
 <hr>
 
+<h3>Changelog <small>Version 1.04_beta</small></h3>
+<ul>
++ Formulare für das Eintragen bearbeitet
+# Pagination in Terminübersicht
+# Pagination in Mitgliederübersicht
++ Filtermöglichkeit im Menüpunkt Termine
++ Highslide-Lightbox in Mitglied-Detailansicht hinzugefügt
++ weitere Custom-CSS Boxen für Detail-Layouts
++ Main-Layout_3 für Mitglieder
++ Filtermöglichkeit im Menüpunkt Mitglieder 
+</ul>
+
 <h3>Changelog <small>Version 1.03</small></h3>
 <ul>
 + Main-Layout_2 für Mitglieder mit Modal-Detailansicht

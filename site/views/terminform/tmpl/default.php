@@ -24,7 +24,7 @@ $doc->addScript(JUri::base() . '/components/com_firefighters/assets/js/form.js')
 ?>
 </style>
 <script type="text/javascript">
-    getScript('//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js', function() {
+    function() {
         jQuery(document).ready(function() {
             jQuery('#form-termin').submit(function(event) {
                 
@@ -50,9 +50,9 @@ $doc->addScript(JUri::base() . '/components/com_firefighters/assets/js/form.js')
 
 <div class="termin-edit front-end-edit">
     <?php if (!empty($this->item->id)): ?>
-        <h1>Edit <?php echo $this->item->id; ?></h1>
+        <h1>Termin <small>bearbeiten</small> (ID.Nr.<?php echo $this->item->id; ?>)</h1>
     <?php else: ?>
-        <h1>Add</h1>
+        <h1>Termin <small>eintragen</small></h1>
     <?php endif; ?>
 
     <form id="form-termin" action="<?php echo JRoute::_('index.php?option=com_firefighters&task=termin.save'); ?>" method="post" class="form-validate form-horizontal" enctype="multipart/form-data">
@@ -67,10 +67,9 @@ $doc->addScript(JUri::base() . '/components/com_firefighters/assets/js/form.js')
 		<div class="control-label"><?php echo $this->form->getLabel('bild'); ?></div>
 		<div class="controls"><?php echo $this->form->getInput('bild'); ?></div>
 	</div>
-	<div class="control-group">
-		<div class="control-label"><?php echo $this->form->getLabel('email'); ?></div>
-		<div class="controls"><?php echo $this->form->getInput('email'); ?></div>
-	</div>
+	
+
+
 	<div class="control-group">
 		<div class="control-label"><?php echo $this->form->getLabel('abteilungen'); ?></div>
 		<div class="controls"><?php echo $this->form->getInput('abteilungen'); ?></div>
@@ -80,10 +79,7 @@ $doc->addScript(JUri::base() . '/components/com_firefighters/assets/js/form.js')
 			<input type="hidden" class="abteilungen" name="jform[abteilungenhidden][<?php echo $value; ?>]" value="<?php echo $value; ?>" />
 		<?php endif; ?>
 	<?php endforeach; ?>
-	<div class="control-group">
-		<div class="control-label"><?php echo $this->form->getLabel('beschreibung'); ?></div>
-		<div class="controls"><?php echo $this->form->getInput('beschreibung'); ?></div>
-	</div>
+	
 	<div class="control-group">
 		<div class="control-label"><?php echo $this->form->getLabel('datum_start'); ?></div>
 		<div class="controls"><?php echo $this->form->getInput('datum_start'); ?></div>
@@ -92,7 +88,29 @@ $doc->addScript(JUri::base() . '/components/com_firefighters/assets/js/form.js')
 		<div class="control-label"><?php echo $this->form->getLabel('datum_ende'); ?></div>
 		<div class="controls"><?php echo $this->form->getInput('datum_ende'); ?></div>
 	</div>
+	
 	<div class="control-group">
+		<div class="control-label"><?php echo $this->form->getLabel('beschreibung'); ?></div>
+		<div class="controls"><?php echo $this->form->getInput('beschreibung'); ?></div>
+	</div>
+	
+<?php
+	$plugin = JPluginHelper::getPlugin('system', 'ftm_event_mail') ;
+	if ($plugin) : 
+?>
+	<div class="control-group">
+		<div class="control-label"><?php echo $this->form->getLabel('email'); ?></div>
+		<div class="controls"><?php echo $this->form->getInput('email'); ?></div>
+	</div>
+<?php else:?>
+	<div class="control-group">
+		<div class="control-label"><?php echo '<label id="jform_email-lbl" for="jform_email" class="">
+	Erinnerung per Mail aktivieren <br/><span style="color:#ff0000;">(Achtung ! Das Plugin ist nicht aktiviert !!)</span></label>'; ?></div>
+		<div class="controls"><?php echo $this->form->getInput('email'); ?></div>
+	</div>
+<?php endif;?>
+
+	<div class="control-group"  style="display:none;">
 		<div class="control-label"><?php echo $this->form->getLabel('email_gesendet'); ?></div>
 		<div class="controls"><?php echo $this->form->getInput('email_gesendet'); ?></div>
 	</div>
@@ -100,10 +118,12 @@ $doc->addScript(JUri::base() . '/components/com_firefighters/assets/js/form.js')
 
 	<input type="hidden" name="jform[ordering]" value="<?php echo $this->item->ordering; ?>" />
 
-	<div class="control-group">
+	<div class="control-group" style="display:none;">
 		<div class="control-label"><?php echo $this->form->getLabel('created_by'); ?></div>
 		<div class="controls"><?php echo $this->form->getInput('created_by'); ?></div>
-	</div>				<div class="fltlft" <?php if (!JFactory::getUser()->authorise('core.admin','firefighters')): ?> style="display:none;" <?php endif; ?> >
+	</div>				
+	
+	<!--<div class="fltlft" <?php if (!JFactory::getUser()->authorise('core.admin','firefighters')): ?> style="display:none;" <?php endif; ?> >
                 <?php echo JHtml::_('sliders.start', 'permissions-sliders-'.$this->item->id, array('useCookie'=>1)); ?>
                 <?php echo JHtml::_('sliders.panel', JText::_('ACL Configuration'), 'access-rules'); ?>
                 <fieldset class="panelform">
@@ -111,7 +131,7 @@ $doc->addScript(JUri::base() . '/components/com_firefighters/assets/js/form.js')
                     <?php echo $this->form->getInput('rules'); ?>
                 </fieldset>
                 <?php echo JHtml::_('sliders.end'); ?>
-            </div>
+            </div> -->
 				<?php if (!JFactory::getUser()->authorise('core.admin','firefighters')): ?>
                 <script type="text/javascript">
                     jQuery.noConflict();

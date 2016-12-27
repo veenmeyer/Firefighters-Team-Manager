@@ -116,9 +116,11 @@ if (!empty($this->extra_sidebar)) {
 				<th class='left'>
 				<?php echo JHtml::_('grid.sort',  'COM_FIREFIGHTERS_MITGLIEDER_VORNAME', 'a.vorname', $listDirn, $listOrder); ?>
 				</th>
+				<!--
 				<th class='left'>
 				<?php echo JHtml::_('grid.sort',  'COM_FIREFIGHTERS_MITGLIEDER_NAME_EIKO', 'a.name_eiko', $listDirn, $listOrder); ?>
 				</th>
+				-->
 				<th class='left'>
 				<?php echo JHtml::_('grid.sort',  'COM_FIREFIGHTERS_MITGLIEDER_BILD', 'a.bild', $listDirn, $listOrder); ?>
 				</th>
@@ -143,9 +145,12 @@ if (!empty($this->extra_sidebar)) {
 				<th class='left'>
 				<?php echo JHtml::_('grid.sort',  'COM_FIREFIGHTERS_MITGLIEDER_AUSTRITTSDATUM', 'a.austrittsdatum', $listDirn, $listOrder); ?>
 				</th>
+				<!--
 				<th class='left'>
 				<?php echo JHtml::_('grid.sort',  'COM_FIREFIGHTERS_MITGLIEDER_MISSIONS_EIKO', 'a.missions_eiko', $listDirn, $listOrder); ?>
 				</th>
+				-->
+				
 				<th class='left'>
 				<?php echo JHtml::_('grid.sort',  'COM_FIREFIGHTERS_MITGLIEDER_CREATED_BY', 'a.created_by', $listDirn, $listOrder); ?>
 				</th>
@@ -227,10 +232,13 @@ if (!empty($this->extra_sidebar)) {
 
 					<?php echo $item->vorname; ?>
 				</td>
+				
+				<!--
 				<td>
-
 					<?php echo $item->name_eiko; ?>
 				</td>
+				-->
+				
 				<td>
 					<?php if ($item->bild): ?>
 					<?php echo '<img src="../'.$item->bild.'" width="50" height="100%" title="'.$item->bild.'" />'; ?>
@@ -267,10 +275,13 @@ if (!empty($this->extra_sidebar)) {
 
 					<?php echo $item->austrittsdatum; ?>
 				</td>
+				
+				<!--
 				<td>
-
 					<?php echo $item->missions_eiko; ?>
 				</td>
+				-->
+				
 				<td>
 
 					<?php echo $item->created_by; ?>

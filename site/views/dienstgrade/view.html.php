@@ -21,7 +21,8 @@ class FirefightersViewDienstgrade extends JViewLegacy {
     protected $pagination;
     protected $state;
     protected $params;
-
+    protected $version;
+	
     /**
      * Display the view
      */
@@ -33,6 +34,22 @@ class FirefightersViewDienstgrade extends JViewLegacy {
         $this->pagination = $this->get('Pagination');
         $this->params = $app->getParams('com_firefighters');
         
+		require_once JPATH_SITE.'/administrator/components/com_firefighters/helpers/firefighters.php'; // Helper-class laden
+      
+		$document = JFactory::getDocument();
+        // Import CSS
+		if ($this->params->get('display_dienstgrade_bootstrap','0')) :
+		// Import Bootstrap
+		JHtml::_('bootstrap.framework');
+		$document->addStyleSheet($this->baseurl . '/media/jui/css/bootstrap.min.css');
+		$document->addStyleSheet($this->baseurl.'/media/jui/css/icomoon.css');
+		endif;
+
+		$document->addStyleSheet('components/com_einsatzkomponente/assets/css/firefighters.css');
+		$document->addStyleDeclaration($this->params->get('dienstgrade_css','')); 
+
+		//Komponentenversion aus Datenbank lesen
+		$this->version 		= FirefightersHelper::getVersion (); 
 
         // Check for errors.
         if (count($errors = $this->get('Errors'))) {

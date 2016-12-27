@@ -14,19 +14,19 @@ defined('_JEXEC') or die;
 <form action="<?php echo JRoute::_('index.php?option=com_firefighters&view=mitglieder'); ?>" method="post" name="adminForm" id="adminForm">
 
 
-    <?php //echo JLayoutHelper::render('default_filter', array('view' => $this), dirname(__FILE__)); ?>
+    <?php echo JLayoutHelper::render('default_filter', array('view' => $this), dirname(__FILE__)); ?>
 	
-    <table class="table table-striped" id = "mitgliedList" >
+    <table class="table table-striped mitglieder_table" id = "mitgliedList" >
         <thead >
             <tr >
 			
-				<?php if ($this->params->get('show_passbild','1')) : ?>
+				<?php if ($this->params->get('show_passbild','0') == '0'  OR $this->params->get('show_passbild','0') == '2') : ?>
 				<th class='left'>
 				<?php echo 'Foto'; ?>
 				</th>
 				<?php endif;?>
 				
-				<?php if ($this->params->get('show_dienstgrad_image','1')) : ?>
+					<?php if ($this->params->get('show_dienstgrad_image','0') == '0'  OR $this->params->get('show_dienstgrad_image','0') == '2') : ?>
 				<th class='left'>
 				</th>
 				<?php endif;?>
@@ -37,7 +37,7 @@ defined('_JEXEC') or die;
 
     				<?php if ($canEdit || $canDelete): ?>
 					<th class="center">
-				<?php echo JText::_('COM_FIREFIGHTERS_MITGLIEDER_ACTIONS'); ?>
+				<?php echo JText::_('Admin-Aktionen'); ?>
 				</th>
 				<?php endif; ?>
 
@@ -52,7 +52,7 @@ defined('_JEXEC') or die;
 		<?php if (!$this->params->get('ftm')) : ?>
         <tr><!-- Bitte das Copyright nicht entfernen. Danke. -->
         <td colspan="<?php echo isset($this->items[0]) ? count(get_object_vars($this->items[0])) : 10; ?>">
-			<span class="copyright">Firefighters Team Manager V<?php echo $this->version; ?>  (C) 2015 by Ralf Meyer ( <a class="copyright_link" href="http://einsatzkomponente.de" target="_blank">www.einsatzkomponente.de</a> )</span></td>
+			<span class="copyright">Firefighters Team Manager V<?php echo $this->version; ?>  (C) 2016 by Ralf Meyer ( <a class="copyright_link" href="http://einsatzkomponente.de" target="_blank">www.einsatzkomponente.de</a> )</span></td>
         </tr>
 	<?php endif; ?>
     </tfoot>
@@ -67,68 +67,81 @@ defined('_JEXEC') or die;
         <tr class="row<?php echo $i % 2; ?>">
 
 
-				<?php if ($this->params->get('show_passbild','1')) : ?>
-				<td>
+				<?php if ($this->params->get('show_passbild','0') == '0'  OR $this->params->get('show_passbild','0') == '2') : ?>
+				<td class="mitglieder_passbild">
+<!--Titelbild mit Highslide JS-->
+
 				<?php if ($item->bild) : ?>
-					<img class="ftm_passbild" src="<?php echo JURI::Root();?><?php echo $item->bild;?>" alt="<?php echo $item->vorname.' '.$item->name;?>" title="<?php echo $item->vorname.' '.$item->name;?>"/>
+<a href="<?php echo JURI::Root().$item->bild;?>" rel="highslide[<?php echo $item->id; ?>]" class="highslide" onClick="return hs.expand(this, { captionText: '<?php echo $item->vorname.' '.$item->name;?>' });" alt ="<?php echo $item->vorname.' '.$item->name;?>">
+                  <img class="ftm_passbild" src="<?php echo JURI::Root().$item->bild;?>"  alt="<?php echo $item->vorname.' '.$item->name;?>" title="<?php echo $item->vorname.' '.$item->name;?>"/>
+                  </a>
 				<?php endif;?>
+
+<!--Titelbild mit Highslide JS  ENDE--> 
 				</td>
 				<?php endif;?>
 	
-				<?php if ($this->params->get('show_dienstgrad_image','1')) : ?>
-				<td>
+					<?php if ($this->params->get('show_dienstgrad_image','0') == '0'  OR $this->params->get('show_dienstgrad_image','0') == '2') : ?>
+				<td class="mitglieder_dienstgrad_image">
 				<?php if ($item->dienstgrad_image) : ?>
 					<img class="ftm_dienstgrad_image" src="<?php echo JURI::Root();?><?php echo $item->dienstgrad_image;?>" alt="<?php echo $item->dienstgrad;?>" title="<?php echo $item->dienstgrad;?>"/>
 				<?php endif;?>
 				</td>
 				<?php endif;?>
 				
-            	<td>
+            	<td class="mitglieder_details">
 				<?php if (isset($item->checked_out) && $item->checked_out) : ?>
 					<?php echo JHtml::_('jgrid.checkedout', $i, $item->editor, $item->checked_out_time, 'mitglieder.', $canCheckin); ?>
 				<?php endif; ?>
 				
 				<?php if ($this->params->get('show_mitlgied_detail_link','1')) : ?>
 				<a href="<?php echo JRoute::_('index.php?option=com_firefighters&view=mitglied&id='.(int) $item->id); ?>">
-				<?php echo '<span style="font-size:20px;font-weight:bold;">'.$this->escape($item->name).', '.$this->escape($item->vorname).'</span>'; ?></a> 
+				<?php echo '<span style="font-size:20px;font-weight:bold;" class="mitlgied_detail_link">'.$this->escape($item->name).', '.$this->escape($item->vorname).'</span>'; ?></a> 
 				<?php endif; ?>
 				<?php if (!$this->params->get('show_mitlgied_detail_link','1')) : ?>
-				<?php echo '<span style="color:#d63b37;font-size:20px;font-weight:bold;">'.$this->escape($item->name).', '.$this->escape($item->vorname).'</span>'; ?>
+				<?php echo '<span style="color:#d63b37;font-size:20px;font-weight:bold;" class="mitlgied_detail_link">'.$this->escape($item->name).', '.$this->escape($item->vorname).'</span>'; ?>
 				<?php endif; ?>
 				
 				<br/>				
-					<?php if ($this->params->get('show_alter','1')) : ?>
+					<?php if ($this->params->get('show_alter','0') == '0'  OR $this->params->get('show_alter','0') == '2') : ?>
 					<?php if ($item->geburtsdatum != '0000-00-00 00:00:00') : ?>
 					<?php echo '<b>Alter : </b>'.floor((time() - strtotime($item->geburtsdatum)) / 31558149.540288); ?>
 				<br/>
 					<?php endif; ?>
 					<?php endif; ?>
-					<?php if ($this->params->get('show_eintrittsdatum','1')) : ?>
+					<?php if ($this->params->get('show_eintrittsdatum','0') == '0'  OR $this->params->get('show_eintrittsdatum','0') == '2') : ?>
 					<?php if ($item->eintrittsdatum != '0000-00-00 00:00:00') : ?>
 					<?php //echo '<b>Eintrittsjahr : </b>'.date('Y', strtotime($item->eintrittsdatum)); ?>
 					<?php echo 'Seit '.floor((time() - strtotime($item->eintrittsdatum)) / 31558149.540288).' Jahr(en) Mitglied in der Feuerwehr'; ?>
-				<br/><br/>
+				<br/>
+					<?php endif; ?>
+					<?php endif; ?>
+				<br/>
+					<?php if ($this->params->get('show_funktionen','0') == '0'  OR $this->params->get('show_funktionen','0') == '2') : ?>
+					<?php if ($item->funktion) : ?>
+					<?php echo '<b>Funktion		: </b><span class="mitglieder_funktion">'.$item->funktion.'</span>'; ?><br/><br/>
 					<?php endif; ?>
 					<?php endif; ?>
 					
-				
-					<?php if ($item->funktion) : ?>
-					<?php echo '<b>Funktion		: '.$item->funktion.'</b>'; ?><br/><br/>
-					<?php endif; ?>
-				
+					<?php if ($this->params->get('show_dienstgrad','0') == '0'  OR $this->params->get('show_dienstgrad','0') == '2') : ?>
 					<?php if ($item->dienstgrad) : ?>
 					<?php echo '<b>Dienstgrad : </b>'.$item->dienstgrad; ?><br/>
 					<?php endif; ?>
+					<?php endif; ?>
 
+					<?php if ($this->params->get('show_abteilungen','0') == '0'  OR $this->params->get('show_abteilungen','0') == '2') : ?>
 					<?php if ($item->abteilungen) : ?>
 					<?php echo '<b>Abteilungen : </b>'.$item->abteilungen; ?><br/>
 					<?php endif; ?>
+					<?php endif; ?>
 
+					<?php if ($this->params->get('show_ausbildungen','0') == '0'  OR $this->params->get('show_ausbildungen','0') == '2') : ?>
 					<?php if ($item->ausbildungen) : ?>
 					<?php echo '<b>Ausbildung : </b>'.$item->ausbildungen; ?><br/>
 					<?php endif; ?>
+					<?php endif; ?>
 					
-					<?php if ($this->params->get('show_email','1')) : ?>
+					<?php if ($this->params->get('show_email','0') == '0'  OR $this->params->get('show_email','0') == '2') : ?>
 					<?php if ($item->emailadresse) : ?>
 					<br>
 					<?php echo '<b>Kontakt : </b><i class="icon-envelope"></i> '.JHTML::_('email.cloak', $item->emailadresse); ?> <br>
@@ -157,7 +170,7 @@ defined('_JEXEC') or die;
     <?php if ($canCreate): ?>
         <a href="<?php echo JRoute::_('index.php?option=com_firefighters&task=mitgliedform.edit&id=0', false, 2); ?>"
            class="btn btn-success btn-small"><i
-                class="icon-plus"></i> <?php echo JText::_('COM_FIREFIGHTERS_ADD_ITEM'); ?></a>
+                class="icon-plus"></i> <?php echo JText::_('Mitglied hinzufügen'); ?></a>
     <?php endif; ?>
 
     <input type="hidden" name="task" value=""/>

@@ -2,7 +2,7 @@
 /**
  * @version     3.0.0
  * @package     com_firefighters
- * @copyright   Copyright (C) 2013 by Ralf Meyer. All rights reserved.
+ * @copyright   Copyright (C) 2016 by Ralf Meyer. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  * @author      Ralf Meyer <webmaster@feuerwehr-veenhusen.de> - http://einsatzkomponente.de
  */
@@ -25,6 +25,9 @@ $params = json_decode( $db->loadResult(), true );
 
 $user	= JFactory::getUser();
 $userId	= $user->get('id');
+
+require_once JPATH_SITE.'/administrator/components/com_firefighters/helpers/firefighters.php'; 
+$val= FirefightersHelper::getValidation();
 
 ?>
 
@@ -115,7 +118,7 @@ Unterstützen Sie die Weiterentwicklung unseres Projekts FIREFIGHTERS TEAM MANAG
 						<dl class="dl-horizontal">
 							<dt>Version:</dt>
 							<dd><?php echo $params['version'];?>
-							<?php if ($this->params->get('ftm')) : ?>
+							<?php if ($val) : ?>
 							<?php echo '<span class="label label-success"> ( validiert ) </span>';?>
                             <?php else:?>
 							<?php echo '<span class="label label-important"> ( nicht validiert ) </span><br/>siehe Optionen / Info';?>
@@ -147,31 +150,39 @@ Unterstützen Sie die Weiterentwicklung unseres Projekts FIREFIGHTERS TEAM MANAG
 						</dl>
 						<hr>
 							<b>Premiumfunktionen:</b></br>
-							<?php if ($this->params->get('ftm')) : ?>
+							<?php if ($val) : ?>
 							<?php echo '<span style="margin-bottom:5px;" class="label label-success">unlimitierte Anzahl von Mitglieder</span></br>';?>
 							<?php echo '<span style="margin-bottom:5px;" class="label label-success">unlimitierte Anzahl von Terminen</span></br>';?>
 							<?php else:?>
 							<?php echo '<span style="margin-bottom:5px;text-decoration: line-through;" class="label label-important">unlimitierte Anzahl von Mitglieder</span></br>';?>
 							<?php echo '<span style="margin-bottom:5px;text-decoration: line-through;" class="label label-important">unlimitierte Anzahl von Terminen</span></br>';?>
 							<?php endif;?>
+							
+							<?php $plugin = JPluginHelper::getPlugin('system', 'ftm_event_mail') ;
+							if ($plugin) : 
+							?>
+												<span class="label label-success">Das Plugin ftm_event_mail ist aktivert</span>
+							<?php else : ?>
+												<span class="label label-important">Das Plugin <b>ftm_event_mail</b> ist nicht aktivert</span><span class="icon-info-2 large-icon" style="font-size:18px;" title="Diese Plugin wird benötigt, wenn Errinnerungsmails zu den Terminen versandt werden sollen. Du findest das Plugin im Downloadcenter bei einsatzkomponente.de"> </span>
+							<?php endif;?>
+							
 							<hr>
 						<b>Informationen:</b></br>
 						<a target="_blank" style="margin-bottom:5px;" style="margin-bottom:5px;" class="label label-info" href="http://www.einsatzkomponente.de">Download-Link Webseite</a> 
 						<br/>
-						<!--<a target="_blank" style="margin-bottom:5px;" class="label label-info" href="https://github.com/veenmeyer/Einsatzkomponente">Link zu GitHub</a> -->			
-					</br>
 						<!-- Button to trigger modal -->
-						<a href="#myModal" role="button" style="margin-bottom:5px;" class="label label-info" data-toggle="modal">Verfügbare Module ...</a>
+						<a href="#myModal" role="button" style="margin-bottom:5px;" class="label label-info" data-toggle="modal">Verfügbare Module und Plugins ...</a>
      
 						<!-- Modal -->
 						<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 						<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-						<h3 id="myModalLabel">Verfügbare Module</h3>
+						<h3 id="myModalLabel">Verfügbare Module und Plugins</h3>
 						</div>
 						<div class="modal-body">
 						<ul>
-						<li><a href="http://www.einsatzkomponente.de/wsif/index.php/Category/6-Module-f%C3%BCr-die-Einsatzkomponente-V3/" target="_blank" class="">mod_ftm_kalender</a> (Modul zur Anzeige der nächsten Termine auf einer Modulposition)</li>
+						<li><a href="http://einsatzkomponente.de/wsif/index.php/Category/12-Module-f%C3%BCr-Firefighters-Team-Manager/" target="_blank" class="">mod_ftm_kalender</a> (Modul zur Anzeige der nächsten Termine auf einer Modulposition)</li>
+						<li><a href="http://einsatzkomponente.de/wsif/index.php/Category/13-Premiumbereich-FTM-nur-f%C3%BCr-Premium-FTM-Benutzer-zug%C3%A4nglich/" target="_blank" class="">plg_system_ftm_event_email</a> (Plugin zum Verschicken von Erinnerungs-Emails für bevorstehende Termine. )</li>
 						</ul>
 						<h4>Mehr Infos dazu auf <a href="http://www.einsatzkomponente.de/" target="_blank" class="">www.einsatzkomponente.de</a></h4>
 						</div>
@@ -185,9 +196,9 @@ Unterstützen Sie die Weiterentwicklung unseres Projekts FIREFIGHTERS TEAM MANAG
 						
 						<?php 
 							if( ini_get('allow_url_fopen') ) {
-								echo '<span class="label label-success">allow_url_fopen aktiv</span>';
+								echo '<span class="label label-success">allow_url_fopen aktiv</span> ';
 								} else {
-								echo '<span class="label label-important">allow_url_fopen deaktiviert</span>';
+								echo '<span class="label label-important">allow_url_fopen deaktiviert</span> <span class="icon-info-2 large-icon" style="font-size:18px;" title="Diese PHP-Funktion ist leider auf Ihrem Server deaktiviert. Die Funktion wird zwingend für den Fall einer Online-Validation benötigt. Bei einigen Webhoster kann man die Funktion im Controlpanel des Webhostes selbst aktivieren. Ansonsten einfach mal beim Support des Webhosters anfragen, ob diese Funktion freigeschaltet werden kann."> </span>';
 								}
 						?>
 					<hr>
@@ -211,13 +222,13 @@ Unterstützen Sie die Weiterentwicklung unseres Projekts FIREFIGHTERS TEAM MANAG
 						<h4 style="margin-bottom:5px;">Weitere Links</h4>
 						<ul>
 						<li>
-						<a target="_blank" href="http://einsatzkomponente.de" style="text-decoration:underline">Supportforum für die Einsatzkomponente</a>
+						<a target="_blank" href="https://einsatzkomponente.de" style="text-decoration:underline">Supportforum für die Einsatzkomponente</a>
 						</li>
 						<li>
-						<a target="_blank" href="http://www.leitstelle-joomla.de" style="text-decoration:underline">Testseite für die Einsatzkomponente V3.x für J3</a>
+						<a target="_blank" href="https://demo.einsatzkomponente.de/" style="text-decoration:underline">Testseite für die Einsatzkomponente V3.x für J3</a>
 						</li>
 						<li>
-						<a target="_blank" href="https://www.feuerwehr-veenhusen.de" style="text-decoration:underline">Freiwillige Feuerwehr Veenhusen </a><font-size:small>(über ein paar nette im Gästebuch würde ich mich sehr freuen  lg Ralf Meyer )</font-size>
+						<a target="_blank" href="https://www.feuerwehr-veenhusen.de" style="text-decoration:underline">Freiwillige Feuerwehr Veenhusen </a>
 						</li>
 						</ul>
 						</div>

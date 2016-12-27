@@ -40,6 +40,16 @@ class FirefightersViewMitglieder extends JViewLegacy {
         $this->addToolbar();
 
         $this->sidebar = JHtmlSidebar::render();
+		
+		
+		    $user		= JFactory::getUser();
+		    if($this->_layout == 'edit') {
+            $authorised = $user->authorise('core.create', 'com_einsatzkomponente');
+            if ($authorised !== true) {
+                throw new Exception(JText::_('JERROR_ALERTNOAUTHOR'));
+            }			
+			}
+
         parent::display($tpl);
     }
 
@@ -55,6 +65,8 @@ class FirefightersViewMitglieder extends JViewLegacy {
         $canDo = FirefightersHelper::getActions($state->get('filter.category_id'));
 
         JToolBarHelper::title(JText::_('COM_FIREFIGHTERS_TITLE_MITGLIEDER'), 'mitglieder.png');
+
+if($this->_layout != 'edit') {
 
         //Check if the form exists before showing the add/edit buttons
         $formPath = JPATH_COMPONENT_ADMINISTRATOR . '/views/mitglied';
@@ -100,9 +112,11 @@ class FirefightersViewMitglieder extends JViewLegacy {
             }
         }
 
+}
         if ($canDo->get('core.admin')) {
             JToolBarHelper::preferences('com_firefighters');
         }
+		
 
         //Set sidebar action - New in 3.0
         JHtmlSidebar::setAction('index.php?option=com_firefighters&view=mitglieder');

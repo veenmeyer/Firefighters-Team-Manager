@@ -73,10 +73,6 @@ $document->addStyleSheet('components/com_firefighters/assets/css/firefighters.cs
 				<div class="controls"><?php echo $this->form->getInput('bild'); ?></div>
 			</div>
 			<div class="control-group">
-				<div class="control-label"><?php echo $this->form->getLabel('email'); ?></div>
-				<div class="controls"><?php echo $this->form->getInput('email'); ?></div>
-			</div>
-			<div class="control-group">
 				<div class="control-label"><?php echo $this->form->getLabel('abteilungen'); ?></div>
 				<div class="controls"><?php echo $this->form->getInput('abteilungen'); ?></div>
 			</div>
@@ -87,10 +83,8 @@ $document->addStyleSheet('components/com_firefighters/assets/css/firefighters.cs
 						echo '<input type="hidden" class="abteilungen" name="jform[abteilungenhidden]['.$value.']" value="'.$value.'" />';
 					endif;
 				endforeach;
-			?>			<div class="control-group">
-				<div class="control-label"><?php echo $this->form->getLabel('beschreibung'); ?></div>
-				<div class="controls"><?php echo $this->form->getInput('beschreibung'); ?></div>
-			</div>
+			?>		
+
 			<div class="control-group">
 				<div class="control-label"><?php echo $this->form->getLabel('datum_start'); ?></div>
 				<div class="controls"><?php echo $this->form->getInput('datum_start'); ?></div>
@@ -99,6 +93,28 @@ $document->addStyleSheet('components/com_firefighters/assets/css/firefighters.cs
 				<div class="control-label"><?php echo $this->form->getLabel('datum_ende'); ?></div>
 				<div class="controls"><?php echo $this->form->getInput('datum_ende'); ?></div>
 			</div>
+			
+			<div class="control-group">
+				<div class="control-label"><?php echo $this->form->getLabel('beschreibung'); ?></div>
+				<div class="controls"><?php echo $this->form->getInput('beschreibung'); ?></div>
+			</div>
+			
+<?php
+	$plugin = JPluginHelper::getPlugin('system', 'ftm_event_mail') ;
+	if ($plugin) : 
+?>
+	<div class="control-group">
+		<div class="control-label"><?php echo $this->form->getLabel('email'); ?></div>
+		<div class="controls"><?php echo $this->form->getInput('email'); ?></div>
+	</div>
+<?php else:?>
+	<div class="control-group">
+		<div class="control-label"><?php echo '<label id="jform_email-lbl" for="jform_email" class="">
+	Erinnerung per Mail aktivieren <br/><span style="color:#ff0000;">(Achtung ! Das Plugin ist nicht aktiviert !!)</span></label>'; ?></div>
+		<div class="controls"><?php echo $this->form->getInput('email'); ?></div>
+	</div>
+<?php endif;?>
+			
 			<div class="control-group">
 				<div class="control-label"><?php echo $this->form->getLabel('email_gesendet'); ?></div>
 				<div class="controls"><?php echo $this->form->getInput('email_gesendet'); ?></div>

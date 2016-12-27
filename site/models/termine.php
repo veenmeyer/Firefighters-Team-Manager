@@ -131,6 +131,23 @@ class FirefightersModelTermine extends JModelList
                 $this->setState('list.' . $name, $value);
             }
         }
+		
+// Filter aus Menülink abfangen 
+
+////if (!$app->input->getInt('list', 0)) : // Prüfen ob zurück aus Detailansicht
+$params = $app->getParams('com_einsatzkomponente');
+
+$this->setState('filter.abteilungen', $params->get('filter_abteilungen',''));
+$app->setUserState( $this->context . '.filter.abteilungen',  $params->get('filter_abteilungen','') );
+
+//$this->setState('filter.ausbildungen', $params->get('filter_ausbildungen',''));
+//$app->setUserState( $this->context . '.filter.ausbildungen',  $params->get('filter_ausbildungen','') );
+
+//$this->setState('filter.dienstgrad', $params->get('filter_dienstgrad',''));
+//$app->setUserState( $this->context . '.filter.dienstgrad',  $params->get('filter_dienstgrad','') );
+
+
+//endif;
 
         // Receive & set filters
         if ($filters = $app->getUserStateFromRequest($this->context . '.filter', 'filter', array(), 'array'))
