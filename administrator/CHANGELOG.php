@@ -2,12 +2,6 @@
 <h1>Firefighters Team Manager für das Joomla-CMS</h1>
 <hr>
 
-<h3>Changelog <small>Version 1.06_beta</small></h3>
-<ul>
-# 
-</ul>
-
-
 <h3>Changelog <small>Version 1.05</small></h3>
 <ul>
 # One-Click Update (per Joomla Installer)
