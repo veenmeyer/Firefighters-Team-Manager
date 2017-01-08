@@ -5,7 +5,7 @@
  * @package     com_firefighters
  * @copyright   Copyright (C) 2014. Alle Rechte vorbehalten.
  * @license     GNU General Public License Version 2 oder später; siehe LICENSE.txt
- * @author      Ralf Meyer <ralf.meyer@mail.de> - http://einsatzkomponente.de
+ * @author      Ralf Meyer <ralf.meyer@mail.de> - https://einsatzkomponente.de
  */
 // No direct access
 defined('_JEXEC') or die;
@@ -51,7 +51,7 @@ class FirefightersViewMitglieder extends JViewLegacy {
 		$document->addScript('components/com_firefighters/assets/highslide/highslide-with-gallery.js');
 		$document->addScript('components/com_firefighters/assets/highslide/highslide.config.js');		
 		$document->addStyleSheet('components/com_firefighters/assets/highslide/highslide.css'); 
-		$document->addStyleSheet('components/com_einsatzkomponente/assets/css/firefighters.css');
+		$document->addStyleSheet('components/com_firefighters/assets/css/firefighters.css');
 		$document->addStyleDeclaration($this->params->get('mitglieder_css','')); 
 		
 ?>

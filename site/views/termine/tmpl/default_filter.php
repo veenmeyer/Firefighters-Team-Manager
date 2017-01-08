@@ -3,7 +3,7 @@
 defined('JPATH_BASE') or die;
 
 $app = JFactory::getApplication();
-$params = $app->getParams('com_einsatzkomponente');
+$params = $app->getParams('com_firefighters');
 
 $data = $displayData;
 

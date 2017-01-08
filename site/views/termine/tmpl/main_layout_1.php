@@ -4,7 +4,7 @@
  * @package     com_firefighters
  * @copyright   Copyright (C) 2014. Alle Rechte vorbehalten.
  * @license     GNU General Public License Version 2 oder später; siehe LICENSE.txt
- * @author      Ralf Meyer <ralf.meyer@mail.de> - http://einsatzkomponente.de
+ * @author      Ralf Meyer <ralf.meyer@mail.de> - https://einsatzkomponente.de
  */
 // no direct access
 defined('_JEXEC') or die;
@@ -21,13 +21,17 @@ defined('_JEXEC') or die;
 	</br>
 
 				<ul class="event-list">
-				
+				<?php $aktuell = '';?>
 				    <?php foreach ($this->items as $i => $item) : ?>
 
 					<li>
 			<?php 	
 						  $curDate = strtotime($item->datum_start); 
 						  $curTime = date('H:i', $curDate);
+						  
+						  $actDate = strtotime('+2 week 2 days ');
+						  if ($curDate<$actDate AND !$aktuell) : $aktuell = 'aktuell';endif;
+						  
 			?>
 						<time datetime="<?php echo date('<b>d.m.Y</b> ', $curDate);?>">
 					<!--		<span class="Tag"><?php echo date('D', $curDate);?></span>
@@ -49,7 +53,7 @@ defined('_JEXEC') or die;
 						</time>
 						
 
-						<div class="info">
+						<div id="<?php echo $aktuell;?>" class="info">
 							<?php if ($this->params->get('show_link_termin','1')) : ?>
 							<a href="<?php echo JRoute::_('index.php?option=com_firefighters&view=termin&id='.(int) $item->id); ?>">
 							<?php echo '<p class="ftm_termine_title">'.$this->escape($item->name).'</p>'; ?></a>
@@ -116,7 +120,7 @@ defined('_JEXEC') or die;
 		<?php if (!$this->params->get('ftm')) : ?>
         <tr><!-- Bitte das Copyright nicht entfernen. Danke. -->
         <td colspan="<?php echo isset($this->items[0]) ? count(get_object_vars($this->items[0])) : 10; ?>">
-			<span class="copyright">Firefighters Team Manager V<?php echo $this->version; ?>  (C) 2016 by Ralf Meyer ( <a class="copyright_link" href="http://einsatzkomponente.de" target="_blank">www.einsatzkomponente.de</a> )</span></td>
+			<span class="copyright">Firefighters Team Manager V<?php echo $this->version; ?>  (C) 2016 by Ralf Meyer ( <a class="copyright_link" href="https://einsatzkomponente.de" target="_blank">www.einsatzkomponente.de</a> )</span></td>
         </tr>
 	<?php endif; ?>
     </tfoot>

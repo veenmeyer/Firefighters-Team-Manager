@@ -5,7 +5,7 @@
  * @package     com_firefighters
  * @copyright   Copyright (C) 2014. Alle Rechte vorbehalten.
  * @license     GNU General Public License Version 2 oder später; siehe LICENSE.txt
- * @author      Ralf Meyer <ralf.meyer@mail.de> - http://einsatzkomponente.de
+ * @author      Ralf Meyer <ralf.meyer@mail.de> - https://einsatzkomponente.de
  */
 defined('_JEXEC') or die;
 
@@ -135,7 +135,7 @@ class FirefightersModelTermine extends JModelList
 // Filter aus Menülink abfangen 
 
 ////if (!$app->input->getInt('list', 0)) : // Prüfen ob zurück aus Detailansicht
-$params = $app->getParams('com_einsatzkomponente');
+$params = $app->getParams('com_firefighters');
 
 $this->setState('filter.abteilungen', $params->get('filter_abteilungen',''));
 $app->setUserState( $this->context . '.filter.abteilungen',  $params->get('filter_abteilungen','') );
@@ -221,7 +221,11 @@ $query->where('a.state = 1');
         //$orderCol = $this->state->get('list.ordering');
         //$orderDirn = $this->state->get('list.direction');
         $orderCol = 'datum_start';
-        $orderDirn = 'DESC';
+        $app = JFactory::getApplication();
+		$params = $app->getParams('com_firefighters');
+        $sortierung = $params->get('show_termin_sortierung','0');
+		if ($sortierung) :  $orderDirn = 'DESC'; endif;
+		if (!$sortierung) :  $orderDirn = 'ASC'; endif;
         if ($orderCol && $orderDirn)
         {
             $query->order($db->escape($orderCol . ' ' . $orderDirn));

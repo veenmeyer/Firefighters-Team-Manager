@@ -4,14 +4,14 @@
  * @package     com_firefighters
  * @copyright   Copyright (C) 2014. Alle Rechte vorbehalten.
  * @license     GNU General Public License Version 2 oder später; siehe LICENSE.txt
- * @author      Ralf Meyer <ralf.meyer@mail.de> - http://einsatzkomponente.de
+ * @author      Ralf Meyer <ralf.meyer@mail.de> - https://einsatzkomponente.de
  */
 // no direct access
 defined('_JEXEC') or die;
 
 //Load admin language file
 $lang = JFactory::getLanguage();
-$lang->load('com_einsatzkomponente', JPATH_ADMINISTRATOR);
+$lang->load('com_firefighters', JPATH_ADMINISTRATOR);
 
 JHtml::_('behavior.keepalive');
 JHtml::_('behavior.tooltip');

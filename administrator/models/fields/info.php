@@ -4,7 +4,7 @@
  * @package     com_firefighters
  * @copyright   Copyright (C) 2015 by Ralf Meyer. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
- * @author      Ralf Meyer <webmaster@feuerwehr-veenhusen.de> - http://einsatzkomponente.de
+ * @author      Ralf Meyer <webmaster@feuerwehr-veenhusen.de> - https://einsatzkomponente.de
  */
 
 defined('JPATH_BASE') or die;
@@ -44,7 +44,7 @@ class JFormFieldInfo extends JFormField
 		$val= FirefightersHelper::getValidation();
 
 		if ($val == '12') : 
-		$html[] = '<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert">x</button><span aria-hidden="true" class="icon-cancel"></span> ' . JText::_('<p>Diese Version von <b>Einsatzkomponente</b> ist validiert. <br/> Vielen Dank f&uuml;r Ihre Unterst&uuml;tzung.</p><p>- Die Copyrights im Frontend, sollten jetzt alle entfernt sein.</p>');		
+		$html[] = '<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert">x</button><span aria-hidden="true" class="icon-cancel"></span> ' . JText::_('<p>Diese Version von <b>Firefighters Team Manager</b> ist validiert. <br/> Vielen Dank f&uuml;r Ihre Unterst&uuml;tzung.</p><p>- Die Copyrights im Frontend, sollten jetzt alle entfernt sein.</p>');		
 		else:
 		$html[] = '<div class="alert alert-error"><button type="button" class="close" data-dismiss="alert">x</button><span aria-hidden="true" class="icon-cancel"></span>Diese Version von <b>Firefighters Team Manager</b> ist nicht validiert. Sie k&ouml;nnen selbstverst&auml;ndlich <b>alle Funktionen</b> kostenlos nutzen,<br/> aber &uuml;ber eine kleine Unterst&uuml;tzung an die Entwickler, w&uuml;rden wir uns nat&uuml;rlich sehr freuen. <br/>Helfen Sie uns, damit wir Ihnen dieses und weitere Projekte auch in Zukunft kostenlos und ohne Werbung anbieten k&ouml;nnen. <br/><br/>Schicken Sie eine Anfrage via Mail an validate@einsatzkomponente.de und holen Sie sich heute noch den Validation-Schl&uuml;ssel.<br/><br/><p>kleiner Vorteil:<br/>- Das Copyright im Frontend wird dadurch entfernt.  ;-)<br/>- und bevorzugten Support im Forum und via Email</p></div><a target="_blank" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=XPQALX4UFFGM4"><div>Spende &uuml;ber PAYPAL : <img border=0  src="https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif" /></div></a><br/><br/>
 ';		
@@ -57,7 +57,7 @@ class JFormFieldInfo extends JFormField
 		$html[] = '<h3>Entwickler-Version</h3>';
 		endif;
 		$html[] = '<p></p>';
-		$html[] = '<p><a href="http://www.einsatzkomponente.de/" target="_blank">Supportforum: http://www.einsatzkomponente.de/</a></p>';	
+		$html[] = '<p><a href="https://www.einsatzkomponente.de/" target="_blank">Supportforum: https://www.einsatzkomponente.de/</a></p>';	
 		return implode($html);
 	}
 }

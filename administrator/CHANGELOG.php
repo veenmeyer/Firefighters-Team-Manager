@@ -2,8 +2,9 @@
 <h1>Firefighters Team Manager für das Joomla-CMS</h1>
 <hr>
 
-<h3>Changelog <small>Version 1.06.0_beta</small></h3>
+<h3>Changelog <small>Version 1.06.0</small></h3>
 <ul>
+# diverse kleinere Fehler behoben
 # Anzeige-Option Ausbildung/Abteilung
 </ul>
 

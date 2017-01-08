@@ -5,7 +5,7 @@
  * @package     com_firefighters
  * @copyright   Copyright (C) 2014. Alle Rechte vorbehalten.
  * @license     GNU General Public License Version 2 oder später; siehe LICENSE.txt
- * @author      Ralf Meyer <ralf.meyer@mail.de> - http://einsatzkomponente.de
+ * @author      Ralf Meyer <ralf.meyer@mail.de> - https://einsatzkomponente.de
  */
 // No direct access
 defined('_JEXEC') or die;
@@ -44,7 +44,7 @@ class FirefightersViewMitglieder extends JViewLegacy {
 		
 		    $user		= JFactory::getUser();
 		    if($this->_layout == 'edit') {
-            $authorised = $user->authorise('core.create', 'com_einsatzkomponente');
+            $authorised = $user->authorise('core.create', 'com_firefighters');
             if ($authorised !== true) {
                 throw new Exception(JText::_('JERROR_ALERTNOAUTHOR'));
             }			
