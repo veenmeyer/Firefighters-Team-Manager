@@ -4,7 +4,7 @@
  * @package     com_firefighters
  * @copyright   Copyright (C) by Ralf Meyer 2013. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
- * @author      Ralf Meyer <webmaster@feuerwehr-veenhusen.de> - http://einsatzkomponente.de
+ * @author      Ralf Meyer <webmaster@feuerwehr-veenhusen.de> - https://einsatzkomponente.de
  */
 // No direct access
 defined('_JEXEC') or die;

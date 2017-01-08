@@ -242,7 +242,7 @@
 type="note" 
 class="alert alert-info" 
 label="Eigene Layouts verwenden" 
-description="Es ist möglich auch eigene Layouts zu verwenden, die bei einem Update nicht überschrieben werden. Weitere Informationen hierzu gibt es im Forum http://www.einsatzkomponente.de" 
+description="Es ist möglich auch eigene Layouts zu verwenden, die bei einem Update nicht überschrieben werden. Weitere Informationen hierzu gibt es im Forum https://www.einsatzkomponente.de" 
 />
 
 		 <field name="note_main_layout" 

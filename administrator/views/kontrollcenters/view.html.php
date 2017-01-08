@@ -5,7 +5,7 @@
  * @package     com_firefighters
  * @copyright   Copyright (C) 2014. Alle Rechte vorbehalten.
  * @license     GNU General Public License Version 2 oder später; siehe LICENSE.txt
- * @author      Ralf Meyer <ralf.meyer@mail.de> - http://einsatzkomponente.de
+ * @author      Ralf Meyer <ralf.meyer@mail.de> - https://einsatzkomponente.de
  */
 // No direct access
 defined('_JEXEC') or die;
@@ -27,7 +27,7 @@ class FirefightersViewKontrollcenters extends JViewLegacy {
      */
     public function display($tpl = null) {
         $this->state = $this->get('State');
-		$this->params = JComponentHelper::getParams('com_einsatzkomponente');
+		$this->params = JComponentHelper::getParams('com_firefighters');
         
 
         // Check for errors.

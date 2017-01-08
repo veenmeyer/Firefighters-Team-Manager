@@ -4,7 +4,7 @@
  * @package     com_firefighters
  * @copyright   Copyright (C) 2013 by Ralf Meyer. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
- * @author      Ralf Meyer <webmaster@feuerwehr-veenhusen.de> - http://einsatzkomponente.de
+ * @author      Ralf Meyer <webmaster@feuerwehr-veenhusen.de> - https://einsatzkomponente.de
  */
 // No direct access
 defined('_JEXEC') or die;
@@ -33,7 +33,7 @@ $bug='0';
 		echo '<h2>'.JTEXT::_('Installationsmanager für Firefighters Team Manager Version ').$params['version'].'</h2>'; 
 		
 		?>
-		<a target="_blank" href="http://www.einsatzkomponente.de/index.php"><img border=0  src="<?php echo JURI::base(); ?>components/com_firefighters/assets/images/komponentenbanner.jpg"/></a><br/><br/>
+		<a target="_blank" href="https://www.einsatzkomponente.de/index.php"><img border=0  src="<?php echo JURI::base(); ?>components/com_firefighters/assets/images/komponentenbanner.jpg"/></a><br/><br/>
         <?php
 
 		
@@ -117,7 +117,7 @@ echo '</div>';
 
 
 <?php if ($bug == '1') : ?>
-<?php echo '<span class="label label-important">Installation nicht erfolgreich ...</span><br/><br/>Versuchen Sie es nochmal, oder wenden Sie sich an das Supportforum : <a href="http://www.einsatzkomponente.de" target="_blank">http://www.einsatzkomponente.de</a>';?>
+<?php echo '<span class="label label-important">Installation nicht erfolgreich ...</span><br/><br/>Versuchen Sie es nochmal, oder wenden Sie sich an das Supportforum : <a href="https://www.einsatzkomponente.de" target="_blank">https://www.einsatzkomponente.de</a>';?>
 <?php endif; ?>
 
 <?php if ($bug == '2') : ?>

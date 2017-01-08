@@ -5,7 +5,7 @@
  * @package     com_firefighters
  * @copyright   Copyright (C) 2014. Alle Rechte vorbehalten.
  * @license     GNU General Public License Version 2 oder später; siehe LICENSE.txt
- * @author      Ralf Meyer <ralf.meyer@mail.de> - http://einsatzkomponente.de
+ * @author      Ralf Meyer <ralf.meyer@mail.de> - https://einsatzkomponente.de
  */
 // No direct access
 defined('_JEXEC') or die;
@@ -96,7 +96,7 @@ class FirefightersHelper {
 
 		$version = new JVersion;
 		$params = JComponentHelper::getParams('com_firefighters');
-		$response = @file("http://einsatzkomponente.de/gateway/ftm_validation.php?validation=".$params->get('validation_key','0')."&domain=".$_SERVER['SERVER_NAME']."&version=".$version->getShortVersion()."&ftmversion=".$eikoversion); // Request absetzen
+		$response = @file("https://einsatzkomponente.de/gateway/ftm_validation.php?validation=".$params->get('validation_key','0')."&domain=".$_SERVER['SERVER_NAME']."&version=".$version->getShortVersion()."&ftmversion=".$eikoversion); // Request absetzen
 		@$response_code = intval($response[1]); // Rückgabewert auslesen
 if ($response_code=='12') :	
 $params->set('ftm', '1');

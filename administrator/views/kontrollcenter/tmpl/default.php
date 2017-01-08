@@ -4,7 +4,7 @@
  * @package     com_firefighters
  * @copyright   Copyright (C) 2016 by Ralf Meyer. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
- * @author      Ralf Meyer <webmaster@feuerwehr-veenhusen.de> - http://einsatzkomponente.de
+ * @author      Ralf Meyer <webmaster@feuerwehr-veenhusen.de> - https://einsatzkomponente.de
  */
 // no direct access
 defined('_JEXEC') or die;
@@ -94,7 +94,7 @@ if (!empty($this->extra_sidebar)) {
 
 <div class="span4">
 <div class="alert alert-info" style=" float:left;">
-<a target="_blank" href="http://www.einsatzkomponente.de/index.php"><img src="<?php echo JURI::base(); ?>components/com_firefighters/assets/images/komponentenbanner.jpg" style="float:left; margin-right:20px; padding-right:20px;"/></a>
+<a target="_blank" href="https://www.einsatzkomponente.de/index.php"><img src="<?php echo JURI::base(); ?>components/com_firefighters/assets/images/komponentenbanner.jpg" style="float:left; margin-right:20px; padding-right:20px;"/></a>
 <span class="label label-important">Was könnt Ihr zur Entwicklung beitragen ?</span><br/><br/>
 Neben sehr viel Freizeit kostet die Entwicklung unserer Software und der Unterhalt dieser Supportseite natürlich auch Geld.
 Unterstützen Sie die Weiterentwicklung unseres Projekts FIREFIGHTERS TEAM MANAGER mit einer Spende, damit wir unsere Software auch weiterhin kostenlos und werbefrei zur Verfügung stellen können.
@@ -168,7 +168,7 @@ Unterstützen Sie die Weiterentwicklung unseres Projekts FIREFIGHTERS TEAM MANAG
 							
 							<hr>
 						<b>Informationen:</b></br>
-						<a target="_blank" style="margin-bottom:5px;" style="margin-bottom:5px;" class="label label-info" href="http://www.einsatzkomponente.de">Download-Link Webseite</a> 
+						<a target="_blank" style="margin-bottom:5px;" style="margin-bottom:5px;" class="label label-info" href="https://www.einsatzkomponente.de">Download-Link Webseite</a> 
 						<br/>
 						<!-- Button to trigger modal -->
 						<a href="#myModal" role="button" style="margin-bottom:5px;" class="label label-info" data-toggle="modal">Verfügbare Module und Plugins ...</a>
@@ -181,10 +181,10 @@ Unterstützen Sie die Weiterentwicklung unseres Projekts FIREFIGHTERS TEAM MANAG
 						</div>
 						<div class="modal-body">
 						<ul>
-						<li><a href="http://einsatzkomponente.de/wsif/index.php/Category/12-Module-f%C3%BCr-Firefighters-Team-Manager/" target="_blank" class="">mod_ftm_kalender</a> (Modul zur Anzeige der nächsten Termine auf einer Modulposition)</li>
-						<li><a href="http://einsatzkomponente.de/wsif/index.php/Category/13-Premiumbereich-FTM-nur-f%C3%BCr-Premium-FTM-Benutzer-zug%C3%A4nglich/" target="_blank" class="">plg_system_ftm_event_email</a> (Plugin zum Verschicken von Erinnerungs-Emails für bevorstehende Termine. )</li>
+						<li><a href="https://einsatzkomponente.de/wsif/index.php/Category/12-Module-f%C3%BCr-Firefighters-Team-Manager/" target="_blank" class="">mod_ftm_kalender</a> (Modul zur Anzeige der nächsten Termine auf einer Modulposition)</li>
+						<li><a href="https://einsatzkomponente.de/wsif/index.php/Category/13-Premiumbereich-FTM-nur-f%C3%BCr-Premium-FTM-Benutzer-zug%C3%A4nglich/" target="_blank" class="">plg_system_ftm_event_email</a> (Plugin zum Verschicken von Erinnerungs-Emails für bevorstehende Termine. )</li>
 						</ul>
-						<h4>Mehr Infos dazu auf <a href="http://www.einsatzkomponente.de/" target="_blank" class="">www.einsatzkomponente.de</a></h4>
+						<h4>Mehr Infos dazu auf <a href="https://www.einsatzkomponente.de/" target="_blank" class="">www.einsatzkomponente.de</a></h4>
 						</div>
 						<div class="modal-footer">
 						<button class="btn" data-dismiss="modal" aria-hidden="true">Schliessen</button>

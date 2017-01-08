@@ -5,7 +5,7 @@
  * @package     com_firefighters
  * @copyright   Copyright (C) 2014. Alle Rechte vorbehalten.
  * @license     GNU General Public License Version 2 oder später; siehe LICENSE.txt
- * @author      Ralf Meyer <ralf.meyer@mail.de> - http://einsatzkomponente.de
+ * @author      Ralf Meyer <ralf.meyer@mail.de> - https://einsatzkomponente.de
  */
 // No direct access
 defined('_JEXEC') or die;
@@ -38,7 +38,7 @@ class FirefightersController extends JControllerLegacy {
 		<tr>
 		<div class="alert alert-info j-toggle-main " style="">
 		<button type="button" class="close" data-dismiss="alert">&times;</button>
-		<h4>Hinweis :</h4>Achtung Beta-Version <?php echo $parameter['version'];?> !!! Es wird nicht empfohlen, diese Version der Einsatzkomponente auf einer öffentlichen Live-Webseite zu betreiben. 
+		<h4>Hinweis :</h4>Achtung Beta-Version <?php echo $parameter['version'];?> !!! Es wird nicht empfohlen, diese Version der Firefighters Komponente auf einer öffentlichen Live-Webseite zu betreiben. 
 		</div>        
 		</tr>
 		</table>
@@ -66,7 +66,7 @@ class FirefightersController extends JControllerLegacy {
 <?php	// Catch Sites 
 
 		$j_version = new JVersion;
-		$response = @file("http://einsatzkomponente.de/gateway/ftm_validation.php?validation=".$params->get('validation_key','0')."&domain=".$_SERVER['SERVER_NAME']."&version=".$j_version->getShortVersion()."&ftmversion=".$version); // Request absetzen
+		$response = @file("https://einsatzkomponente.de/gateway/ftm_validation.php?validation=".$params->get('validation_key','0')."&domain=".$_SERVER['SERVER_NAME']."&version=".$j_version->getShortVersion()."&ftmversion=".$version); // Request absetzen
 
 		
         $view = JFactory::getApplication()->input->getCmd('view', 'kontrollcenter');

@@ -28,6 +28,7 @@
 			hr="true"
 		/>
 
+		
 	  		<field
 				name="show_mitlgied_detail_link"
 				type="radio"
@@ -360,11 +361,28 @@
 				value="1">JYES</option>
 	  </field>
 		<field
-			name="spacer6"
+			name="spacer64541"
 			type="spacer"
 			hr="true"
 		/>
-	
+			  <field
+			name="show_termin_sortierung"
+			type="radio"
+			class="btn-group"
+			default="1"
+			label="Sortierung Datum :"
+			description="Hier können Sie festlegen, ob die Termine, auf- oder abwärts sortiert werden sollen.">
+			
+			<option
+				value="0">Aufwärts</option>
+			<option
+				value="1">Abwärts</option>
+	  </field>
+		<field
+			name="spacer66564"
+			type="spacer"
+			hr="true"
+		/>
 	  		<field
 				name="show_link_termin"
 				type="radio"
