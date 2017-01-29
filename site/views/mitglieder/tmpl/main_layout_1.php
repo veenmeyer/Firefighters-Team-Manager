@@ -116,10 +116,15 @@ defined('_JEXEC') or die;
 				<br/>
 					<?php endif; ?>
 					<?php endif; ?>
+					<?php if ($this->params->get('show_email','0') == '0'  OR $this->params->get('show_email','0') == '2') : ?>
+					<?php if ($item->emailadresse) : ?>
+					<?php echo '<b>Kontakt : </b><i class="icon-envelope"></i> '.JHTML::_('email.cloak', $item->emailadresse); ?> <br>
+					<?php endif;?>
+					<?php endif;?>
 				<br/>
 					<?php if ($this->params->get('show_funktionen','0') == '0'  OR $this->params->get('show_funktionen','0') == '2') : ?>
 					<?php if ($item->funktion) : ?>
-					<?php echo '<b>Funktion		: </b><span class="mitglieder_funktion">'.$item->funktion.'</span>'; ?><br/><br/>
+					<?php echo '<b>Funktion		: </b><span class="mitglieder_funktion">'.$item->funktion.'</span>'; ?><br/>
 					<?php endif; ?>
 					<?php endif; ?>
 					
@@ -141,10 +146,16 @@ defined('_JEXEC') or die;
 					<?php endif; ?>
 					<?php endif; ?>
 					
-					<?php if ($this->params->get('show_email','0') == '0'  OR $this->params->get('show_email','0') == '2') : ?>
-					<?php if ($item->emailadresse) : ?>
-					<br>
-					<?php echo '<b>Kontakt : </b><i class="icon-envelope"></i> '.JHTML::_('email.cloak', $item->emailadresse); ?> <br>
+					<?php if ($this->params->get('show_list_dienstgrad','0') != '4') : ?>
+					<?php if ($this->params->get('show_list_dienstgrad','0') == '0'  OR $this->params->get('show_list_dienstgrad','0') == '1') : ?>
+					<?php if ($item->list_dienstgrad) : ?>
+					<?php $laufbahn = array();?>
+					<?php foreach ($item->list_dienstgrad as $itemz) : ?>
+					<?php $laufbahn[] = $itemz['dienstgrad'].' ('.date('Y',strtotime($itemz['dienstgrad_datum'])).')'; ?>
+					<?php endforeach; ?>
+					<?php $laufbahn = implode (', ',$laufbahn);?>
+					<?php echo '<b>Laufbahn : </b>'.$laufbahn;?> <br/>
+					<?php endif;?>
 					<?php endif;?>
 					<?php endif;?>
 				

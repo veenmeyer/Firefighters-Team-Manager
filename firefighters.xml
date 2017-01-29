@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension type="component" version="3.0" method="upgrade">
+<extension type="component" version="3.6" method="upgrade">
     <name>com_firefighters</name>
     <creationDate>2017-01-29</creationDate> 
     <copyright>Copyright (C) 2017. Alle Rechte vorbehalten.</copyright>
@@ -7,8 +7,13 @@
     <author>Ralf Meyer</author>
     <authorEmail>ralf.meyer@einsatzkomponente.de</authorEmail>
     <authorUrl>https://einsatzkomponente.de</authorUrl>
-    <version>1.06.2</version> 
-    <description>Komponente zur Mannschafts- und Terminverwaltung der Feuerwehren</description>
+    <version>1.06.3_beta</version> 
+    <description><![CDATA[
+			<h1>Firefighters Team Manager</h1><h3>für das Joomla-CMS</h3>
+			<div style="clear: both;"></div>
+			<p>Copyright (C) 2017 Ralf Meyer</p>
+			<p>Website: <a href='https://www.einsatzkomponente.de'>www.einsatzkomponente.de</a></p>
+			]]></description>
      
     <scriptfile>script.php</scriptfile> 
     

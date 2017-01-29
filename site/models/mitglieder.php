@@ -34,11 +34,14 @@ class FirefightersModelMitglieder extends JModelList
                 'name_eiko', 'a.name_eiko',
                 'bild', 'a.bild',
                 'dienstgrad', 'a.dienstgrad',
+                'list_dienstgrad', 'a.list_dienstgrad',
                 'abteilungen', 'a.abteilungen',
+                'list_abteilungen', 'a.list_abteilungen',
                 'kommando', 'a.kommando',
                 'funktion', 'a.funktion',
                 'mehr_funktionen', 'a.mehr_funktionen',
                 'ausbildungen', 'a.ausbildungen',
+                'list_ausbildungen', 'a.list_ausbildungen',
                 'geburtsdatum', 'a.geburtsdatum',
                 'eintrittsdatum', 'a.eintrittsdatum',
                 'austrittsdatum', 'a.austrittsdatum',
@@ -270,8 +273,28 @@ $query->where('a.state = 1');
         $items = parent::getItems();
         foreach($items as $item){
 	
+			if (isset($item->list_dienstgrad) && $item->list_dienstgrad != '') 
+				{
+					$item->list_dienstgrad= json_decode($item->list_dienstgrad);
+					$item->list_dienstgrad = JArrayHelper::fromObject($item->list_dienstgrad);
+					$n = 0;
+					foreach ($item->list_dienstgrad as $itemz) :
+					$db = JFactory::getDbo();
+					$query = $db->getQuery(true);
+					$query
+							->select('name,bild')
+							->from('`#__firefighters_dienstgrade`')
+							->where('id = ' . $db->quote($db->escape($item->list_dienstgrad['list_dienstgrad'.$n.'']['dienstgrad'])));
+					$db->setQuery($query);
+					$results = $db->loadObject();
+					if ($results) {
+						$item->list_dienstgrad['list_dienstgrad'.$n.'']['dienstgrad'] = $results->name;
+					}
+					$n++;
+					endforeach;
+				}
 
-			if (isset($item->dienstgrad) && $item->dienstgrad != '') {
+				if (isset($item->dienstgrad) && $item->dienstgrad != '') {
 				if(is_object($item->dienstgrad)){
 					$item->dienstgrad = JArrayHelper::fromObject($item->dienstgrad);
 				}

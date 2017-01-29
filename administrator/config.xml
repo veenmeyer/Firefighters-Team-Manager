@@ -162,6 +162,24 @@
 	  		</field>
 
 	  		<field
+				name="show_list_dienstgrad"
+				type="radio"
+				class="btn-group"
+				default="0"
+				label="Laufbahn :"
+				description="Wo sollen die Laufbahn angezeigt werden ?" >
+					<option
+						value="1">Detail</option>
+					<option
+						value="0">beide</option>
+					<option
+						value="2">Übersicht</option>
+					<option
+						value="3">nirgendwo</option> 
+	  		</field>
+			
+			
+	  		<field
 				name="show_funktionen"
 				type="radio"
 				class="btn-group"
@@ -180,7 +198,7 @@
 				name="show_abteilungen_list"
 				type="radio"
 				class="btn-group"
-				default="1"
+				default="0"
 				label="Anzeige Abteilungen :"
 				description="Wie sollen die Abteilungen aufgelistet werden ? (nur main_layout_3)" >
 					<option
@@ -193,7 +211,7 @@
 				name="show_ausbildungen_list"
 				type="radio"
 				class="btn-group"
-				default="1"
+				default="0"
 				label="Anzeige Ausbildung :"
 				description="Wie sollen die Ausbildungen aufgelistet werden ?  (nur main_layout_3)" >
 					<option
@@ -201,7 +219,21 @@
 					<option
 						value="0">untereinander</option>
 	  		</field>
+			
+	  		<field
+				name="show_dienstgrad_list"
+				type="radio"
+				class="btn-group"
+				default="0"
+				label="Anzeige Laufbahn :"
+				description="" >
+					<option
+						value="1">nebeneinander</option>
+					<option
+						value="0">untereinander</option>
+	  		</field>
 
+			
 			</fieldset>
 
     <fieldset label="Abteilungen" name="ftm_abteilung_anzeige">

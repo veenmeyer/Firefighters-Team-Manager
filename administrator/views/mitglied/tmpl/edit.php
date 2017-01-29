@@ -84,8 +84,9 @@ $document->addStyleSheet('components/com_firefighters/assets/css/firefighters.cs
         }
     }
 </script>
-
-
+<?php
+$val= FirefightersHelper::getValidation();
+?>
 <form action="<?php echo JRoute::_('index.php?option=com_firefighters&layout=edit&id=' . (int) $this->item->id); ?>" method="post" enctype="multipart/form-data" name="adminForm" id="mitglied-form" class="form-validate">
 
     <div class="form-horizontal">
@@ -106,9 +107,20 @@ $document->addStyleSheet('components/com_firefighters/assets/css/firefighters.cs
 				<div class="controls"><?php echo $this->form->getInput('vorname'); ?></div>
 			</div>
 			<div class="control-group">
+				<div class="control-label"><?php echo $this->form->getLabel('geburtsdatum'); ?></div>
+				<div class="controls"><?php echo $this->form->getInput('geburtsdatum'); ?></div>
+			</div>
+			<div class="control-group">
+				<div class="control-label"><?php echo $this->form->getLabel('emailadresse'); ?></div>
+				<div class="controls"><?php echo $this->form->getInput('emailadresse'); ?></div>
+			</div>
+			
+
+		<!--	<div class="control-group">
 				<div class="control-label"><?php echo $this->form->getLabel('name_eiko'); ?></div>
 				<div class="controls"><?php echo $this->form->getInput('name_eiko'); ?></div>
-			</div>
+			</div> -->
+			
 			<div class="control-group">
 				<div class="control-label"><?php echo $this->form->getLabel('bild'); ?></div>
 				<div class="controls"><?php echo $this->form->getInput('bild'); ?></div>
@@ -120,7 +132,13 @@ $document->addStyleSheet('components/com_firefighters/assets/css/firefighters.cs
 			<div class="control-group">
 				<div class="control-label"><?php echo $this->form->getLabel('dienstgrad'); ?></div>
 				<div class="controls" style="padding-bottom:10px;"><?php echo $this->form->getInput('dienstgrad'); ?></div>
-				<div class="controls"><?php echo $this->form->getInput('list_dienstgrad'); ?></div>
+				<div class="controls hideme"><?php echo $this->form->getInput('list_dienstgrad'); ?></div>
+				<?php if (!$val) : ?>
+				<div class="controls"><?php echo '<span style="color:red;">Dienstgrad-Historie nur Premium-Version verfügbar</span>'; ?></div>
+				<style>
+				.hideme {display:none;}
+				</style>
+				<?php endif;?>
 			</div>
 			<br/>
 
@@ -136,7 +154,13 @@ $document->addStyleSheet('components/com_firefighters/assets/css/firefighters.cs
 			<div class="control-group">
 				<div class="control-label"><?php echo $this->form->getLabel('abteilungen'); ?></div>
 				<div class="controls" style="padding-bottom:10px;"><?php echo $this->form->getInput('abteilungen'); ?></div>
-				<div class="controls"><?php echo $this->form->getInput('list_abteilungen'); ?></div>
+				<div class="controls hideme"><?php echo $this->form->getInput('list_abteilungen'); ?></div>
+				<?php if (!$val) : ?>
+				<div class="controls"><?php echo '<span style="color:red;">Abteilungen-Historie nur Premium-Version verfügbar</span>'; ?></div>
+				<style>
+				.hideme {display:none;}
+				</style>
+				<?php endif;?>
 			</div>
 			<br/>
 			
@@ -153,6 +177,12 @@ $document->addStyleSheet('components/com_firefighters/assets/css/firefighters.cs
 				<div class="control-label"><?php echo $this->form->getLabel('ausbildungen'); ?></div>
 				<div class="controls" style="padding-bottom:10px;"><?php echo $this->form->getInput('ausbildungen'); ?></div>
 				<div class="controls"><?php echo $this->form->getInput('list_ausbildungen'); ?></div>
+				<?php if (!$val) : ?>
+				<div class="controls"><?php echo '<span style="color:red;">Ausbildungen-Historie nur Premium-Version verfügbar</span>'; ?></div>
+				<style>
+				.hideme {display:none;}
+				</style>
+				<?php endif;?>
 			</div>
 			<br/>
 
@@ -179,10 +209,6 @@ $document->addStyleSheet('components/com_firefighters/assets/css/firefighters.cs
 			<br/>
 			
 			<div class="control-group">
-				<div class="control-label"><?php echo $this->form->getLabel('geburtsdatum'); ?></div>
-				<div class="controls"><?php echo $this->form->getInput('geburtsdatum'); ?></div>
-			</div>
-			<div class="control-group">
 				<div class="control-label"><?php echo $this->form->getLabel('eintrittsdatum'); ?></div>
 				<div class="controls"><?php echo $this->form->getInput('eintrittsdatum'); ?></div>
 			</div>
@@ -190,14 +216,11 @@ $document->addStyleSheet('components/com_firefighters/assets/css/firefighters.cs
 				<div class="control-label"><?php echo $this->form->getLabel('austrittsdatum'); ?></div>
 				<div class="controls"><?php echo $this->form->getInput('austrittsdatum'); ?></div>
 			</div>
-			<div class="control-group">
-				<div class="control-label"><?php echo $this->form->getLabel('emailadresse'); ?></div>
-				<div class="controls"><?php echo $this->form->getInput('emailadresse'); ?></div>
-			</div>
-			<div class="control-group">
+			
+		<!--	<div class="control-group">
 				<div class="control-label"><?php echo $this->form->getLabel('missions_eiko'); ?></div>
 				<div class="controls"><?php echo $this->form->getInput('missions_eiko'); ?></div>
-			</div>
+			</div> -->
 
 			<?php
 				foreach((array)$this->item->missions_eiko as $value): 

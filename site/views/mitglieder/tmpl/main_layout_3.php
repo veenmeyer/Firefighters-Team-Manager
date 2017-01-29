@@ -127,6 +127,13 @@ defined('_JEXEC') or die;
 				<br/>
 					<?php endif; ?>
 					<?php endif; ?>
+					
+					<?php if ($this->params->get('show_email','0') == '0'  OR $this->params->get('show_email','0') == '2') : ?>
+					<?php if ($item->emailadresse) : ?>
+					<br>
+					<?php echo '<b>Kontakt : </b><i class="icon-envelope"></i> '.JHTML::_('email.cloak', $item->emailadresse); ?> <br>
+					<?php endif;?>
+					<?php endif;?>
 				<br/>
 					<?php if ($this->params->get('show_funktionen','0') == '0'  OR $this->params->get('show_funktionen','0') == '2') : ?>
 					<?php if ($item->funktion) : ?>
@@ -182,13 +189,36 @@ defined('_JEXEC') or die;
 					<?php endif; ?>
 					<?php endif; ?>
 					
-					<?php if ($this->params->get('show_email','0') == '0'  OR $this->params->get('show_email','0') == '2') : ?>
-					<?php if ($item->emailadresse) : ?>
-					<br>
-					<?php echo '<b>Kontakt : </b><i class="icon-envelope"></i> '.JHTML::_('email.cloak', $item->emailadresse); ?> <br>
+					
+					<?php if ($this->params->get('show_list_dienstgrad','0') != '4') : ?>
+					
+					<?php if ($this->params->get('show_dienstgrad_list','1') == '1') : ?>
+					<?php if ($this->params->get('show_list_dienstgrad','0') == '0'  OR $this->params->get('show_list_dienstgrad','0') == '1') : ?>
+					<?php if ($item->list_dienstgrad) : ?>
+					<?php $laufbahn = array();?>
+					<?php foreach ($item->list_dienstgrad as $itemz) : ?>
+					<?php $laufbahn[] = $itemz['dienstgrad'].' ('.date('Y',strtotime($itemz['dienstgrad_datum'])).')'; ?>
+					<?php endforeach; ?>
+					<?php $laufbahn = implode (', ',$laufbahn);?>
+					<?php echo '<b>Laufbahn : </b>'.$laufbahn;?> <br/>
 					<?php endif;?>
 					<?php endif;?>
-				
+					<?php endif;?>
+					
+					<?php if ($this->params->get('show_dienstgrad_list','1') == '0') : ?>
+					<?php if ($this->params->get('show_list_dienstgrad','0') == '0'  OR $this->params->get('show_list_dienstgrad','0') == '1') : ?>
+					<?php if ($item->list_dienstgrad) : ?>
+					<?php echo '<table style="border:0px;margin-left:-2px;margin-top:5px;padding-top:5px;"><tr><td style="vertical-align:top"><b>Laufbahn : </b></td><td>'; ?>
+					<?php foreach ($item->list_dienstgrad as $itemz) : ?>
+					<?php echo '<li>'.$itemz['dienstgrad'].' ('.date('Y',strtotime($itemz['dienstgrad_datum'])).')</li>'; ?>
+					<?php endforeach; ?>
+					<?php echo '</td></tr></table><br/>';?>
+					<?php endif;?>
+					<?php endif;?>
+					<?php endif;?>
+					
+					<?php endif;?>
+					
 				</span>
 
 

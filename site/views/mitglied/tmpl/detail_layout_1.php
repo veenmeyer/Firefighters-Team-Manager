@@ -37,6 +37,7 @@ if (!$canEdit && JFactory::getUser()->authorise('core.edit.own', 'com_firefighte
 <!--Titelbild mit Highslide JS  ENDE--> 
 
 
+
     <div class="span4">
         <p>
 			<?php echo '<span class="ftm_detail_1_name">'.$this->item->vorname.' '.$this->item->name.'</span>'; ?>
@@ -54,6 +55,7 @@ if (!$canEdit && JFactory::getUser()->authorise('core.edit.own', 'com_firefighte
 				<?php endif;?>
 		</p>
 		
+		
 		<?php if ($this->params->get('show_alter','0') == '0'  OR $this->params->get('show_alter','0') == '1') : ?>
 					<?php if ($this->item->geburtsdatum != '0000-00-00 00:00:00') : ?>
 					<?php echo 'Alter : '.floor((time() - strtotime($this->item->geburtsdatum)) / 31558149.540288); ?>
@@ -70,6 +72,16 @@ if (!$canEdit && JFactory::getUser()->authorise('core.edit.own', 'com_firefighte
 					<?php endif; ?>
 					
 		<p>
+		
+			<?php if ($this->params->get('show_email','0') == '0'  OR $this->params->get('show_email','0') == '1') : ?>
+			<?php if ($this->item->emailadresse) : ?>
+			
+			<?php echo 'Kontakt : <i class="icon-envelope"></i> '.JHTML::_('email.cloak', $this->item->emailadresse); ?> <br>
+			<?php endif;?>
+			<br>
+			<?php endif;?>
+
+		
 		<?php if ($this->params->get('show_funktionen','0') == '0'  OR $this->params->get('show_funktionen','0') == '1') : ?>
 		<?php if ($this->item->funktion) : ?>
         <?php echo 'Funktion(-en) : '.$this->item->funktion; ?> <br>
@@ -114,18 +126,45 @@ if (!$canEdit && JFactory::getUser()->authorise('core.edit.own', 'com_firefighte
 					<?php foreach ( $ausbildungen as $ausbildung) :  ?>
 					<?php echo '<li>'.$ausbildung.'</li>';?>
 					<?php endforeach; ?>
+					<?php echo '</td></tr></table>';?>
+					<?php endif; ?>
+					<?php endif; ?>
+					<?php endif; ?>
+					
+		
+		
+		
+					<?php if ($this->params->get('show_list_dienstgrad','0') != '4') : ?>
+					
+					<?php if ($this->params->get('show_dienstgrad_list','1') == '1') : ?>
+					<?php if ($this->params->get('show_list_dienstgrad','0') == '0'  OR $this->params->get('show_list_dienstgrad','0') == '1') : ?>
+					<?php if ($this->item->list_dienstgrad) : ?>
+					<?php $laufbahn = array();?>
+					<?php foreach ($this->item->list_dienstgrad as $itemz) : ?>
+					<?php $laufbahn[] = $itemz['dienstgrad'].' ('.date('Y',strtotime($itemz['dienstgrad_datum'])).')'; ?>
+					<?php endforeach; ?>
+					<?php $laufbahn = implode (', ',$laufbahn);?>
+					<?php echo '<b>Laufbahn : </b>'.$laufbahn;?> <br/>
+					<?php endif;?>
+					<?php endif;?>
+					<?php endif;?>
+		
+					<?php if ($this->params->get('show_dienstgrad_list','1') == '0') : ?>
+					<?php if ($this->params->get('show_list_dienstgrad','0') == '0'  OR $this->params->get('show_list_dienstgrad','0') == '1') : ?>
+					<?php if ($this->item->list_dienstgrad) : ?>
+					<?php echo '<table style="border:0px;margin-left:-2px;margin-top:5px;padding-top:5px;"><tr><td style="vertical-align:top">Laufbahn : </td><td>'; ?>
+					<?php foreach ($this->item->list_dienstgrad as $itemz) : ?>
+					<?php echo '<li>'.$itemz['dienstgrad'].' ('.date('Y',strtotime($itemz['dienstgrad_datum'])).')</li>'; ?>
+					<?php endforeach; ?>
 					<?php echo '</td></tr></table><br/>';?>
-					<?php endif; ?>
-					<?php endif; ?>
-					<?php endif; ?>
-
-		<?php if ($this->params->get('show_email','0') == '0'  OR $this->params->get('show_email','0') == '1') : ?>
-			<?php if ($this->item->emailadresse) : ?>
-			<br>
-			<?php echo 'Kontakt : <i class="icon-envelope"></i> '.JHTML::_('email.cloak', $this->item->emailadresse); ?> <br>
-			<?php endif;?>
-		<?php endif;?>
-
+					<?php endif;?>
+					<?php endif;?>
+					<?php endif;?>
+					
+					<?php endif;?>
+					
+					
+					
 		</p>
     </div>
   </div>

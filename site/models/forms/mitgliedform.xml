@@ -2,7 +2,7 @@
 <form>
 	<fieldset>
 
-       <field name="id" type="text" default="0" label="COM_FIREFIGHTERS_FORM_LBL_MITGLIED_ID"
+              <field name="id" type="text" default="0" label="COM_FIREFIGHTERS_FORM_LBL_MITGLIED_ID"
             readonly="true" class="readonly"
             description="JGLOBAL_FIELD_ID_DESC" /> 
 
@@ -27,7 +27,7 @@
             option_on="Yes"
             option_off="Yes" /> 
 
-       <field name="name_eiko" type="text"
+       <field name="name_eiko" type="hidden"
             label="COM_FIREFIGHTERS_FORM_LBL_MITGLIED_NAME_EIKO"
             description="COM_FIREFIGHTERS_FORM_DESC_MITGLIED_NAME_EIKO" 
             menu_published="0"
@@ -48,38 +48,60 @@
             option_off="Yes" /> 
 
  <field name="dienstgrad" type="foreignkey" class="inputbox"
-            label="COM_FIREFIGHTERS_FORM_LBL_MITGLIED_DIENSTGRAD"
-            description="COM_FIREFIGHTERS_FORM_DESC_MITGLIED_DIENSTGRAD" input_type="list" table="#__firefighters_dienstgrade" key_field="id" value_field="name"  /> 
+            label="Aktueller Dienstgrad"
+            description="COM_FIREFIGHTERS_FORM_DESC_MITGLIED_DIENSTGRAD" input_type="list" table="#__firefighters_dienstgrade" key_field="id" value_field="name"  />
 
-       <field name="filter_dienstgrad" type="sql" class="inputbox"
+			<field name="filter_dienstgrad" type="sql" class="inputbox"
             onchange="this.form.submit();"
-            query="SELECT 0 AS `id`, '- Dienstgrad -' AS `name` UNION SELECT `id`, `name` FROM `#__firefighters_dienstgrade`" key_field="id" value_field="name"
+            query="SELECT 0 AS `id`, '- Please select Dienstgrad -' AS `val` UNION SELECT `id`, `name` AS val FROM `#__firefighters_dienstgrade`" key_field="id" value_field="val"
              /> 
-
+			 
+<field name="list_dienstgrad" 
+		type="subform"
+		formsource="components/com_firefighters/models/forms/sub_dienstgrad.xml" 
+		multiple="true"
+		label="Dienstgrad-Historie" 
+		description="Bisher erreichte Dienstgrade"
+		default=''
+		layout="joomla.form.field.subform.repeatable-table" 
+		min = '0'
+		max = '50'
+		buttons="add,remove,move"
+		groupByFieldset="false"		/>
+		
+	
  <field name="abteilungen" type="foreignkey" class="inputbox"
-            label="COM_FIREFIGHTERS_FORM_LBL_MITGLIED_ABTEILUNGEN"
+            label="Aktuelle Abteilungen"
             description="COM_FIREFIGHTERS_FORM_DESC_MITGLIED_ABTEILUNGEN" input_type="list" table="#__firefighters_abteilungen" key_field="id" value_field="name"  multiple="multiple"/> 
 
        <field name="filter_abteilungen" type="sql" class="inputbox"
             onchange="this.form.submit();"
-            query="SELECT 0 AS `id`, '- Abteilung(-en) -' AS `name` UNION SELECT `id`, `name` FROM `#__firefighters_abteilungen`" key_field="id" value_field="name"
+            query="SELECT 0 AS `id`, '- Please select Abteilung(-en) -' AS `val` UNION SELECT `id`, `name` AS val FROM `#__firefighters_abteilungen`" key_field="id" value_field="val"
              /> 
 
-       <field name="kommando" 
+<field name="list_abteilungen" 
+		type="subform"
+		formsource="components/com_firefighters/models/forms/sub_abteilungen.xml" 
+		multiple="true"
+		label="Abteilungen-Historie" 
+		description=""
+		default=''
+		layout="joomla.form.field.subform.repeatable-table" 
+		min = '0'
+		max = '50'
+		buttons="add,remove,move"
+		groupByFieldset="false"		/>
+
+		<field name="kommando" 
 				type="radio" 
 				buttons="true"
-                class="btn-group btn-group-yesno" 
-				default="0"
+				class="btn-group btn-group-yesno" 
+			   default="0"     
 				label="COM_FIREFIGHTERS_FORM_LBL_MITGLIED_KOMMANDO"
 				description="COM_FIREFIGHTERS_FORM_DESC_MITGLIED_KOMMANDO" >
 				<option value="1">COM_FIREFIGHTERS_MITGLIEDER_KOMMANDO_OPTION_ON</option>
 				<option value="0">COM_FIREFIGHTERS_MITGLIEDER_KOMMANDO_OPTION_OFF</option>
-		</field> 
-
-       <field name="kommando" type="text" size="40" class="inputbox"
-				label="COM_FIREFIGHTERS_FORM_LBL_MITGLIED_KOMMANDO"
-				description="COM_FIREFIGHTERS_FORM_DESC_MITGLIED_KOMMANDO" 
-				filter="safehtml" /> 
+			</field> 
 
        <field name="funktion" type="text"
             label="COM_FIREFIGHTERS_FORM_LBL_MITGLIED_FUNKTION"
@@ -93,6 +115,7 @@
             option_off="Yes" /> 
 
        <field name="mehr_funktionen" type="text"
+                
             label="COM_FIREFIGHTERS_FORM_LBL_MITGLIED_MEHR_FUNKTIONEN"
             description="COM_FIREFIGHTERS_FORM_DESC_MITGLIED_MEHR_FUNKTIONEN" 
             menu_published="0"
@@ -109,15 +132,26 @@
 
        <field name="filter_ausbildungen" type="sql" class="inputbox"
             onchange="this.form.submit();"
-            query="SELECT 0 AS `id`, '- Please select Ausbildung(-en) -' AS `name` UNION SELECT `id`, `name` FROM `#__firefighters_ausbildungen`" key_field="id" value_field="name"
+            query="SELECT 0 AS `id`, '- Please select Ausbildung(-en) -' AS `val` UNION SELECT `id`, `name` AS val FROM `#__firefighters_ausbildungen`" key_field="id" value_field="val"
              /> 
-
+			 
+<field name="list_ausbildungen" 
+		type="subform"
+		formsource="components/com_firefighters/models/forms/sub_ausbildungen.xml" 
+		multiple="true"
+		label="Ausbildungen-Historie" 
+		description=""
+		default=''
+		layout="joomla.form.field.subform.repeatable-table" 
+		min = '0'
+		max = '50'
+		buttons="add,remove,move"
+		groupByFieldset="false"		/>
+			 
        <field name="geburtsdatum" type="calendar"
-                
             label="COM_FIREFIGHTERS_FORM_LBL_MITGLIED_GEBURTSDATUM"
             description="COM_FIREFIGHTERS_FORM_DESC_MITGLIED_GEBURTSDATUM" 
             format="%Y-%m-%d"
-            default="" 
             menu_published="0"
             class="ftm_geburtsdatum"
             filter="safehtml"
@@ -125,11 +159,9 @@
             option_off="Yes" /> 
 
        <field name="eintrittsdatum" type="calendar"
-                
             label="COM_FIREFIGHTERS_FORM_LBL_MITGLIED_EINTRITTSDATUM"
             description="COM_FIREFIGHTERS_FORM_DESC_MITGLIED_EINTRITTSDATUM" 
             format="%Y-%m-%d"
-            default="" 
             menu_published="0"
             class="ftm_eintrittsdatum"
             filter="safehtml"
@@ -140,7 +172,6 @@
             label="COM_FIREFIGHTERS_FORM_LBL_MITGLIED_AUSTRITTSDATUM"
             description="COM_FIREFIGHTERS_FORM_DESC_MITGLIED_AUSTRITTSDATUM" 
             format="%Y-%m-%d"
-            default="" 
             menu_published="0"
             class="ftm_austrittsdatum"
             filter="safehtml"
@@ -156,11 +187,11 @@
 
        <field name="filter_missions_eiko" type="sql" class="inputbox"
             onchange="this.form.submit();"
-            query="SELECT 0 AS `id`, '- Einsätze -' AS `datum_start` UNION SELECT `id`, `datum_start` FROM `#__firefighters_termine`" key_field="id" value_field="datum_start"
+            query="SELECT 0 AS `id`, '- Please select Einsätze -' AS `val` UNION SELECT `id`, `datum_start` AS val FROM `#__firefighters_termine`" key_field="id" value_field="val"
              /> 
 
        <field name="created_by" type="createdby" default="" 
-            label="Erstellt von"
+            label="COM_FIREFIGHTERS_FORM_LBL_MITGLIED_CREATED_BY"
             description="COM_FIREFIGHTERS_FORM_DESC_MITGLIED_CREATED_BY"  /> 
 
          <field
