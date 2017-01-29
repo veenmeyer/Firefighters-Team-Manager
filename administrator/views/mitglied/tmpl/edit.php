@@ -15,6 +15,11 @@ JHtml::_('behavior.formvalidation');
 JHtml::_('formbehavior.chosen', 'select');
 JHtml::_('behavior.keepalive');
 
+// JS for Subform, to make the Dropdown "choosen"
+//$doc = JFactory::getDocument();
+//$js = '	jQuery(document).on(\'subform-row-add\', function(event, row){		jQuery(row).find(\'select\').chosen();	})';
+//$doc->addScriptDeclaration($js);
+
 // Import CSS
 $document = JFactory::getDocument();
 $document->addStyleSheet('components/com_firefighters/assets/css/firefighters.css');
@@ -80,6 +85,7 @@ $document->addStyleSheet('components/com_firefighters/assets/css/firefighters.cs
     }
 </script>
 
+
 <form action="<?php echo JRoute::_('index.php?option=com_firefighters&layout=edit&id=' . (int) $this->item->id); ?>" method="post" enctype="multipart/form-data" name="adminForm" id="mitglied-form" class="form-validate">
 
     <div class="form-horizontal">
@@ -107,10 +113,16 @@ $document->addStyleSheet('components/com_firefighters/assets/css/firefighters.cs
 				<div class="control-label"><?php echo $this->form->getLabel('bild'); ?></div>
 				<div class="controls"><?php echo $this->form->getInput('bild'); ?></div>
 			</div>
+			
+			<br/>
+			<br/>
+
 			<div class="control-group">
 				<div class="control-label"><?php echo $this->form->getLabel('dienstgrad'); ?></div>
-				<div class="controls"><?php echo $this->form->getInput('dienstgrad'); ?></div>
+				<div class="controls" style="padding-bottom:10px;"><?php echo $this->form->getInput('dienstgrad'); ?></div>
+				<div class="controls"><?php echo $this->form->getInput('list_dienstgrad'); ?></div>
 			</div>
+			<br/>
 
 			<?php
 				foreach((array)$this->item->dienstgrad as $value): 
@@ -118,10 +130,16 @@ $document->addStyleSheet('components/com_firefighters/assets/css/firefighters.cs
 						echo '<input type="hidden" class="dienstgrad" name="jform[dienstgradhidden]['.$value.']" value="'.$value.'" />';
 					endif;
 				endforeach;
-			?>			<div class="control-group">
+			?>		
+		
+			<br/>
+			<div class="control-group">
 				<div class="control-label"><?php echo $this->form->getLabel('abteilungen'); ?></div>
-				<div class="controls"><?php echo $this->form->getInput('abteilungen'); ?></div>
+				<div class="controls" style="padding-bottom:10px;"><?php echo $this->form->getInput('abteilungen'); ?></div>
+				<div class="controls"><?php echo $this->form->getInput('list_abteilungen'); ?></div>
 			</div>
+			<br/>
+			
 
 			<?php
 				foreach((array)$this->item->abteilungen as $value): 
@@ -129,7 +147,24 @@ $document->addStyleSheet('components/com_firefighters/assets/css/firefighters.cs
 						echo '<input type="hidden" class="abteilungen" name="jform[abteilungenhidden]['.$value.']" value="'.$value.'" />';
 					endif;
 				endforeach;
-			?>			<div class="control-group">
+			?>	
+			<br/>
+			<div class="control-group">
+				<div class="control-label"><?php echo $this->form->getLabel('ausbildungen'); ?></div>
+				<div class="controls" style="padding-bottom:10px;"><?php echo $this->form->getInput('ausbildungen'); ?></div>
+				<div class="controls"><?php echo $this->form->getInput('list_ausbildungen'); ?></div>
+			</div>
+			<br/>
+
+			<?php
+				foreach((array)$this->item->ausbildungen as $value): 
+					if(!is_array($value)):
+						echo '<input type="hidden" class="ausbildungen" name="jform[ausbildungenhidden]['.$value.']" value="'.$value.'" />';
+					endif;
+				endforeach;
+			?>	
+
+			<div class="control-group">
 				<div class="control-label"><?php echo $this->form->getLabel('kommando'); ?></div>
 				<div class="controls"><?php echo $this->form->getInput('kommando'); ?></div>
 			</div>
@@ -141,18 +176,9 @@ $document->addStyleSheet('components/com_firefighters/assets/css/firefighters.cs
 				<div class="control-label"><?php echo $this->form->getLabel('mehr_funktionen'); ?></div>
 				<div class="controls"><?php echo $this->form->getInput('mehr_funktionen'); ?></div>
 			</div>
+			<br/>
+			
 			<div class="control-group">
-				<div class="control-label"><?php echo $this->form->getLabel('ausbildungen'); ?></div>
-				<div class="controls"><?php echo $this->form->getInput('ausbildungen'); ?></div>
-			</div>
-
-			<?php
-				foreach((array)$this->item->ausbildungen as $value): 
-					if(!is_array($value)):
-						echo '<input type="hidden" class="ausbildungen" name="jform[ausbildungenhidden]['.$value.']" value="'.$value.'" />';
-					endif;
-				endforeach;
-			?>			<div class="control-group">
 				<div class="control-label"><?php echo $this->form->getLabel('geburtsdatum'); ?></div>
 				<div class="controls"><?php echo $this->form->getInput('geburtsdatum'); ?></div>
 			</div>
@@ -192,6 +218,8 @@ $document->addStyleSheet('components/com_firefighters/assets/css/firefighters.cs
         </div>
         <?php echo JHtml::_('bootstrap.endTab'); ?>
         
+		
+		
         <?php if (JFactory::getUser()->authorise('core.admin','firefighters')) : ?>
 	<?php echo JHtml::_('bootstrap.addTab', 'myTab', 'permissions', JText::_('JGLOBAL_ACTION_PERMISSIONS_LABEL', true)); ?>
 		<?php echo $this->form->getInput('rules'); ?>

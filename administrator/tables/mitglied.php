@@ -41,6 +41,9 @@ class FirefightersTablemitglied extends JTable
 		
 
 		//Support for multiple or not foreign key field: dienstgrad
+		
+ if((!empty($array['list_dienstgrad'])&&(is_array($array['list_dienstgrad'])))) { $this->_jsonEncode[]="list_dienstgrad"; }
+ 
 			if(!empty($array['dienstgrad'])){
 				if(is_array($array['dienstgrad'])){
 					$array['dienstgrad'] = implode(',',$array['dienstgrad']);
@@ -54,6 +57,9 @@ class FirefightersTablemitglied extends JTable
 			}
 
 		//Support for multiple or not foreign key field: abteilungen
+		
+ if((!empty($array['list_abteilungen'])&&(is_array($array['list_abteilungen'])))) { $this->_jsonEncode[]="list_abteilungen"; }
+
 			if(!empty($array['abteilungen'])){
 				if(is_array($array['abteilungen'])){
 					$array['abteilungen'] = implode(',',$array['abteilungen']);
@@ -67,7 +73,10 @@ class FirefightersTablemitglied extends JTable
 			}
 
 		//Support for multiple or not foreign key field: ausbildungen
-			if(!empty($array['ausbildungen'])){
+		
+ if((!empty($array['list_ausbildungen'])&&(is_array($array['list_ausbildungen'])))) { $this->_jsonEncode[]="list_ausbildungen"; }
+
+		if(!empty($array['ausbildungen'])){
 				if(is_array($array['ausbildungen'])){
 					$array['ausbildungen'] = implode(',',$array['ausbildungen']);
 				}
