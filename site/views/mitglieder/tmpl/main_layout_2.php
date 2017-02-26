@@ -64,7 +64,7 @@ defined('_JEXEC') or die;
 		<?php if (!$this->params->get('ftm')) : ?>
         <tr><!-- Bitte das Copyright nicht entfernen. Danke. -->
         <td colspan="<?php echo isset($this->items[0]) ? count(get_object_vars($this->items[0])) : 10; ?>">
-			<span class="copyright">Firefighters Team Manager V<?php echo $this->version; ?>  (C) 2016 by Ralf Meyer ( <a class="copyright_link" href="https://einsatzkomponente.de" target="_blank">www.einsatzkomponente.de</a> )</span></td>
+			<span class="copyright">Firefighters Team Manager V<?php echo $this->version; ?>  (C) 2017 by Ralf Meyer ( <a class="copyright_link" href="https://einsatzkomponente.de" target="_blank">www.einsatzkomponente.de</a> )</span></td>
         </tr>
 	<?php endif; ?>
     </tfoot>
@@ -117,13 +117,13 @@ defined('_JEXEC') or die;
 				<br/>				
 					<?php if ($this->params->get('show_alter','0') == '0'  OR $this->params->get('show_alter','0') == '2') : ?>
 					<?php if ($item->geburtsdatum != '0000-00-00 00:00:00') : ?>
-					<?php echo '<b>Alter : </b>'.floor((time() - strtotime($item->geburtsdatum)) / 31558149.540288); ?>
+					<?php echo '<b>Alter: </b>'.floor((time() - strtotime($item->geburtsdatum)) / 31558149.540288); ?>
 				<br/>
 					<?php endif; ?>
 					<?php endif; ?>
 					<?php if ($this->params->get('show_eintrittsdatum','0') == '0'  OR $this->params->get('show_eintrittsdatum','0') == '2') : ?>
 					<?php if ($item->eintrittsdatum != '0000-00-00 00:00:00') : ?>
-					<?php //echo '<b>Eintrittsjahr : </b>'.date('Y', strtotime($item->eintrittsdatum)); ?>
+					<?php //echo '<b>Eintrittsjahr: </b>'.date('Y', strtotime($item->eintrittsdatum)); ?>
 					<?php echo 'Seit '.floor((time() - strtotime($item->eintrittsdatum)) / 31558149.540288).' Jahr(en) Mitglied in der Feuerwehr'; ?>
 				<br/><br/>
 					<?php endif; ?>
@@ -131,32 +131,32 @@ defined('_JEXEC') or die;
 					
 					<?php if ($this->params->get('show_funktionen','0') == '0'  OR $this->params->get('show_funktionen','0') == '2') : ?>
 					<?php if ($item->funktion) : ?>
-					<?php echo '<b>Funktion		: '.$item->funktion.'</b>'; ?><br/><br/>
+					<?php echo '<b>Funktion: '.$item->funktion.'</b>'; ?><br/><br/>
 					<?php endif; ?>
 					<?php endif; ?>
 
 					<?php if ($this->params->get('show_dienstgrad','0') == '0'  OR $this->params->get('show_dienstgrad','0') == '2') : ?>
 					<?php if ($item->dienstgrad) : ?>
-					<?php echo '<b>Dienstgrad : </b>'.$item->dienstgrad; ?><br/>
+					<?php echo '<b>Dienstgrad: </b>'.$item->dienstgrad; ?><br/>
 					<?php endif; ?>
 					<?php endif; ?>
 
 					<?php if ($this->params->get('show_abteilungen','0') == '0'  OR $this->params->get('show_abteilungen','0') == '2') : ?>
 					<?php if ($item->abteilungen) : ?>
-					<?php echo '<b>Abteilungen : </b>'.$item->abteilungen; ?><br/>
+					<?php echo '<b>Abteilungen: </b>'.$item->abteilungen; ?><br/>
 					<?php endif; ?>
 					<?php endif; ?>
 
 					<?php if ($this->params->get('show_ausbildungen','0') == '0'  OR $this->params->get('show_ausbildungen','0') == '2') : ?>
 					<?php if ($item->ausbildungen) : ?>
-					<?php echo '<b>Ausbildung : </b>'.$item->ausbildungen; ?><br/>
+					<?php echo '<b>Ausbildung: </b>'.$item->ausbildungen; ?><br/>
 					<?php endif; ?>
 					<?php endif; ?>
 					
 					<?php if ($this->params->get('show_email','0') == '0'  OR $this->params->get('show_email','0') == '2') : ?>
 					<?php if ($item->emailadresse) : ?>
 					<br>
-					<?php echo '<b>Kontakt : </b><i class="icon-envelope"></i> '.JHTML::_('email.cloak', $item->emailadresse); ?> <br>
+					<?php echo '<b>Kontakt: </b><i class="icon-envelope"></i> '.JHTML::_('email.cloak', $item->emailadresse); ?> <br>
 					<?php endif;?>
 					<?php endif;?> 
 				
@@ -194,13 +194,13 @@ defined('_JEXEC') or die;
 	  
 					<!--<?php if ($this->params->get('show_alter','1')) : ?>-->
 					<?php if ($item->geburtsdatum != '0000-00-00 00:00:00') : ?>
-					<?php echo '<b>Alter : </b>'.floor((time() - strtotime($item->geburtsdatum)) / 31558149.540288); ?>
+					<?php echo '<b>Alter: </b>'.floor((time() - strtotime($item->geburtsdatum)) / 31558149.540288); ?>
 				<br/>
 					<?php endif; ?>
 					<!--<?php endif; ?>-->
 					<!--<?php if ($this->params->get('show_eintrittsdatum','1')) : ?>-->
 					<?php if ($item->eintrittsdatum != '0000-00-00 00:00:00') : ?>
-					<?php //echo '<b>Eintrittsjahr : </b>'.date('Y', strtotime($item->eintrittsdatum)); ?>
+					<?php //echo '<b>Eintrittsjahr: </b>'.date('Y', strtotime($item->eintrittsdatum)); ?>
 					<?php echo 'Seit '.floor((time() - strtotime($item->eintrittsdatum)) / 31558149.540288).' Jahr(en) Mitglied in der Feuerwehr'; ?>
 				<br/><br/>
 					<?php endif; ?>
@@ -214,12 +214,12 @@ defined('_JEXEC') or die;
 	  
 				<?php if ($item->abteilungen) : ?>
                 <span>
-					<?php echo '<b>Abteilungen : </b>'.$item->abteilungen; ?><br/>
+					<?php echo '<b>Abteilungen: </b>'.$item->abteilungen; ?><br/>
 				</span>
 					<?php endif; ?>
 				<?php if ($item->ausbildungen) : ?>
 				<span>
-					<?php echo '<b>Ausbildungen : </b>'.$item->ausbildungen; ?><br/>
+					<?php echo '<b>Ausbildungen: </b>'.$item->ausbildungen; ?><br/>
 				</span>
 					<?php endif; ?>
 			
@@ -227,7 +227,7 @@ defined('_JEXEC') or die;
 					<?php if ($item->emailadresse) : ?>
 					<br>
 				<span>
-					<?php echo '<b>Kontakt : </b><i class="icon-envelope"></i> '.JHTML::_('email.cloak', $item->emailadresse); ?> <br>
+					<?php echo '<b>Kontakt: </b><i class="icon-envelope"></i> '.JHTML::_('email.cloak', $item->emailadresse); ?> <br>
 				</span>
 					<?php endif;?>
 					<?php endif;?>

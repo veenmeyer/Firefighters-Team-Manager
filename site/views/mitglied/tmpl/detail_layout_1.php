@@ -58,7 +58,7 @@ if (!$canEdit && JFactory::getUser()->authorise('core.edit.own', 'com_firefighte
 		
 		<?php if ($this->params->get('show_alter','0') == '0'  OR $this->params->get('show_alter','0') == '1') : ?>
 					<?php if ($this->item->geburtsdatum != '0000-00-00 00:00:00') : ?>
-					<?php echo 'Alter : '.floor((time() - strtotime($this->item->geburtsdatum)) / 31558149.540288); ?>
+					<?php echo 'Alter: '.floor((time() - strtotime($this->item->geburtsdatum)) / 31558149.540288); ?>
 					<?php endif;?>
 				<br/>
 					<?php endif; ?>
@@ -76,7 +76,7 @@ if (!$canEdit && JFactory::getUser()->authorise('core.edit.own', 'com_firefighte
 			<?php if ($this->params->get('show_email','0') == '0'  OR $this->params->get('show_email','0') == '1') : ?>
 			<?php if ($this->item->emailadresse) : ?>
 			
-			<?php echo 'Kontakt : <i class="icon-envelope"></i> '.JHTML::_('email.cloak', $this->item->emailadresse); ?> <br>
+			<?php echo 'Kontakt: <i class="icon-envelope"></i> '.JHTML::_('email.cloak', $this->item->emailadresse); ?> <br>
 			<?php endif;?>
 			<br>
 			<?php endif;?>
@@ -84,7 +84,7 @@ if (!$canEdit && JFactory::getUser()->authorise('core.edit.own', 'com_firefighte
 		
 		<?php if ($this->params->get('show_funktionen','0') == '0'  OR $this->params->get('show_funktionen','0') == '1') : ?>
 		<?php if ($this->item->funktion) : ?>
-        <?php echo 'Funktion(-en) : '.$this->item->funktion; ?> <br>
+        <?php echo 'Funktion(-en): '.$this->item->funktion; ?> <br>
 		<?php endif;?>
 		<?php endif;?>
 		
@@ -92,7 +92,7 @@ if (!$canEdit && JFactory::getUser()->authorise('core.edit.own', 'com_firefighte
 					<?php if ($this->params->get('show_abteilungen_list','1') == '1') : ?>
 					<?php if ($this->params->get('show_abteilungen','0') == '0'  OR $this->params->get('show_abteilungen','0') == '1') : ?>
 					<?php if ($this->item->abteilungen) : ?>
-					<?php echo 'Abteilung(-en) : '.$this->item->abteilungen; ?> <br>
+					<?php echo 'Abteilung(-en): '.$this->item->abteilungen; ?> <br>
 					<?php endif;?>
 					<?php endif; ?>
 					<?php endif; ?>
@@ -101,7 +101,7 @@ if (!$canEdit && JFactory::getUser()->authorise('core.edit.own', 'com_firefighte
 					<?php if ($this->params->get('show_abteilungen','0') == '0'  OR $this->params->get('show_abteilungen','0') == '1') : ?>
 					<?php if ($this->item->abteilungen) : ?>
 					<?php $abteilungen = explode (',',$this->item->abteilungen);?>
-					<?php echo '<table style="border:0px;margin-left:-2px;margin-top:5px;padding-top:5px;"><tr><td style="vertical-align:top">Abteilung(-en) : </td><td>'; ?>
+					<?php echo '<table style="border:0px;margin-left:-2px;margin-top:5px;padding-top:5px;"><tr><td style="vertical-align:top">Abteilung(-en): </td><td>'; ?>
 					<?php foreach ( $abteilungen as $abteilung) :  ?>
 					<?php echo '<li>'.$abteilung.'</li>';?>
 					<?php endforeach; ?>
@@ -113,7 +113,7 @@ if (!$canEdit && JFactory::getUser()->authorise('core.edit.own', 'com_firefighte
 					<?php if ($this->params->get('show_ausbildungen_list','1') == '1') : ?>
 					<?php if ($this->params->get('show_ausbildungen','0') == '0'  OR $this->params->get('show_ausbildungen','0') == '1') : ?>
 					<?php if ($this->item->ausbildungen) : ?>
-					<?php echo 'Ausbildung(-en) : '.$this->item->ausbildungen; ?><br/>
+					<?php echo 'Ausbildung(-en): '.$this->item->ausbildungen; ?><br/>
 					<?php endif; ?>
 					<?php endif; ?>
 					<?php endif; ?>
@@ -122,7 +122,7 @@ if (!$canEdit && JFactory::getUser()->authorise('core.edit.own', 'com_firefighte
 					<?php if ($this->params->get('show_ausbildungen','0') == '0'  OR $this->params->get('show_ausbildungen','0') == '1') : ?>
 					<?php if ($this->item->ausbildungen) : ?>
 					<?php $ausbildungen = explode (',',$this->item->ausbildungen);?>
-					<?php echo '<table style="border:0px;margin-left:-2px;margin-top:5px;padding-top:5px;"><tr><td style="vertical-align:top">Ausbildung(-en) : </td><td>'; ?>
+					<?php echo '<table style="border:0px;margin-left:-2px;margin-top:5px;padding-top:5px;"><tr><td style="vertical-align:top">Ausbildung(-en): </td><td>'; ?>
 					<?php foreach ( $ausbildungen as $ausbildung) :  ?>
 					<?php echo '<li>'.$ausbildung.'</li>';?>
 					<?php endforeach; ?>
@@ -133,7 +133,9 @@ if (!$canEdit && JFactory::getUser()->authorise('core.edit.own', 'com_firefighte
 					
 		
 		
-		
+			<?php $version = new JVersion;?>
+			<?php if ($version->isCompatible('3.7')) :?>
+			
 					<?php if ($this->params->get('show_list_dienstgrad','0') != '4') : ?>
 					
 					<?php if ($this->params->get('show_dienstgrad_list','1') == '1') : ?>
@@ -144,7 +146,7 @@ if (!$canEdit && JFactory::getUser()->authorise('core.edit.own', 'com_firefighte
 					<?php $laufbahn[] = $itemz['dienstgrad'].' ('.date('Y',strtotime($itemz['dienstgrad_datum'])).')'; ?>
 					<?php endforeach; ?>
 					<?php $laufbahn = implode (', ',$laufbahn);?>
-					<?php echo '<b>Laufbahn : </b>'.$laufbahn;?> <br/>
+					<?php echo '<b>Laufbahn: </b>'.$laufbahn;?> <br/>
 					<?php endif;?>
 					<?php endif;?>
 					<?php endif;?>
@@ -152,7 +154,7 @@ if (!$canEdit && JFactory::getUser()->authorise('core.edit.own', 'com_firefighte
 					<?php if ($this->params->get('show_dienstgrad_list','1') == '0') : ?>
 					<?php if ($this->params->get('show_list_dienstgrad','0') == '0'  OR $this->params->get('show_list_dienstgrad','0') == '1') : ?>
 					<?php if ($this->item->list_dienstgrad) : ?>
-					<?php echo '<table style="border:0px;margin-left:-2px;margin-top:5px;padding-top:5px;"><tr><td style="vertical-align:top">Laufbahn : </td><td>'; ?>
+					<?php echo '<table style="border:0px;margin-left:-2px;margin-top:5px;padding-top:5px;"><tr><td style="vertical-align:top">Laufbahn: </td><td>'; ?>
 					<?php foreach ($this->item->list_dienstgrad as $itemz) : ?>
 					<?php echo '<li>'.$itemz['dienstgrad'].' ('.date('Y',strtotime($itemz['dienstgrad_datum'])).')</li>'; ?>
 					<?php endforeach; ?>
@@ -162,7 +164,8 @@ if (!$canEdit && JFactory::getUser()->authorise('core.edit.own', 'com_firefighte
 					<?php endif;?>
 					
 					<?php endif;?>
-					
+
+			<?php endif;?>
 					
 					
 		</p>

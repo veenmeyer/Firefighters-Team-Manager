@@ -132,12 +132,16 @@ $val= FirefightersHelper::getValidation();
 			<div class="control-group">
 				<div class="control-label"><?php echo $this->form->getLabel('dienstgrad'); ?></div>
 				<div class="controls" style="padding-bottom:10px;"><?php echo $this->form->getInput('dienstgrad'); ?></div>
+				
+				<?php $version = new JVersion;?>
+				<?php if ($version->isCompatible('3.7')) :?>
 				<div class="controls hideme"><?php echo $this->form->getInput('list_dienstgrad'); ?></div>
 				<?php if (!$val) : ?>
 				<div class="controls"><?php echo '<span style="color:red;">Dienstgrad-Historie nur Premium-Version verfügbar</span>'; ?></div>
 				<style>
 				.hideme {display:none;}
 				</style>
+				<?php endif;?>
 				<?php endif;?>
 			</div>
 			<br/>
@@ -154,12 +158,16 @@ $val= FirefightersHelper::getValidation();
 			<div class="control-group">
 				<div class="control-label"><?php echo $this->form->getLabel('abteilungen'); ?></div>
 				<div class="controls" style="padding-bottom:10px;"><?php echo $this->form->getInput('abteilungen'); ?></div>
+				
+				<?php $version = new JVersion;?>
+				<?php if ($version->isCompatible('3.7')) :?>
 				<div class="controls hideme"><?php echo $this->form->getInput('list_abteilungen'); ?></div>
 				<?php if (!$val) : ?>
 				<div class="controls"><?php echo '<span style="color:red;">Abteilungen-Historie nur Premium-Version verfügbar</span>'; ?></div>
 				<style>
 				.hideme {display:none;}
 				</style>
+				<?php endif;?>
 				<?php endif;?>
 			</div>
 			<br/>
@@ -176,12 +184,16 @@ $val= FirefightersHelper::getValidation();
 			<div class="control-group">
 				<div class="control-label"><?php echo $this->form->getLabel('ausbildungen'); ?></div>
 				<div class="controls" style="padding-bottom:10px;"><?php echo $this->form->getInput('ausbildungen'); ?></div>
+				
+				<?php $version = new JVersion;?>
+				<?php if ($version->isCompatible('3.7')) :?>
 				<div class="controls"><?php echo $this->form->getInput('list_ausbildungen'); ?></div>
 				<?php if (!$val) : ?>
 				<div class="controls"><?php echo '<span style="color:red;">Ausbildungen-Historie nur Premium-Version verfügbar</span>'; ?></div>
 				<style>
 				.hideme {display:none;}
 				</style>
+				<?php endif;?>
 				<?php endif;?>
 			</div>
 			<br/>

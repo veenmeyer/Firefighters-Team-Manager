@@ -12,7 +12,7 @@
 			  <field
 			name="display_mitglieder_bootstrap"
 			type="radio"
-			class="btn-group"
+			class="btn-group btn-group-yesno btn-group btn-group-yesno-yesno"
 			default="0"
 			label="Bootstrap CSS+JS :"
 			description="Hier kann die Bootstrap CSS und Javascript manuell nachgeladen werden.">
@@ -32,7 +32,7 @@
 	  		<field
 				name="show_mitlgied_detail_link"
 				type="radio"
-				class="btn-group"
+				class="btn-group btn-group-yesno btn-group btn-group-yesno-yesno"
 				default="1"
 				label="Detaillink :"
 				description="" >
@@ -45,7 +45,7 @@
 	  		<field
 				name="show_passbild"
 				type="radio"
-				class="btn-group"
+				class="btn-group btn-group-yesno btn-group btn-group-yesno-yesno"
 				default="0"
 				label="Passbilder :"
 				description="" >
@@ -60,7 +60,7 @@
 	  		<field
 				name="show_dienstgrad_image"
 				type="radio"
-				class="btn-group"
+				class="btn-group btn-group-yesno btn-group btn-group-yesno-yesno"
 				default="0"
 				label="Dienstgradabzeichen :"
 				description="" >
@@ -75,7 +75,7 @@
 	  		<field
 				name="show_eintrittsdatum"
 				type="radio"
-				class="btn-group"
+				class="btn-group btn-group-yesno btn-group btn-group-yesno-yesno"
 				default="0"
 				label="Eintrittsdatum :"
 				description="" >
@@ -90,7 +90,7 @@
 	  		<field
 				name="show_alter"
 				type="radio"
-				class="btn-group"
+				class="btn-group btn-group-yesno btn-group btn-group-yesno-yesno"
 				default="0"
 				label="Alter :"
 				description="" >
@@ -105,7 +105,7 @@
 	  		<field
 				name="show_email"
 				type="radio"
-				class="btn-group"
+				class="btn-group btn-group-yesno btn-group btn-group-yesno-yesno"
 				default="0"
 				label="Emailadresse :"
 				description="" >
@@ -120,7 +120,7 @@
 	  		<field
 				name="show_ausbildungen"
 				type="radio"
-				class="btn-group"
+				class="btn-group btn-group-yesno btn-group btn-group-yesno-yesno"
 				default="0"
 				label="Ausbildungen :"
 				description="Wo sollen die Ausbildungen angezeigt werden ?" >
@@ -134,7 +134,7 @@
 	  		<field
 				name="show_abteilungen"
 				type="radio"
-				class="btn-group"
+				class="btn-group btn-group-yesno"
 				default="0"
 				label="Abteilungen :"
 				description="Wo sollen die Abteilungen angezeigt werden ?" >
@@ -149,7 +149,7 @@
 	  		<field
 				name="show_dienstgrad"
 				type="radio"
-				class="btn-group"
+				class="btn-group btn-group-yesno"
 				default="0"
 				label="Dienstgrade :"
 				description="Wo sollen die Dienstgrade angezeigt werden ?" >
@@ -164,7 +164,7 @@
 	  		<field
 				name="show_list_dienstgrad"
 				type="radio"
-				class="btn-group"
+				class="btn-group btn-group-yesno"
 				default="0"
 				label="Laufbahn :"
 				description="Wo sollen die Laufbahn angezeigt werden ?" >
@@ -182,7 +182,7 @@
 	  		<field
 				name="show_funktionen"
 				type="radio"
-				class="btn-group"
+				class="btn-group btn-group-yesno"
 				default="0"
 				label="Funktionen :"
 				description="Wo sollen die Funktionen angezeigt werden ?" >
@@ -197,7 +197,7 @@
 	  		<field
 				name="show_abteilungen_list"
 				type="radio"
-				class="btn-group"
+				class="btn-group btn-group-yesno"
 				default="0"
 				label="Anzeige Abteilungen :"
 				description="Wie sollen die Abteilungen aufgelistet werden ? (nur main_layout_3)" >
@@ -210,7 +210,7 @@
 	  		<field
 				name="show_ausbildungen_list"
 				type="radio"
-				class="btn-group"
+				class="btn-group btn-group-yesno"
 				default="0"
 				label="Anzeige Ausbildung :"
 				description="Wie sollen die Ausbildungen aufgelistet werden ?  (nur main_layout_3)" >
@@ -223,7 +223,7 @@
 	  		<field
 				name="show_dienstgrad_list"
 				type="radio"
-				class="btn-group"
+				class="btn-group btn-group-yesno"
 				default="0"
 				label="Anzeige Laufbahn :"
 				description="" >
@@ -248,7 +248,7 @@
 			  <field
 			name="display_abteilungen_bootstrap"
 			type="radio"
-			class="btn-group"
+			class="btn-group btn-group-yesno"
 			default="0"
 			label="Bootstrap CSS+JS :"
 			description="Hier kann die Bootstrap CSS und Javascript manuell nachgeladen werden.">
@@ -267,7 +267,7 @@
 	  		<field
 				name="show_abteilung_detail_link"
 				type="radio"
-				class="btn-group"
+				class="btn-group btn-group-yesno"
 				default="1"
 				label="Detaillink :"
 				description="" >
@@ -292,7 +292,7 @@
 			  <field
 			name="display_ausbildungen_bootstrap"
 			type="radio"
-			class="btn-group"
+			class="btn-group btn-group-yesno"
 			default="0"
 			label="Bootstrap CSS+JS :"
 			description="Hier kann die Bootstrap CSS und Javascript manuell nachgeladen werden.">
@@ -311,7 +311,7 @@
 	  		<field
 				name="show_ausbildung_detail_link"
 				type="radio"
-				class="btn-group"
+				class="btn-group btn-group-yesno"
 				default="1"
 				label="Detaillink :"
 				description="" >
@@ -336,7 +336,7 @@
 			  <field
 			name="display_dienstgrade_bootstrap"
 			type="radio"
-			class="btn-group"
+			class="btn-group btn-group-yesno"
 			default="0"
 			label="Bootstrap CSS+JS :"
 			description="Hier kann die Bootstrap CSS und Javascript manuell nachgeladen werden.">
@@ -355,7 +355,7 @@
 	  		<field
 				name="show_dienstgrad_detail_link"
 				type="radio"
-				class="btn-group"
+				class="btn-group btn-group-yesno"
 				default="1"
 				label="Detaillink :"
 				description="" >
@@ -382,7 +382,7 @@
 			  <field
 			name="display_termine_bootstrap"
 			type="radio"
-			class="btn-group"
+			class="btn-group btn-group-yesno"
 			default="0"
 			label="Bootstrap CSS+JS :"
 			description="Hier kann die Bootstrap CSS und Javascript manuell nachgeladen werden.">
@@ -400,7 +400,7 @@
 			  <field
 			name="show_termin_sortierung"
 			type="radio"
-			class="btn-group"
+			class="btn-group btn-group-yesno"
 			default="1"
 			label="Sortierung Datum :"
 			description="Hier können Sie festlegen, ob die Termine, auf- oder abwärts sortiert werden sollen.">
@@ -418,7 +418,7 @@
 	  		<field
 				name="show_link_termin"
 				type="radio"
-				class="btn-group"
+				class="btn-group btn-group-yesno"
 				default="1"
 				label="Link auf Termin :"
 				description="" >
@@ -431,7 +431,7 @@
 	  		<field
 				name="show_termine_image"
 				type="radio"
-				class="btn-group"
+				class="btn-group btn-group-yesno"
 				default="1"
 				label="Termine Bild :"
 				description="" >
@@ -444,7 +444,7 @@
 	  		<field
 				name="show_termine_ende"
 				type="radio"
-				class="btn-group"
+				class="btn-group btn-group-yesno"
 				default="1"
 				label="Termin Ende :"
 				description="" >

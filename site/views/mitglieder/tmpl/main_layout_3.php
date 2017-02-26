@@ -116,13 +116,13 @@ defined('_JEXEC') or die;
 				<br/>				
 					<?php if ($this->params->get('show_alter','0') == '0'  OR $this->params->get('show_alter','0') == '2') : ?>
 					<?php if ($item->geburtsdatum != '0000-00-00 00:00:00') : ?>
-					<?php echo '<b>Alter : </b>'.floor((time() - strtotime($item->geburtsdatum)) / 31558149.540288); ?>
+					<?php echo '<b>Alter: </b>'.floor((time() - strtotime($item->geburtsdatum)) / 31558149.540288); ?>
 				<br/>
 					<?php endif; ?>
 					<?php endif; ?>
 					<?php if ($this->params->get('show_eintrittsdatum','0') == '0'  OR $this->params->get('show_eintrittsdatum','0') == '2') : ?>
 					<?php if ($item->eintrittsdatum != '0000-00-00 00:00:00') : ?>
-					<?php //echo '<b>Eintrittsjahr : </b>'.date('Y', strtotime($item->eintrittsdatum)); ?>
+					<?php //echo '<b>Eintrittsjahr: </b>'.date('Y', strtotime($item->eintrittsdatum)); ?>
 					<?php echo 'Seit '.floor((time() - strtotime($item->eintrittsdatum)) / 31558149.540288).' Jahr(en) Mitglied in der Feuerwehr'; ?>
 				<br/>
 					<?php endif; ?>
@@ -131,26 +131,26 @@ defined('_JEXEC') or die;
 					<?php if ($this->params->get('show_email','0') == '0'  OR $this->params->get('show_email','0') == '2') : ?>
 					<?php if ($item->emailadresse) : ?>
 					<br>
-					<?php echo '<b>Kontakt : </b><i class="icon-envelope"></i> '.JHTML::_('email.cloak', $item->emailadresse); ?> <br>
+					<?php echo '<b>Kontakt: </b><i class="icon-envelope"></i> '.JHTML::_('email.cloak', $item->emailadresse); ?> <br>
 					<?php endif;?>
 					<?php endif;?>
 				<br/>
 					<?php if ($this->params->get('show_funktionen','0') == '0'  OR $this->params->get('show_funktionen','0') == '2') : ?>
 					<?php if ($item->funktion) : ?>
-					<?php echo '<b>Funktion		: </b><span class="mitglieder_funktion">'.$item->funktion.'</span>'; ?><br/><br/>
+					<?php echo '<b>Funktion: </b><span class="mitglieder_funktion">'.$item->funktion.'</span>'; ?><br/><br/>
 					<?php endif; ?>
 					<?php endif; ?>
 
 					<?php if ($this->params->get('show_dienstgrad','0') == '0'  OR $this->params->get('show_dienstgrad','0') == '2') : ?>
 					<?php if ($item->dienstgrad) : ?>
-					<?php echo '<b>Dienstgrad : </b>'.$item->dienstgrad; ?><br/>
+					<?php echo '<b>Dienstgrad: </b>'.$item->dienstgrad; ?><br/>
 					<?php endif; ?>
 					<?php endif; ?>
 
 					<?php if ($this->params->get('show_abteilungen_list','1') == '1') : ?>
 					<?php if ($this->params->get('show_abteilungen','0') == '0'  OR $this->params->get('show_abteilungen','0') == '2') : ?>
 					<?php if ($item->abteilungen) : ?>
-					<?php echo '<b>Abteilungen : </b>'.$item->abteilungen; ?><br/>
+					<?php echo '<b>Abteilungen: </b>'.$item->abteilungen; ?><br/>
 					<?php endif; ?>
 					<?php endif; ?>
 					<?php endif; ?>
@@ -159,7 +159,7 @@ defined('_JEXEC') or die;
 					<?php if ($this->params->get('show_abteilungen','0') == '0'  OR $this->params->get('show_abteilungen','0') == '2') : ?>
 					<?php if ($item->abteilungen) : ?>
 					<?php $abteilungen = explode (',',$item->abteilungen);?>
-					<?php echo '<table style="border:0px;margin-left:-2px;margin-top:5px;padding-top:5px;"><tr><td style="vertical-align:top"><b>Abteilungen : </b></td><td>'; ?>
+					<?php echo '<table style="border:0px;margin-left:-2px;margin-top:5px;padding-top:5px;"><tr><td style="vertical-align:top"><b>Abteilungen: </b></td><td>'; ?>
 					<?php foreach ( $abteilungen as $abteilung) :  ?>
 					<?php echo '<li>'.$abteilung.'</li>';?>
 					<?php endforeach; ?>
@@ -171,7 +171,7 @@ defined('_JEXEC') or die;
 					<?php if ($this->params->get('show_ausbildungen_list','1') == '1') : ?>
 					<?php if ($this->params->get('show_ausbildungen','0') == '0'  OR $this->params->get('show_ausbildungen','0') == '2') : ?>
 					<?php if ($item->ausbildungen) : ?>
-					<?php echo '<b>Ausbildung : </b>'.$item->ausbildungen; ?><br/>
+					<?php echo '<b>Ausbildung: </b>'.$item->ausbildungen; ?><br/>
 					<?php endif; ?>
 					<?php endif; ?>
 					<?php endif; ?>
@@ -180,7 +180,7 @@ defined('_JEXEC') or die;
 					<?php if ($this->params->get('show_ausbildungen','0') == '0'  OR $this->params->get('show_ausbildungen','0') == '2') : ?>
 					<?php if ($item->ausbildungen) : ?>
 					<?php $ausbildungen = explode (',',$item->ausbildungen);?>
-					<?php echo '<table style="border:0px;margin-left:-2px;margin-top:5px;padding-top:5px;"><tr><td style="vertical-align:top"><b>Ausbildung : </b></td><td>'; ?>
+					<?php echo '<table style="border:0px;margin-left:-2px;margin-top:5px;padding-top:5px;"><tr><td style="vertical-align:top"><b>Ausbildung: </b></td><td>'; ?>
 					<?php foreach ( $ausbildungen as $ausbildung) :  ?>
 					<?php echo '<li>'.$ausbildung.'</li>';?>
 					<?php endforeach; ?>
@@ -189,7 +189,9 @@ defined('_JEXEC') or die;
 					<?php endif; ?>
 					<?php endif; ?>
 					
-					
+			<?php $version = new JVersion;?>
+			<?php if ($version->isCompatible('3.7')) :?>
+			
 					<?php if ($this->params->get('show_list_dienstgrad','0') != '4') : ?>
 					
 					<?php if ($this->params->get('show_dienstgrad_list','1') == '1') : ?>
@@ -200,7 +202,7 @@ defined('_JEXEC') or die;
 					<?php $laufbahn[] = $itemz['dienstgrad'].' ('.date('Y',strtotime($itemz['dienstgrad_datum'])).')'; ?>
 					<?php endforeach; ?>
 					<?php $laufbahn = implode (', ',$laufbahn);?>
-					<?php echo '<b>Laufbahn : </b>'.$laufbahn;?> <br/>
+					<?php echo '<b>Laufbahn: </b>'.$laufbahn;?> <br/>
 					<?php endif;?>
 					<?php endif;?>
 					<?php endif;?>
@@ -208,7 +210,7 @@ defined('_JEXEC') or die;
 					<?php if ($this->params->get('show_dienstgrad_list','1') == '0') : ?>
 					<?php if ($this->params->get('show_list_dienstgrad','0') == '0'  OR $this->params->get('show_list_dienstgrad','0') == '1') : ?>
 					<?php if ($item->list_dienstgrad) : ?>
-					<?php echo '<table style="border:0px;margin-left:-2px;margin-top:5px;padding-top:5px;"><tr><td style="vertical-align:top"><b>Laufbahn : </b></td><td>'; ?>
+					<?php echo '<table style="border:0px;margin-left:-2px;margin-top:5px;padding-top:5px;"><tr><td style="vertical-align:top"><b>Laufbahn: </b></td><td>'; ?>
 					<?php foreach ($item->list_dienstgrad as $itemz) : ?>
 					<?php echo '<li>'.$itemz['dienstgrad'].' ('.date('Y',strtotime($itemz['dienstgrad_datum'])).')</li>'; ?>
 					<?php endforeach; ?>
@@ -218,6 +220,9 @@ defined('_JEXEC') or die;
 					<?php endif;?>
 					
 					<?php endif;?>
+					
+			<?php endif;?>
+
 					
 				</span>
 
