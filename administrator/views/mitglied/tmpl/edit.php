@@ -228,7 +228,10 @@ $val= FirefightersHelper::getValidation();
 				<div class="control-label"><?php echo $this->form->getLabel('austrittsdatum'); ?></div>
 				<div class="controls"><?php echo $this->form->getInput('austrittsdatum'); ?></div>
 			</div>
-			
+			<div class="control-group">
+				<div class="control-label"><?php echo $this->form->getLabel('zusatz_ordering'); ?></div>
+				<div class="controls"><?php echo $this->form->getInput('zusatz_ordering'); ?></div>
+			</div>
 		<!--	<div class="control-group">
 				<div class="control-label"><?php echo $this->form->getLabel('missions_eiko'); ?></div>
 				<div class="controls"><?php echo $this->form->getInput('missions_eiko'); ?></div>

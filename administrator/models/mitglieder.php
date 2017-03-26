@@ -47,6 +47,7 @@ class FirefightersModelMitglieder extends JModelList {
                 'missions_eiko', 'a.missions_eiko',
                 'state', 'a.state',
                 'ordering', 'a.ordering',
+                'zusatz_ordering', 'a.zusatz_ordering',
                 'created_by', 'a.created_by',
 
             );

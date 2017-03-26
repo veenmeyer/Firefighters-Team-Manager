@@ -49,6 +49,7 @@ class FirefightersModelMitglieder extends JModelList
                 'missions_eiko', 'a.missions_eiko',
                 'state', 'a.state',
                 'ordering', 'a.ordering',
+                'zusatz_ordering', 'a.zusatz_ordering',
                 'created_by', 'a.created_by',
 
             );
@@ -228,7 +229,6 @@ $query->where('a.state = 1');
             }
         }
 
-        
 
 		//Filtering dienstgrad
 		$filter_dienstgrad = $this->state->get("filter.dienstgrad");
@@ -254,18 +254,37 @@ $query->where('a.state = 1');
 			$query->where("FIND_IN_SET(" . $filter_missions_eiko. ",a.missions_eiko)");
 		}
 
+		
+		// Filter-Override aus Menü-Parameter
+					$app = JFactory::getApplication();
+					$params = $app->getParams('com_firefighters'); 
+					if ($params->get('list_mitglieder','')) : 
+						$mitglieder = $params->get('list_mitglieder',''); 
+						$mitglieder_array = array();
+						foreach ( $mitglieder as $mitglied) :
+						$mitglieder_array[] = $mitglied['nur_diese_mitglieder'];
+						endforeach;
+					    $mitglieder_string = implode (' OR a.id = ',$mitglieder_array);
+						$query->where('a.id = '.$mitglieder_string.' ');
+					endif;
+
         // Add the list ordering clause.
         //$orderCol = $this->state->get('list.ordering');
         //$orderDirn = $this->state->get('list.direction');
         $orderCol = 'ordering';
         $orderDirn = 'ASC';
 		
+					if ($params->get('zusatz_ordering_option','')) : 
+						$orderCol = 'zusatz_ordering';
+					endif;
+
         if ($orderCol && $orderDirn)
         {
             $query->order($db->escape($orderCol . ' ' . $orderDirn));
         }
+					
 
-        return $query;
+				return $query;
     }
 
     public function getItems()

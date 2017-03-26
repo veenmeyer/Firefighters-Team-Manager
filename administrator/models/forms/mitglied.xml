@@ -194,6 +194,14 @@
             label="COM_FIREFIGHTERS_FORM_LBL_MITGLIED_CREATED_BY"
             description="COM_FIREFIGHTERS_FORM_DESC_MITGLIED_CREATED_BY"  /> 
 
+		<field
+			name="zusatz_ordering"
+			type="text"
+			label="Zusatz-Ordering"
+			hint=""
+			description="Zusätzliche Reihenfolge"
+		 />
+			
          <field
         name="state"
         type="list"
