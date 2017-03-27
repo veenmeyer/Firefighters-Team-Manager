@@ -4,6 +4,8 @@
 
 <h3>Changelog <small>Version 1.20.0</small></h3>
 <ul>
++ Zusatz-Ordering bei Mitglieder
++ Filter-Mitglieder
 + Abteilungs-Historie des Mitgliedes (ab J3.7)
 + Ausbildungs-Historie des Mitgliedes (ab J3.7)
 + Dienstgrad-Historie des Mitgliedes (ab J3.7)
