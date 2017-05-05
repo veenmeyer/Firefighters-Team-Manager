@@ -122,22 +122,22 @@ class FirefightersTablemitglied extends JTable
 			$registry->loadArray($array['metadata']);
 			$array['metadata'] = (string) $registry;
 		}
-		if (!JFactory::getUser()->authorise('core.admin', 'com_firefighters.mitglied.' . $array['id']))
-		{
-			$actions         = JFactory::getACL()->getActions('com_firefighters', 'mitglied');
-			$default_actions = JFactory::getACL()->getAssetRules('com_firefighters.mitglied.' . $array['id'])->getData();
-			$array_jaccess   = array();
-			foreach ($actions as $action)
-			{
-				$array_jaccess[$action->name] = $default_actions[$action->name];
-			}
-			$array['rules'] = $this->JAccessRulestoArray($array_jaccess);
-		}
+		// if (!JFactory::getUser()->authorise('core.admin', 'com_firefighters.mitglied.' . $array['id']))
+		// {
+			// $actions         = JFactory::getACL()->getActions('com_firefighters', 'mitglied');
+			// $default_actions = JFactory::getACL()->getAssetRules('com_firefighters.mitglied.' . $array['id'])->getData();
+			// $array_jaccess   = array();
+			// foreach ($actions as $action)
+			// {
+				// $array_jaccess[$action->name] = $default_actions[$action->name];
+			// }
+			// $array['rules'] = $this->JAccessRulestoArray($array_jaccess);
+		// }
 		//Bind the rules for ACL where supported.
-		if (isset($array['rules']) && is_array($array['rules']))
-		{
-			$this->setRules($array['rules']);
-		}
+		// if (isset($array['rules']) && is_array($array['rules']))
+		// {
+			// $this->setRules($array['rules']);
+		// }
 
 		return parent::bind($array, $ignore);
 	}
@@ -147,21 +147,21 @@ class FirefightersTablemitglied extends JTable
 	 *
 	 * @param type $jaccessrules an arrao of JAccessRule objects.
 	 */
-	private function JAccessRulestoArray($jaccessrules)
-	{
-		$rules = array();
-		foreach ($jaccessrules as $action => $jaccess)
-		{
-			$actions = array();
-			foreach ($jaccess->getData() as $group => $allow)
-			{
-				$actions[$group] = ((bool) $allow);
-			}
-			$rules[$action] = $actions;
-		}
+	// private function JAccessRulestoArray($jaccessrules)
+	// {
+		// $rules = array();
+		// foreach ($jaccessrules as $action => $jaccess)
+		// {
+			// $actions = array();
+			// foreach ($jaccess->getData() as $group => $allow)
+			// {
+				// $actions[$group] = ((bool) $allow);
+			// }
+			// $rules[$action] = $actions;
+		// }
 
-		return $rules;
-	}
+		// return $rules;
+	// }
 
 	/**
 	 * Overloaded check function
