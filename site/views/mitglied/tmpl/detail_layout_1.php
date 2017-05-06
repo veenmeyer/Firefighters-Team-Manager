@@ -170,10 +170,25 @@ if (!$canEdit && JFactory::getUser()->authorise('core.edit.own', 'com_firefighte
 					
 		</p>
     </div>
+	
+	
   </div>
-  	<input style="float:left;" type="button" class="btn ftm_back_button" value="Zurück" onClick="history.back();"></br>
-
+  <?php 
+		// Get active menu
+		$app	= JFactory::getApplication();
+		$menus	= $app->getMenu();
+		$this->menu = $menus->getActive();
+		$itemID = '&Itemid='.$this->menu->id.'&list=1';
+		if (!$this->menu->id) {
+			if ($this->params->get('mitgliederlink','')) :
+			$itemID = '&Itemid='.$this->params->get('mitgliederlink','').'&list=1';
+			endif;
+		}
+  echo '<a href="'.JRoute::_('index.php?option=com_firefighters&view=mitglieder'.$itemID.'').'" class="btn"><strong>'.JText::_('Übersicht').'</strong></a></br>';
+  ?>
+  	<!--<input style="float:left;" type="button" class="btn ftm_back_button" value="Zurück" onClick="history.back();">-->
 </div>
+
 
     <?php if($canEdit): ?>
 		<a class="btn" href="<?php echo JRoute::_('index.php?option=com_firefighters&task=mitglied.edit&id='.$this->item->id); ?>"><?php echo JText::_("COM_FIREFIGHTERS_EDIT_ITEM"); ?></a>

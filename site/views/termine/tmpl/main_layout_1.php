@@ -55,7 +55,7 @@ defined('_JEXEC') or die;
 
 						<div id="<?php echo $aktuell;?>" class="info">
 							<?php if ($this->params->get('show_link_termin','1')) : ?>
-							<a href="<?php echo JRoute::_('index.php?option=com_firefighters&view=termin&id='.(int) $item->id); ?>">
+							<a href="<?php echo JRoute::_('index.php?option=com_firefighters&view=termin'.$itemID.'&id='.(int) $item->id); ?>">
 							<?php echo '<p class="ftm_termine_title">'.$this->escape($item->name).'</p>'; ?></a>
 							<?php else: ?>
 							<?php echo '<p class="ftm_termine_title">'.$this->escape($item->name).'</p>'; ?>

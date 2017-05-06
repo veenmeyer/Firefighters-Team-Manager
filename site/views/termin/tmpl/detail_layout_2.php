@@ -66,7 +66,20 @@ if (!$canEdit && JFactory::getUser()->authorise('core.edit.own', 'com_firefighte
 <tr>
 			<td></td>
 			<td>
-			<input style="float:left;" type="button" class="btn eiko_back_button" value="Zurück" onClick="history.back();">
+  <?php 
+		// Get active menu
+		$app	= JFactory::getApplication();
+		$menus	= $app->getMenu();
+		$this->menu = $menus->getActive();
+		$itemID = '&Itemid='.$this->menu->id.'&list=1';
+		if (!$this->menu->id) {
+			if ($this->params->get('terminelink','')) :
+			$itemID = '&Itemid='.$this->params->get('terminelink','').'&list=1';
+			endif;
+		}
+  echo '<a href="'.JRoute::_('index.php?option=com_firefighters&view=termine'.$itemID.'').'" class="btn"><strong>'.JText::_('Übersicht').'</strong></a></br>';
+  ?>
+  	<!--<input style="float:left;" type="button" class="btn ftm_back_button" value="Zurück" onClick="history.back();">-->
 			</td>
 </tr>
         </table>

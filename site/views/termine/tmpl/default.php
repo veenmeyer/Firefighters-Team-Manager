@@ -29,6 +29,16 @@ $canDelete = $user->authorise('core.delete', 'com_firefighters');
 
 $canEdit = JFactory::getUser()->authorise('core.edit', 'com_firefighters');
 
+		// Get active menu
+		$app	= JFactory::getApplication();
+		$menus	= $app->getMenu();
+		$this->menu = $menus->getActive();
+		$itemID = '&Itemid='.$this->menu->id;
+		if (!$this->menu->id) {
+			if ($this->params->get('terminelink','')) :
+			$itemID = '&Itemid='.$this->params->get('terminelink','');
+			endif;
+		}
 ?>
 
 <!--Page Heading-->

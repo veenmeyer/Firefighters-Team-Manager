@@ -95,7 +95,7 @@ defined('_JEXEC') or die;
 				<?php endif; ?>
 				
 				<?php if ($this->params->get('show_mitlgied_detail_link','1')) : ?>
-				<a href="<?php echo JRoute::_('index.php?option=com_firefighters&view=mitglied&id='.(int) $item->id); ?>">
+				<a href="<?php echo JRoute::_('index.php?option=com_firefighters&view=mitglied'.$itemID.'&id='.(int) $item->id); ?>">
 				<?php echo '<span style="font-size:20px;font-weight:bold;" class="mitlgied_detail_link">'.$this->escape($item->name).', '.$this->escape($item->vorname).'</span>'; ?></a> 
 				<?php endif; ?>
 				<?php if (!$this->params->get('show_mitlgied_detail_link','1')) : ?>

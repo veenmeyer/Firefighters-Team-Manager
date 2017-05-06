@@ -1,5 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <config>
+
+
+<!--Menüpfade-->
+
+<fieldset name="menüpfad" label="Menüpunkte" description="Bitte lege hier die Pfade zu den Menüpunkten fest">
+
+	<field 
+		name="mitgliederlink" 
+		type="menuitem" 
+		default="" 
+		label="Migliederübersicht" 
+		description="Bitte lege hier den Pfad zum Menüpunkt fest" 
+	/>
+	<field 
+		name="terminelink" 
+		type="menuitem" 
+		default="" 
+		label="Terminübersicht" 
+		description="Bitte lege hier den Pfad zum Menüpunkt fest" 
+	/>
+	
+	<field 
+		name="abteilungenlink" 
+		type="menuitem" 
+		default="" 
+		label="Abteilungsübersicht" 
+		description="Bitte lege hier den Pfad zum Menüpunkt fest" 
+	/>
+	
+	<field 
+		name="ausbildungenlink" 
+		type="menuitem" 
+		default="" 
+		label="Ausbildungsübersicht" 
+		description="Bitte lege hier den Pfad zum Menüpunkt fest" 
+	/>
+	
+	<field 
+		name="dienstgradelink" 
+		type="menuitem" 
+		default="" 
+		label="Dienstgradübersicht" 
+		description="Bitte lege hier den Pfad zum Menüpunkt fest" 
+	/>
+</fieldset>
+
+
     <fieldset label="Mitglieder" name="ftm_anzeige">
 	
 <field name="note_show" 

@@ -32,6 +32,17 @@ if (!$canEdit && JFactory::getUser()->authorise('core.edit.own', 'com_firefighte
 	$canEdit = JFactory::getUser()->id == $this->item->created_by;
 }
 
+		// Get active menu
+		$app	= JFactory::getApplication();
+		$menus	= $app->getMenu();
+		$this->menu = $menus->getActive();
+		$itemID = '&Itemid='.$this->menu->id;
+		if (!$this->menu->id) {
+			if ($this->params->get('mitgliederlink','')) :
+			$itemID = '&Itemid='.$this->params->get('mitgliederlink','');
+			endif;
+		}
+
 ?>
 
 <!--Page Heading-->

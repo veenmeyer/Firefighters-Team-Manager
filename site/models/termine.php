@@ -134,7 +134,7 @@ class FirefightersModelTermine extends JModelList
 		
 // Filter aus Menülink abfangen 
 
-////if (!$app->input->getInt('list', 0)) : // Prüfen ob zurück aus Detailansicht
+if (!$app->input->getInt('list', 0)) : // Prüfen ob zurück aus Detailansicht
 $params = $app->getParams('com_firefighters');
 
 $this->setState('filter.abteilungen', $params->get('filter_abteilungen',''));
@@ -147,7 +147,7 @@ $app->setUserState( $this->context . '.filter.abteilungen',  $params->get('filte
 //$app->setUserState( $this->context . '.filter.dienstgrad',  $params->get('filter_dienstgrad','') );
 
 
-//endif;
+endif;
 
         // Receive & set filters
         if ($filters = $app->getUserStateFromRequest($this->context . '.filter', 'filter', array(), 'array'))
