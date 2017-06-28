@@ -209,7 +209,12 @@ $query->where('a.state = 1');
             }
         }
 
-        
+		// nur aktuelle und zukünftige Termine anzeigen ?
+		$app = JFactory::getApplication();
+		$params = $app->getParams('com_firefighters');
+        $termin_aktuell = $params->get('show_termin_aktuell','0');
+		if ($termin_aktuell) :  $query->where('( a.datum_ende > CURRENT_TIMESTAMP() )'); endif;
+   
 
 		//Filtering abteilungen
 		$filter_abteilungen = $this->state->get("filter.abteilungen");

@@ -9,6 +9,7 @@
 + Abteilungs-Historie des Mitgliedes (ab J3.7)
 + Ausbildungs-Historie des Mitgliedes (ab J3.7)
 + Dienstgrad-Historie des Mitgliedes (ab J3.7)
+# diverse kleinere Fehler behoben
 </ul>
 
 <h3>Changelog <small>Version 1.06.0</small></h3>
