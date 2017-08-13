@@ -2,7 +2,7 @@
 <h1>Firefighters Team Manager für das Joomla-CMS</h1>
 <hr>
 
-<h3>Changelog <small>Version 1.20.0</small></h3>
+<h3>Changelog <small>Version 1.07</small></h3>
 <ul>
 + Zusatz-Ordering bei Mitglieder
 + Filter-Mitglieder

@@ -85,9 +85,9 @@ $doc->addScript(JUri::base() . '/components/com_firefighters/assets/js/form.js')
 
 <div class="mitglied-edit front-end-edit">
     <?php if (!empty($this->item->id)): ?>
-        <h1>Mitlgied <small>bearbeiten</small> (ID-Nr.<?php echo $this->item->id; ?>)</h1>
+        <h1>Mitglied <small>bearbeiten</small> (ID-Nr.<?php echo $this->item->id; ?>)</h1>
     <?php else: ?>
-        <h1>Mitlgied <small>hinzufügen</small></h1>
+        <h1>Mitglied <small>hinzufügen</small></h1>
     <?php endif; ?>
 
     <form id="form-mitglied" action="<?php echo JRoute::_('index.php?option=com_firefighters&task=mitglied.save'); ?>" method="post" class="form-validate form-horizontal" enctype="multipart/form-data">
