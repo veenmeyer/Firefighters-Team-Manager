@@ -21,27 +21,32 @@ defined('_JEXEC') or die;
 	</br>
 
 				<ul class="event-list">
-				<?php $aktuell = '';?>
 				    <?php foreach ($this->items as $i => $item) : ?>
 
 					<li>
 			<?php 	
 						  $curDate = strtotime($item->datum_start); 
 						  $curTime = date('H:i', $curDate);
+						  $endDate = strtotime($item->datum_ende); 
+						  $endTime = date('H:i', $endDate);
 						  
-						  $actDate = strtotime('+2 week 2 days ');
-						  if ($curDate<$actDate AND !$aktuell) : $aktuell = 'aktuell';endif;
+						  $abgelaufen = '';
+						  if ($curDate>$endDate) : $abgelaufen = ' <font color="green"><i class="icon-checkmark" ></i></font color>';endif;
 						  
 			?>
-						<time datetime="<?php echo date('<b>d.m.Y</b> ', $curDate);?>">
-					<!--		<span class="Tag"><?php echo date('D', $curDate);?></span>
-							<span class="day"><?php echo date('d', $curDate);?></span>
-							<span class="month"><?php echo date('m', $curDate);?></span>
-							<span class="year"><?php echo date('Y', $curDate);?></span>  -->
+						<time>
 							<span class="ftm_termine_datum_start"><?php echo date('d.m.Y', $curDate);?></span>
+							
 						  <?php if ($curTime != '00:00') : ?>
-							<span class="time"><?php echo'@ '.date('H:i ', $curDate).' Uhr';?></span>
+							<span class="time"><?php echo'<i class="icon-arrow-right-3" ></i>'.date('H:i ', $curDate).' Uhr';?></span>
 						  <?php endif;?>
+						  
+					<?php if ($this->params->get('show_termine_ende','1')) : ?>
+						  <?php if ($endTime != '00:00') : ?>
+							<span class="time"><?php echo'<i class="icon-arrow-left-3" ></i>'.date('H:i ', $endDate).' Uhr';?></span>
+						  <?php endif;?>
+					<?php endif;?>
+						  
 						  
 					<?php if ($this->params->get('show_termine_image','1')) : ?>
 					<?php if ($item->bild) : ?>
@@ -53,16 +58,16 @@ defined('_JEXEC') or die;
 						</time>
 						
 
-						<div id="<?php echo $aktuell;?>" class="info">
+						<div class="info">
 							<?php if ($this->params->get('show_link_termin','1')) : ?>
-							<a href="<?php echo JRoute::_('index.php?option=com_firefighters&view=termin&id='.(int) $item->id); ?>">
-							<?php echo '<p class="ftm_termine_title">'.$this->escape($item->name).'</p>'; ?></a>
+							<a href="<?php echo JRoute::_('index.php?option=com_firefighters&view=termin'.$itemID.'&id='.(int) $item->id); ?>">
+							<?php echo '<p class="ftm_termine_title">'.$this->escape($item->name).$abgelaufen.'</p>'; ?></a>
 							<?php else: ?>
-							<?php echo '<p class="ftm_termine_title">'.$this->escape($item->name).'</p>'; ?>
+							<?php echo '<p class="ftm_termine_title">'.$this->escape($item->name).$abgelaufen.'</p>'; ?>
 							<?php endif; ?>
 							
 							<?php if ($item->abteilungen) : ?>
-							<?php echo '<p class="ftm_termine_abt">'.$item->abteilungen.'</p>'; ?>
+							<?php echo '<p class="ftm_termine_abt"><i class="icon-users" style="margin-right:10px;" ></i>'.$item->abteilungen.'</p>'; ?>
 							<?php else:?>
 							<?php echo '<p class="ftm_termine_abt"></p>'; ?>
 							<?php endif;?>

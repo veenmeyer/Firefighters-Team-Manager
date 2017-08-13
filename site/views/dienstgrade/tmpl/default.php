@@ -28,6 +28,17 @@ $canEdit = $user->authorise('core.edit', 'com_firefighters');
 $canCheckin = $user->authorise('core.manage', 'com_firefighters');
 $canChange = $user->authorise('core.edit.state', 'com_firefighters');
 $canDelete = $user->authorise('core.delete', 'com_firefighters');
+
+		// Get active menu
+		$app	= JFactory::getApplication();
+		$menus	= $app->getMenu();
+		$this->menu = $menus->getActive();
+		$itemID = '&Itemid='.$this->menu->id;
+		if (!$this->menu->id) {
+			if ($this->params->get('dienstgradelink','')) :
+			$itemID = '&Itemid='.$this->params->get('dienstgradelink','');
+			endif;
+		}
 ?>
 
 <form action="<?php echo JRoute::_('index.php?option=com_firefighters&view=dienstgrade'); ?>" method="post" name="adminForm" id="adminForm">
@@ -92,7 +103,7 @@ $canDelete = $user->authorise('core.delete', 'com_firefighters');
 				<?php endif; ?>
 				
 				<?php if ($this->params->get('show_dienstgrad_detail_link','1')) : ?>
-				<a href="<?php echo JRoute::_('index.php?option=com_firefighters&view=dienstgrad&id='.(int) $item->id); ?>">
+				<a href="<?php echo JRoute::_('index.php?option=com_firefighters&view=dienstgrad'.$itemID.'&id='.(int) $item->id); ?>">
 				<?php echo '<span style="font-size:20px;font-weight:bold;">'.$this->escape($item->name).'</span>'; ?></a>
 				<?php endif; ?>
 				<?php if (!$this->params->get('show_dienstgrad_detail_link','1')) : ?>

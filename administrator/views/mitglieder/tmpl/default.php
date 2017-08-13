@@ -154,6 +154,10 @@ if (!empty($this->extra_sidebar)) {
 				<th class='left'>
 				<?php echo JHtml::_('grid.sort',  'COM_FIREFIGHTERS_MITGLIEDER_CREATED_BY', 'a.created_by', $listDirn, $listOrder); ?>
 				</th>
+				<th class='left'>
+				<?php echo JHtml::_('grid.sort',  'Zusatz-Ordering', 'a.zusatz_ordering', $listDirn, $listOrder); ?>
+				</th>
+
                     
                     
                 <?php if (isset($this->items[0]->id)): ?>
@@ -287,6 +291,10 @@ if (!empty($this->extra_sidebar)) {
 					<?php echo $item->created_by; ?>
 				</td>
 
+				<td>
+
+					<?php echo $item->zusatz_ordering; ?>
+				</td>
 
                 <?php if (isset($this->items[0]->id)): ?>
 					<td class="center hidden-phone">

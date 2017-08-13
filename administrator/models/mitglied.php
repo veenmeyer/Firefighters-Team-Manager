@@ -58,7 +58,6 @@ class FirefightersModelMitglied extends JModelAdmin
 		if (empty($form)) {
 			return false;
 		}
-
 		return $form;
 	}
 
@@ -77,7 +76,6 @@ class FirefightersModelMitglied extends JModelAdmin
 			$data = $this->getItem();
             
 		}
-
 		return $data;
 	}
 

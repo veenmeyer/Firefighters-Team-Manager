@@ -34,7 +34,32 @@
 		query="SELECT '' AS `id`, '- alle anzeigen -' AS `name` UNION SELECT `id`, `name` FROM `#__firefighters_ausbildungen`" 
 		key_field="id" 
 		value_field="name"/>  
+
+		<field name="list_mitglieder" 
+		type="subform"
+		formsource="administrator/components/com_firefighters/models/forms/sub_mitglieder.xml" 
+		multiple="true"
+		label="Filter-Override" 
+		description=""
+		default=''
+		layout="joomla.form.field.subform.repeatable-table" 
+		min = '0'
+		max = '100'
+		buttons="add,remove,move"
+		groupByFieldset="false"		/>
 		
+	  		<field
+				name="zusatz_ordering_option"
+				type="radio"
+				class="btn-group btn-group-yesno"
+				default="0"
+				label="Zusatz-Ordering:"
+				description="Spezielle Reihenfolge ?" >
+					<option
+						value="0">Nein</option>
+					<option
+						value="1">Ja</option>
+	  		</field>
 			
 <!--<field name="note_filter_auswahl" 
 		  type="note" 

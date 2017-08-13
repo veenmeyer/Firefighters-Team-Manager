@@ -32,11 +32,14 @@ class FirefightersModelMitglieder extends JModelList {
                 'name_eiko', 'a.name_eiko',
                 'bild', 'a.bild',
                 'dienstgrad', 'a.dienstgrad',
+                'list_dienstgrad', 'a.list_dienstgrad',
                 'abteilungen', 'a.abteilungen',
+                'list_abteilungen', 'a.list_abteilungen',
                 'kommando', 'a.kommando',
                 'funktion', 'a.funktion',
                 'mehr_funktionen', 'a.mehr_funktionen',
                 'ausbildungen', 'a.ausbildungen',
+                'list_ausbildungen', 'a.list_ausbildungen',
                 'geburtsdatum', 'a.geburtsdatum',
                 'eintrittsdatum', 'a.eintrittsdatum',
                 'austrittsdatum', 'a.austrittsdatum',
@@ -44,6 +47,7 @@ class FirefightersModelMitglieder extends JModelList {
                 'missions_eiko', 'a.missions_eiko',
                 'state', 'a.state',
                 'ordering', 'a.ordering',
+                'zusatz_ordering', 'a.zusatz_ordering',
                 'created_by', 'a.created_by',
 
             );

@@ -34,11 +34,14 @@ class FirefightersModelMitglieder extends JModelList
                 'name_eiko', 'a.name_eiko',
                 'bild', 'a.bild',
                 'dienstgrad', 'a.dienstgrad',
+                'list_dienstgrad', 'a.list_dienstgrad',
                 'abteilungen', 'a.abteilungen',
+                'list_abteilungen', 'a.list_abteilungen',
                 'kommando', 'a.kommando',
                 'funktion', 'a.funktion',
                 'mehr_funktionen', 'a.mehr_funktionen',
                 'ausbildungen', 'a.ausbildungen',
+                'list_ausbildungen', 'a.list_ausbildungen',
                 'geburtsdatum', 'a.geburtsdatum',
                 'eintrittsdatum', 'a.eintrittsdatum',
                 'austrittsdatum', 'a.austrittsdatum',
@@ -46,6 +49,7 @@ class FirefightersModelMitglieder extends JModelList
                 'missions_eiko', 'a.missions_eiko',
                 'state', 'a.state',
                 'ordering', 'a.ordering',
+                'zusatz_ordering', 'a.zusatz_ordering',
                 'created_by', 'a.created_by',
 
             );
@@ -141,7 +145,7 @@ class FirefightersModelMitglieder extends JModelList
 		
 // Filter aus Menülink abfangen 
 
-//if (!$app->input->getInt('list', 0)) : // Prüfen ob zurück aus Detailansicht
+if (!$app->input->getInt('list', 0)) : // Prüfen ob zurück aus Detailansicht
 $params = $app->getParams('com_firefighters');
 
 $this->setState('filter.abteilungen', $params->get('filter_abteilungen',''));
@@ -154,7 +158,7 @@ $this->setState('filter.dienstgrad', $params->get('filter_dienstgrad',''));
 $app->setUserState( $this->context . '.filter.dienstgrad',  $params->get('filter_dienstgrad','') );
 
 
-//endif;
+endif;
 
         // Receive & set filters
         if ($filters = $app->getUserStateFromRequest($this->context . '.filter', 'filter', array(), 'array'))
@@ -225,7 +229,6 @@ $query->where('a.state = 1');
             }
         }
 
-        
 
 		//Filtering dienstgrad
 		$filter_dienstgrad = $this->state->get("filter.dienstgrad");
@@ -251,18 +254,37 @@ $query->where('a.state = 1');
 			$query->where("FIND_IN_SET(" . $filter_missions_eiko. ",a.missions_eiko)");
 		}
 
+		
+		// Filter-Override aus Menü-Parameter
+					$app = JFactory::getApplication();
+					$params = $app->getParams('com_firefighters'); 
+					if ($params->get('list_mitglieder','')) : 
+						$mitglieder = $params->get('list_mitglieder',''); 
+						$mitglieder_array = array();
+						foreach ( $mitglieder as $mitglied) :
+						$mitglieder_array[] = $mitglied['nur_diese_mitglieder'];
+						endforeach;
+					    $mitglieder_string = implode (' OR a.id = ',$mitglieder_array);
+						$query->where('a.id = '.$mitglieder_string.' ');
+					endif;
+
         // Add the list ordering clause.
         //$orderCol = $this->state->get('list.ordering');
         //$orderDirn = $this->state->get('list.direction');
         $orderCol = 'ordering';
         $orderDirn = 'ASC';
 		
+					if ($params->get('zusatz_ordering_option','')) : 
+						$orderCol = 'zusatz_ordering';
+					endif;
+
         if ($orderCol && $orderDirn)
         {
             $query->order($db->escape($orderCol . ' ' . $orderDirn));
         }
+					
 
-        return $query;
+				return $query;
     }
 
     public function getItems()
@@ -270,8 +292,28 @@ $query->where('a.state = 1');
         $items = parent::getItems();
         foreach($items as $item){
 	
+			if (isset($item->list_dienstgrad) && $item->list_dienstgrad != '') 
+				{
+					$item->list_dienstgrad= json_decode($item->list_dienstgrad);
+					$item->list_dienstgrad = JArrayHelper::fromObject($item->list_dienstgrad);
+					$n = 0;
+					foreach ($item->list_dienstgrad as $itemz) :
+					$db = JFactory::getDbo();
+					$query = $db->getQuery(true);
+					$query
+							->select('name,bild')
+							->from('`#__firefighters_dienstgrade`')
+							->where('id = ' . $db->quote($db->escape($item->list_dienstgrad['list_dienstgrad'.$n.'']['dienstgrad'])));
+					$db->setQuery($query);
+					$results = $db->loadObject();
+					if ($results) {
+						$item->list_dienstgrad['list_dienstgrad'.$n.'']['dienstgrad'] = $results->name;
+					}
+					$n++;
+					endforeach;
+				}
 
-			if (isset($item->dienstgrad) && $item->dienstgrad != '') {
+				if (isset($item->dienstgrad) && $item->dienstgrad != '') {
 				if(is_object($item->dienstgrad)){
 					$item->dienstgrad = JArrayHelper::fromObject($item->dienstgrad);
 				}

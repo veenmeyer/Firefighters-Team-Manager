@@ -82,6 +82,29 @@ class FirefightersModelMitglied extends JModelItem {
         }
 
         
+			if (isset($this->_item->list_dienstgrad) && $this->_item->list_dienstgrad != '') 
+				{
+					$this->_item->list_dienstgrad= json_decode($this->_item->list_dienstgrad);
+					$this->_item->list_dienstgrad = JArrayHelper::fromObject($this->_item->list_dienstgrad);
+					$n = 0;
+					foreach ($this->_item->list_dienstgrad as $itemz) :
+					$db = JFactory::getDbo();
+					$query = $db->getQuery(true);
+					$query
+							->select('name,bild')
+							->from('`#__firefighters_dienstgrade`')
+							->where('id = ' . $db->quote($db->escape($this->_item->list_dienstgrad['list_dienstgrad'.$n.'']['dienstgrad'])));
+					$db->setQuery($query);
+					$results = $db->loadObject();
+					if ($results) {
+						$this->_item->list_dienstgrad['list_dienstgrad'.$n.'']['dienstgrad'] = $results->name;
+					}
+					$n++;
+					endforeach;
+				}
+			
+			
+
 
 			if (isset($this->_item->dienstgrad) && $this->_item->dienstgrad != '') {
 				if(is_object($this->_item->dienstgrad)){

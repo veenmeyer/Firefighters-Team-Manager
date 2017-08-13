@@ -52,7 +52,7 @@ defined('_JEXEC') or die;
 		<?php if (!$this->params->get('ftm')) : ?>
         <tr><!-- Bitte das Copyright nicht entfernen. Danke. -->
         <td colspan="<?php echo isset($this->items[0]) ? count(get_object_vars($this->items[0])) : 10; ?>">
-			<span class="copyright">Firefighters Team Manager V<?php echo $this->version; ?>  (C) 2016 by Ralf Meyer ( <a class="copyright_link" href="https://einsatzkomponente.de" target="_blank">www.einsatzkomponente.de</a> )</span></td>
+			<span class="copyright">Firefighters Team Manager V<?php echo $this->version; ?>  (C) 2017 by Ralf Meyer ( <a class="copyright_link" href="https://einsatzkomponente.de" target="_blank">www.einsatzkomponente.de</a> )</span></td>
         </tr>
 	<?php endif; ?>
     </tfoot>
@@ -95,7 +95,7 @@ defined('_JEXEC') or die;
 				<?php endif; ?>
 				
 				<?php if ($this->params->get('show_mitlgied_detail_link','1')) : ?>
-				<a href="<?php echo JRoute::_('index.php?option=com_firefighters&view=mitglied&id='.(int) $item->id); ?>">
+				<a href="<?php echo JRoute::_('index.php?option=com_firefighters&view=mitglied'.$itemID.'&id='.(int) $item->id); ?>">
 				<?php echo '<span style="font-size:20px;font-weight:bold;" class="mitlgied_detail_link">'.$this->escape($item->name).', '.$this->escape($item->vorname).'</span>'; ?></a> 
 				<?php endif; ?>
 				<?php if (!$this->params->get('show_mitlgied_detail_link','1')) : ?>
@@ -105,7 +105,7 @@ defined('_JEXEC') or die;
 				<br/>				
 					<?php if ($this->params->get('show_alter','0') == '0'  OR $this->params->get('show_alter','0') == '2') : ?>
 					<?php if ($item->geburtsdatum != '0000-00-00 00:00:00') : ?>
-					<?php echo '<b>Alter : </b>'.floor((time() - strtotime($item->geburtsdatum)) / 31558149.540288); ?>
+					<?php echo '<b>Alter: </b>'.floor((time() - strtotime($item->geburtsdatum)) / 31558149.540288); ?>
 				<br/>
 					<?php endif; ?>
 					<?php endif; ?>
@@ -116,38 +116,52 @@ defined('_JEXEC') or die;
 				<br/>
 					<?php endif; ?>
 					<?php endif; ?>
+					<?php if ($this->params->get('show_email','0') == '0'  OR $this->params->get('show_email','0') == '2') : ?>
+					<?php if ($item->emailadresse) : ?>
+					<?php echo '<b>Kontakt: </b><i class="icon-envelope"></i> '.JHTML::_('email.cloak', $item->emailadresse); ?> <br>
+					<?php endif;?>
+					<?php endif;?>
 				<br/>
 					<?php if ($this->params->get('show_funktionen','0') == '0'  OR $this->params->get('show_funktionen','0') == '2') : ?>
 					<?php if ($item->funktion) : ?>
-					<?php echo '<b>Funktion		: </b><span class="mitglieder_funktion">'.$item->funktion.'</span>'; ?><br/><br/>
+					<?php echo '<b>Funktion: </b><span class="mitglieder_funktion">'.$item->funktion.'</span>'; ?><br/>
 					<?php endif; ?>
 					<?php endif; ?>
 					
 					<?php if ($this->params->get('show_dienstgrad','0') == '0'  OR $this->params->get('show_dienstgrad','0') == '2') : ?>
 					<?php if ($item->dienstgrad) : ?>
-					<?php echo '<b>Dienstgrad : </b>'.$item->dienstgrad; ?><br/>
+					<?php echo '<b>Dienstgrad: </b>'.$item->dienstgrad; ?><br/>
 					<?php endif; ?>
 					<?php endif; ?>
 
 					<?php if ($this->params->get('show_abteilungen','0') == '0'  OR $this->params->get('show_abteilungen','0') == '2') : ?>
 					<?php if ($item->abteilungen) : ?>
-					<?php echo '<b>Abteilungen : </b>'.$item->abteilungen; ?><br/>
+					<?php echo '<b>Abteilungen: </b>'.$item->abteilungen; ?><br/>
 					<?php endif; ?>
 					<?php endif; ?>
 
 					<?php if ($this->params->get('show_ausbildungen','0') == '0'  OR $this->params->get('show_ausbildungen','0') == '2') : ?>
 					<?php if ($item->ausbildungen) : ?>
-					<?php echo '<b>Ausbildung : </b>'.$item->ausbildungen; ?><br/>
+					<?php echo '<b>Ausbildung: </b>'.$item->ausbildungen; ?><br/>
 					<?php endif; ?>
 					<?php endif; ?>
 					
-					<?php if ($this->params->get('show_email','0') == '0'  OR $this->params->get('show_email','0') == '2') : ?>
-					<?php if ($item->emailadresse) : ?>
-					<br>
-					<?php echo '<b>Kontakt : </b><i class="icon-envelope"></i> '.JHTML::_('email.cloak', $item->emailadresse); ?> <br>
+				<?php $version = new JVersion;?>
+				<?php if ($version->isCompatible('3.7')) :?>
+					<?php if ($this->params->get('show_list_dienstgrad','0') != '4') : ?>
+					<?php if ($this->params->get('show_list_dienstgrad','0') == '0'  OR $this->params->get('show_list_dienstgrad','0') == '1') : ?>
+					<?php if ($item->list_dienstgrad) : ?>
+					<?php $laufbahn = array();?>
+					<?php foreach ($item->list_dienstgrad as $itemz) : ?>
+					<?php $laufbahn[] = $itemz['dienstgrad'].' ('.date('Y',strtotime($itemz['dienstgrad_datum'])).')'; ?>
+					<?php endforeach; ?>
+					<?php $laufbahn = implode (', ',$laufbahn);?>
+					<?php echo '<b>Laufbahn: </b>'.$laufbahn;?> <br/>
 					<?php endif;?>
 					<?php endif;?>
-				
+					<?php endif;?>
+				<?php endif;?>
+
 				</td>
 
 

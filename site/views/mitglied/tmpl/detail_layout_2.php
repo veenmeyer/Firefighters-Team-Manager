@@ -92,8 +92,26 @@ if (!$canEdit && JFactory::getUser()->authorise('core.edit.own', 'com_firefighte
 			<th><?php echo JText::_('COM_FIREFIGHTERS_FORM_LBL_MITGLIED_CREATED_BY'); ?></th>
 			<td><?php echo $this->item->created_by_name; ?></td>
 </tr>
-<tr><td><input style="float:left;" type="button" class="btn ftm_back_button" value="Zurück" onClick="history.back();"></br>
-</td><td></td>
+
+<tr>
+<td>
+  <?php 
+		// Get active menu
+		$app	= JFactory::getApplication();
+		$menus	= $app->getMenu();
+		$this->menu = $menus->getActive();
+		$itemID = '&Itemid='.$this->menu->id.'&list=1';
+		if (!$this->menu->id) {
+			if ($this->params->get('mitgliederlink','')) :
+			$itemID = '&Itemid='.$this->params->get('mitgliederlink','').'&list=1';
+			endif;
+		}
+  echo '<a href="'.JRoute::_('index.php?option=com_firefighters&view=mitglieder'.$itemID.'').'" class="btn"><strong>'.JText::_('Übersicht').'</strong></a></br>';
+  ?>
+<!--<input style="float:left;" type="button" class="btn ftm_back_button" value="Zurück" onClick="history.back();"> -->
+</td>
+<td></td>
+</tr>
         </table>
     </div>
     <?php if($canEdit): ?>

@@ -63,6 +63,7 @@ CREATE TABLE IF NOT EXISTS `#__firefighters` (
 `missions_eiko` TEXT NOT NULL ,
 `state` TINYINT(1)  NOT NULL ,
 `ordering` INT(11)  NOT NULL ,
+`zusatz_ordering` INT(11)  NOT NULL ,
 `created_by` INT(11)  NOT NULL ,
 PRIMARY KEY (`id`)
 ) DEFAULT COLLATE=utf8_general_ci;
