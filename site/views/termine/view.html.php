@@ -38,13 +38,20 @@ class FirefightersViewTermine extends JViewLegacy {
 
 		require_once JPATH_SITE.'/administrator/components/com_firefighters/helpers/firefighters.php'; // Helper-class laden
 
-		$document = JFactory::getDocument();
 		
-		if ($this->params->get('display_termine_bootstrap','0')) :
-		// Import Bootstrap
+		$document = JFactory::getDocument();
+
+		// Bootstrap laden
+		JHtml::_('behavior.framework', true);
+		
+		if ($this->params->get('display_termine_bootstrap','0') == '1') :
 		JHtml::_('bootstrap.framework');
 		$document->addStyleSheet($this->baseurl . '/media/jui/css/bootstrap.min.css');
 		$document->addStyleSheet($this->baseurl.'/media/jui/css/icomoon.css');
+		endif;
+		if ($this->params->get('display_termine_bootstrap','0') == '2') :
+		$document->addStyleSheet('components/com_firefighters/assets/bootstrap/bootstrap.min.css');
+		$document->addStyleSheet('components/com_firefighters/assets/bootstrap/bootstrap-responsive.min.css');
 		endif;
 		
         // Import CSS

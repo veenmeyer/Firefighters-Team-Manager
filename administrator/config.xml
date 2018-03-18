@@ -56,19 +56,53 @@
 		description="Hier können Sie entscheiden, welche Daten im Frontend angezeigt werden sollen."
 		/>
 		
-			  <field
-			name="display_mitglieder_bootstrap"
+	  		<field
+				name="display_mitglieder_bootstrap"
+				type="radio"
+				class="btn-group btn-group-yesno btn-group btn-group-yesno-yesno"
+				default="0"
+				label="Bootstrap CSS+JS :"
+			description="Hier kann die Bootstrap CSS und Javascript manuell nachgeladen werden. (Testweise -> dieser Auswahlpunkt fällt eventuell wieder weg)">
+					<option
+						value="1">Joomla-Bootstrap</option>
+					<option
+						value="0">JNO</option>
+					<option
+						value="2">FTM-Bootstrap</option>
+	  		</field>
+	  
+			<field
+			name="spacer0424645"
+			type="spacer"
+			hr="true"
+		/>
+	  <field
+			name="display_mitglieder_pagination"
 			type="radio"
-			class="btn-group btn-group-yesno btn-group btn-group-yesno-yesno"
-			default="0"
-			label="Bootstrap CSS+JS :"
-			description="Hier kann die Bootstrap CSS und Javascript manuell nachgeladen werden.">
+			class="btn-group"
+			default="1"
+			label="Pagination"
+			description="Listenlänge">
 			
 			<option
 				value="0">JNO</option>
 			<option
 				value="1">JYES</option>
 	  </field>
+	  
+		<field name="display_mitglieder_pagination_limit" type="list" default="" label="Listenlänge" description="">
+		  <option value="">Globale Einstellung</option>
+		  <option value="5">5</option>
+		  <option value="10">10</option>
+		  <option value="20">20</option>
+		  <option value="50">50</option>
+		  <option value="100">100</option>
+		  <option value="200">200</option>
+		  <option value="500">500</option>
+		  <option value="1000">1000</option>
+		</field>
+	  
+	  
 		<field
 			name="spacer6"
 			type="spacer"
@@ -102,6 +136,19 @@
 						value="0">beide</option>
 					<option
 						value="2">Übersicht</option>
+	  		</field>
+			
+	  		<field
+				name="show_passbild_highslide"
+				type="radio"
+				class="btn-group btn-group-yesno btn-group btn-group-yesno-yesno"
+				default="1"
+				label="Passbilder vergrößern :"
+				description="" >
+					<option
+						value="0">JNO</option>
+					<option
+						value="1">JYES</option>
 	  		</field>
 			
 	  		<field
@@ -292,19 +339,52 @@
 		description="Hier können Sie entscheiden, welche Daten im Frontend angezeigt werden sollen."
 		/>
 		
-			  <field
-			name="display_abteilungen_bootstrap"
+	  		<field
+				name="display_abteilungen_bootstrap"
+				type="radio"
+				class="btn-group btn-group-yesno btn-group btn-group-yesno-yesno"
+				default="0"
+				label="Bootstrap CSS+JS :"
+			description="Hier kann die Bootstrap CSS und Javascript manuell nachgeladen werden. (Testweise -> dieser Auswahlpunkt fällt eventuell wieder weg)">
+					<option
+						value="1">Joomla-Bootstrap</option>
+					<option
+						value="0">JNO</option>
+					<option
+						value="2">FTM-Bootstrap</option>
+	  		</field>
+	  
+			<field
+			name="spacer047542645"
+			type="spacer"
+			hr="true"
+		/>
+	  <field
+			name="display_abteilungen_pagination"
 			type="radio"
-			class="btn-group btn-group-yesno"
-			default="0"
-			label="Bootstrap CSS+JS :"
-			description="Hier kann die Bootstrap CSS und Javascript manuell nachgeladen werden.">
+			class="btn-group"
+			default="1"
+			label="Pagination"
+			description="Listenlänge">
 			
 			<option
 				value="0">JNO</option>
 			<option
 				value="1">JYES</option>
 	  </field>
+	  
+		<field name="display_abteilungen_pagination_limit" type="list" default="" label="Listenlänge" description="">
+		  <option value="">Globale Einstellung</option>
+		  <option value="5">5</option>
+		  <option value="10">10</option>
+		  <option value="20">20</option>
+		  <option value="50">50</option>
+		  <option value="100">100</option>
+		  <option value="200">200</option>
+		  <option value="500">500</option>
+		  <option value="1000">1000</option>
+		</field>
+	  
 		<field
 			name="spacer7"
 			type="spacer"
@@ -336,19 +416,53 @@
 		description="Hier können Sie entscheiden, welche Daten im Frontend angezeigt werden sollen."
 		/>
 		
-			  <field
-			name="display_ausbildungen_bootstrap"
+	  
+	  		<field
+				name="display_ausbildungen_bootstrap"
+				type="radio"
+				class="btn-group btn-group-yesno btn-group btn-group-yesno-yesno"
+				default="0"
+				label="Bootstrap CSS+JS :"
+			description="Hier kann die Bootstrap CSS und Javascript manuell nachgeladen werden. (Testweise -> dieser Auswahlpunkt fällt eventuell wieder weg)">
+					<option
+						value="1">Joomla-Bootstrap</option>
+					<option
+						value="0">JNO</option>
+					<option
+						value="2">FTM-Bootstrap</option>
+	  		</field>
+	  
+			<field
+			name="spacer047561545"
+			type="spacer"
+			hr="true"
+		/>
+	  <field
+			name="display_ausbildungen_pagination"
 			type="radio"
-			class="btn-group btn-group-yesno"
-			default="0"
-			label="Bootstrap CSS+JS :"
-			description="Hier kann die Bootstrap CSS und Javascript manuell nachgeladen werden.">
+			class="btn-group"
+			default="1"
+			label="Pagination"
+			description="Listenlänge">
 			
 			<option
 				value="0">JNO</option>
 			<option
 				value="1">JYES</option>
 	  </field>
+	  
+		<field name="display_ausbildungen_pagination_limit" type="list" default="" label="Listenlänge" description="">
+		  <option value="">Globale Einstellung</option>
+		  <option value="5">5</option>
+		  <option value="10">10</option>
+		  <option value="20">20</option>
+		  <option value="50">50</option>
+		  <option value="100">100</option>
+		  <option value="200">200</option>
+		  <option value="500">500</option>
+		  <option value="1000">1000</option>
+		</field>
+	  
 		<field
 			name="spacer8"
 			type="spacer"
@@ -380,19 +494,54 @@
 		description="Hier können Sie entscheiden, welche Daten im Frontend angezeigt werden sollen."
 		/>
 		
-			  <field
-			name="display_dienstgrade_bootstrap"
+	  
+	  		<field
+				name="display_dienstgrade_bootstrap"
+				type="radio"
+				class="btn-group btn-group-yesno btn-group btn-group-yesno-yesno"
+				default="0"
+				label="Bootstrap CSS+JS :"
+			description="Hier kann die Bootstrap CSS und Javascript manuell nachgeladen werden. (Testweise -> dieser Auswahlpunkt fällt eventuell wieder weg)">
+					<option
+						value="1">Joomla-Bootstrap</option>
+					<option
+						value="0">JNO</option>
+					<option
+						value="2">FTM-Bootstrap</option>
+	  		</field>
+	  
+			<field
+			name="spacer1647561545"
+			type="spacer"
+			hr="true"
+		/>
+	  <field
+			name="display_dienstgrade_pagination"
 			type="radio"
-			class="btn-group btn-group-yesno"
-			default="0"
-			label="Bootstrap CSS+JS :"
-			description="Hier kann die Bootstrap CSS und Javascript manuell nachgeladen werden.">
+			class="btn-group"
+			default="1"
+			label="Pagination"
+			description="Listenlänge">
 			
 			<option
 				value="0">JNO</option>
 			<option
 				value="1">JYES</option>
 	  </field>
+	  
+		<field name="display_dienstgrade_pagination_limit" type="list" default="" label="Listenlänge" description="">
+		  <option value="">Globale Einstellung</option>
+		  <option value="5">5</option>
+		  <option value="10">10</option>
+		  <option value="20">20</option>
+		  <option value="50">50</option>
+		  <option value="100">100</option>
+		  <option value="200">200</option>
+		  <option value="500">500</option>
+		  <option value="1000">1000</option>
+		</field>
+	  
+	  
 		<field
 			name="spacer9"
 			type="spacer"
@@ -426,19 +575,54 @@
 		description="Hier können Sie entscheiden, welche Daten im Frontend angezeigt werden sollen."
 		/>
 	
-			  <field
-			name="display_termine_bootstrap"
+	  
+	  		<field
+				name="display_termine_bootstrap"
+				type="radio"
+				class="btn-group btn-group-yesno btn-group btn-group-yesno-yesno"
+				default="0"
+				label="Bootstrap CSS+JS :"
+			description="Hier kann die Bootstrap CSS und Javascript manuell nachgeladen werden. (Testweise -> dieser Auswahlpunkt fällt eventuell wieder weg)">
+					<option
+						value="1">Joomla-Bootstrap</option>
+					<option
+						value="0">JNO</option>
+					<option
+						value="2">FTM-Bootstrap</option>
+	  		</field>
+	  
+			<field
+			name="spacer1647561545"
+			type="spacer"
+			hr="true"
+		/>
+	  <field
+			name="display_termine_pagination"
 			type="radio"
-			class="btn-group btn-group-yesno"
-			default="0"
-			label="Bootstrap CSS+JS :"
-			description="Hier kann die Bootstrap CSS und Javascript manuell nachgeladen werden.">
+			class="btn-group"
+			default="1"
+			label="Pagination"
+			description="Listenlänge">
 			
 			<option
 				value="0">JNO</option>
 			<option
 				value="1">JYES</option>
 	  </field>
+	  
+		<field name="display_termine_pagination_limit" type="list" default="" label="Listenlänge" description="">
+		  <option value="">Globale Einstellung</option>
+		  <option value="5">5</option>
+		  <option value="10">10</option>
+		  <option value="20">20</option>
+		  <option value="50">50</option>
+		  <option value="100">100</option>
+		  <option value="200">200</option>
+		  <option value="500">500</option>
+		  <option value="1000">1000</option>
+		</field>
+	  
+	  
 		<field
 			name="spacer64541"
 			type="spacer"

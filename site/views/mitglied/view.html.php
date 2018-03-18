@@ -35,12 +35,18 @@ class FirefightersViewMitglied extends JViewLegacy {
         $this->params = $app->getParams('com_firefighters');
 
 		$document = JFactory::getDocument();
-        // Import CSS
-		if ($this->params->get('display_mitglieder_bootstrap','0')) :
-		// Import Bootstrap
+
+		// Bootstrap laden
+		JHtml::_('behavior.framework', true);
+		
+		if ($this->params->get('display_mitglieder_bootstrap','0') == '1') :
 		JHtml::_('bootstrap.framework');
 		$document->addStyleSheet($this->baseurl . '/media/jui/css/bootstrap.min.css');
 		$document->addStyleSheet($this->baseurl.'/media/jui/css/icomoon.css');
+		endif;
+		if ($this->params->get('display_mitglieder_bootstrap','0') == '2') :
+		$document->addStyleSheet('components/com_firefighters/assets/bootstrap/bootstrap.min.css');
+		$document->addStyleSheet('components/com_firefighters/assets/bootstrap/bootstrap-responsive.min.css');
 		endif;
 
 		$document->addScript('components/com_firefighters/assets/highslide/highslide-with-gallery.js');

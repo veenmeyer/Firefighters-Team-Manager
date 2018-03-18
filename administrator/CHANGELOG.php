@@ -2,6 +2,15 @@
 <h1>Firefighters Team Manager für das Joomla-CMS</h1>
 <hr>
 
+<h3>Changelog <small>Version 1.09</small></h3>
+<ul>
+# Überlagerung Pagination
+# Pagination der versch. Übersichten
++ Option Joomla-oder FTM-Bootstrap
++ Option Passbild vergrößern
+# Anzeige Mitgliedschaft Jahr/Monat
+</ul>
+
 <h3>Changelog <small>Version 1.07</small></h3>
 <ul>
 + Zusatz-Ordering bei Mitglieder

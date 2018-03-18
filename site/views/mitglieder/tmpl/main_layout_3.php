@@ -81,24 +81,34 @@ defined('_JEXEC') or die;
 				
 	<div class="col span_<?php echo $a; ?>_of_2">
 
-				<?php if ($this->params->get('show_passbild','0') == '0'  OR $this->params->get('show_passbild','0') == '2') : ?>
-				<div class="mitglieder_passbild">
+<?php if ($this->params->get('show_passbild','0') == '0'  OR $this->params->get('show_passbild','0') == '2') : ?>
 <!--Titelbild mit Highslide JS-->
 
-				<?php if ($item->bild) : ?>
-<a href="<?php echo JURI::Root().$item->bild;?>" rel="highslide[<?php echo $item->id; ?>]" class="highslide" onClick="return hs.expand(this, { captionText: '<?php echo $item->vorname.' '.$item->name;?>' });" alt ="<?php echo $item->vorname.' '.$item->name;?>">
-                  <img class="ftm_passbild" src="<?php echo JURI::Root().$item->bild;?>"  alt="<?php echo $item->vorname.' '.$item->name;?>" title="<?php echo $item->vorname.' '.$item->name;?>"/>
-                  </a>
+					<?php if ($item->bild) : ?>
+		<div class="mitglieder_passbild">
+
+						<?php if ($this->params->get('show_passbild_highslide','1') == '1' ): ?>
+							<a href="<?php echo JURI::Root().$item->bild;?>" rel="highslide[<?php echo $item->id; ?>]" class="highslide" onClick="return hs.expand(this, { captionText: '<?php echo $item->vorname.' '.$item->name;?>' });" alt ="<?php echo $item->vorname.' '.$item->name;?>">
+						<?php endif;?>
+						
+							  <img class="ftm_passbild" src="<?php echo JURI::Root().$item->bild;?>"  alt="<?php echo $item->vorname.' '.$item->name;?>" title="<?php echo $item->vorname.' '.$item->name;?>"/>
+						  
+						<?php if ($this->params->get('show_passbild_highslide','1') == '1' ): ?>
+							  </a>
+						<?php endif;?>
+					  
 				<?php endif;?>
-				<?php endif;?>
+
 <!--Titelbild mit Highslide JS  ENDE--> 
 	
-					<?php if ($this->params->get('show_dienstgrad_image','0') == '0'  OR $this->params->get('show_dienstgrad_image','0') == '2') : ?>
+		<?php if ($this->params->get('show_dienstgrad_image','0') == '0'  OR $this->params->get('show_dienstgrad_image','0') == '2') : ?>
 				<?php if ($item->dienstgrad_image) : ?>
 					<img class="ftm_dienstgrad_image" src="<?php echo JURI::Root();?><?php echo $item->dienstgrad_image;?>" alt="<?php echo $item->dienstgrad;?>" title="<?php echo $item->dienstgrad;?>"/>
 				<?php endif;?>
-				<?php endif;?>
-				</div>
+				
+		<?php endif;?>				
+			</div>
+<?php endif;?>
 				
             	<span class="mitglieder_details">
 				<?php if (isset($item->checked_out) && $item->checked_out) : ?>
@@ -122,8 +132,17 @@ defined('_JEXEC') or die;
 					<?php endif; ?>
 					<?php if ($this->params->get('show_eintrittsdatum','0') == '0'  OR $this->params->get('show_eintrittsdatum','0') == '2') : ?>
 					<?php if ($item->eintrittsdatum != '0000-00-00 00:00:00') : ?>
-					<?php //echo '<b>Eintrittsjahr: </b>'.date('Y', strtotime($item->eintrittsdatum)); ?>
-					<?php echo 'Seit '.floor((time() - strtotime($item->eintrittsdatum)) / 31558149.540288).' Jahr(en) Mitglied in der Feuerwehr'; ?>
+					<?php $zeit = floor((time() - strtotime($item->eintrittsdatum)) / 31558149.54028812);?>
+					<?php $zeit2 = ' Jahr(en) ';?>
+					
+					<?php
+					if ($zeit < '1') :
+					$zeit = floor((time() - strtotime($item->eintrittsdatum)) / 31558149.54028812*12);
+					$zeit2 = ' Monat(en) ';
+					endif;
+					?>
+					<?php echo 'Seit '.$zeit.$zeit2.'Mitglied in der Feuerwehr'; ?>
+	
 				<br/>
 					<?php endif; ?>
 					<?php endif; ?>

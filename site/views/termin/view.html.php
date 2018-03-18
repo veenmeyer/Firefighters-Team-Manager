@@ -70,6 +70,20 @@ class FirefightersViewTermin extends JViewLegacy {
         }
 
 		$document = JFactory::getDocument();
+
+		// Bootstrap laden
+		JHtml::_('behavior.framework', true);
+		
+		if ($this->params->get('display_termine_bootstrap','0') == '1') :
+		JHtml::_('bootstrap.framework');
+		$document->addStyleSheet($this->baseurl . '/media/jui/css/bootstrap.min.css');
+		$document->addStyleSheet($this->baseurl.'/media/jui/css/icomoon.css');
+		endif;
+		if ($this->params->get('display_termine_bootstrap','0') == '2') :
+		$document->addStyleSheet('components/com_firefighters/assets/bootstrap/bootstrap.min.css');
+		$document->addStyleSheet('components/com_firefighters/assets/bootstrap/bootstrap-responsive.min.css');
+		endif;
+
         // Import CSS
 		$document->addStyleSheet('components/com_firefighters/assets/css/firefighters.css');
 		$document->addStyleDeclaration($this->params->get('termin_css','')); 
