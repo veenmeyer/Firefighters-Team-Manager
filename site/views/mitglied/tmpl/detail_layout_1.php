@@ -27,9 +27,17 @@ if (!$canEdit && JFactory::getUser()->authorise('core.edit.own', 'com_firefighte
 				<?php if ($this->params->get('show_passbild','0') == '0'  OR $this->params->get('show_passbild','0') == '1') : ?>
 				<?php if ($this->item->bild) : ?>
 				<div class="span2">
-<a href="<?php echo JURI::Root().$this->item->bild;?>" rel="highslide[<?php echo $this->item->id; ?>]" class="highslide" onClick="return hs.expand(this, { captionText: '<?php echo $this->item->vorname.' '.$this->item->name;?>' });" alt ="<?php echo $this->item->vorname.' '.$this->item->name;?>">
-                  <img class="ftm_passbild" src="<?php echo JURI::Root().$this->item->bild;?>"  alt="<?php echo $this->item->vorname.' '.$this->item->name;?>" title="<?php echo $this->item->vorname.' '.$this->item->name;?>"/>
-                  </a>
+				
+						<?php if ($this->params->get('show_passbild_highslide','1') == '1' ): ?>
+							<a href="<?php echo JURI::Root().$this->item->bild;?>" rel="highslide[<?php echo $this->item->id; ?>]" class="highslide" onClick="return hs.expand(this, { captionText: '<?php echo $this->item->vorname.' '.$this->item->name;?>' });" alt ="<?php echo $this->item->vorname.' '.$this->item->name;?>">
+						<?php endif;?>
+						
+							  <img class="ftm_passbild" src="<?php echo JURI::Root().$this->item->bild;?>"  alt="<?php echo $this->item->vorname.' '.$this->item->name;?>" title="<?php echo $this->item->vorname.' '.$this->item->name;?>"/>
+						  
+						<?php if ($this->params->get('show_passbild_highslide','1') == '1' ): ?>
+							  </a>
+						<?php endif;?>
+				  
 				</div>
 				<?php endif;?>
 				<?php endif;?>
@@ -65,8 +73,16 @@ if (!$canEdit && JFactory::getUser()->authorise('core.edit.own', 'com_firefighte
 					
 		<?php if ($this->params->get('show_eintrittsdatum','0') == '0'  OR $this->params->get('show_eintrittsdatum','0') == '1') : ?>
 					<?php if ($this->item->eintrittsdatum != '0000-00-00 00:00:00') : ?>
-					<?php //echo 'Eintrittsjahr : '.date('Y', strtotime($item->eintrittsdatum)); ?>
-					<?php echo 'Seit '.floor((time() - strtotime($this->item->eintrittsdatum)) / 31558149.540288).' Jahr(en) Mitglied in der Feuerwehr'; ?>
+					<?php $zeit = floor((time() - strtotime($this->item->eintrittsdatum)) / 31558149.54028812);?>
+					<?php $zeit2 = ' Jahr(en) ';?>
+					
+					<?php
+					if ($zeit < '1') :
+					$zeit = floor((time() - strtotime($this->item->eintrittsdatum)) / 31558149.54028812*12);
+					$zeit2 = ' Monat(en) ';
+					endif;
+					?>
+					<?php echo 'Seit '.$zeit.$zeit2.'Mitglied in der Feuerwehr'; ?>
 				<br/><br/>
 					<?php endif; ?>
 					<?php endif; ?>

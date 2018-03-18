@@ -56,7 +56,7 @@ class FirefightersModelAusbildungen extends JModelList
         $app = JFactory::getApplication();
 
         // List state information
-        $limit = $app->getUserStateFromRequest('global.list.limit', 'limit', $app->getCfg('list_limit'));
+        $limit = $app->getUserStateFromRequest('ausbildungen'. '.list.limit', 'limit', $app->getCfg('list_limit'));
         $this->setState('list.limit', $limit);
 
         $limitstart = $app->input->getInt('limitstart', 0);

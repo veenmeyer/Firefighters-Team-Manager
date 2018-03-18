@@ -233,3 +233,14 @@
 .ftm_detail_3_dienstgrad_image {float:right;}
 
 .ftm_img_ausbildung_detail_1 {max-width:250px;}
+
+.icon-first::before {
+    content: "" !important;
+}
+
+.icon-previous::before , .icon-backward::before {
+    content: "" !important;
+}
+.icon-next::before, .icon-forward::before {
+    content: "" !important;
+}

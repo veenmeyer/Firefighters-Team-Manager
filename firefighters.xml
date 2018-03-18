@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="component" version="3.6.0" method="upgrade">
     <name>com_firefighters</name>
-    <creationDate>2017-08-13</creationDate> 
-    <copyright>Copyright (C) 2017. Alle Rechte vorbehalten.</copyright>
+    <creationDate>2018-03-18</creationDate> 
+    <copyright>Copyright (C) 2018. Alle Rechte vorbehalten.</copyright>
     <license>GNU General Public License Version 2 oder später; siehe LICENSE.txt</license>
     <author>Ralf Meyer</author>
     <authorEmail>ralf.meyer@einsatzkomponente.de</authorEmail>
     <authorUrl>https://einsatzkomponente.de</authorUrl>
-    <version>1.08.01_beta</version> 
+    <version>1.09.0</version> 
     <description><![CDATA[
 			<h1>Firefighters Team Manager</h1><h3>für das Joomla-CMS</h3>
 			<div style="clear: both;"></div>
@@ -97,7 +97,7 @@
 <!-- UPDATESERVER DEFINITION -->
 	<updateservers>
 		<!-- Note: No spaces or linebreaks allowed between the server tags -->
-		<server type="extension" priority="1" name="Firefighters Team Manager">http://www.feuerwehr-veenhusen.de/update/com_firefighters-update.xml</server>
+		<server type="extension" priority="1" name="Firefighters Team Manager">https://www.feuerwehr-veenhusen.de/update/com_firefighters-update.xml</server>
 	</updateservers>
 	
 </extension>
