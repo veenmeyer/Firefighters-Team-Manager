@@ -29,9 +29,13 @@ defined('_JEXEC') or die;
 						  $curTime = date('H:i', $curDate);
 						  $endDate = strtotime($item->datum_ende); 
 						  $endTime = date('H:i', $endDate);
-						  
+
 						  $abgelaufen = '';
+						  if (!$item->datum_ende = "0000-00-00 00:00:00 ") :
 						  if ($curDate>$endDate) : $abgelaufen = ' <font color="green"><i class="icon-checkmark" ></i></font color>';endif;
+						  else:
+						  if (date("Y-m-d H:i:s",$curDate)<date("Y-m-d H:i:s")) : $abgelaufen = ' <font color="green"><i class="icon-checkmark" ></i></font color>';endif;
+						  endif;
 						  
 			?>
 						<time>
