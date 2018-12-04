@@ -24,6 +24,8 @@ class FirefightersTabledienstgrad extends JTable
 	public function __construct(&$db)
 	{
 		parent::__construct('#__firefighters_dienstgrade', 'id', $db);
+				// Set the alias since the column is called state
+				$this->setColumnAlias('published', 'state');
 	}
 
 	/**

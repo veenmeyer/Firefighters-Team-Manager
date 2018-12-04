@@ -221,7 +221,7 @@ $query->where('a.state = 1');
 		$app = JFactory::getApplication();
 		$params = $app->getParams('com_firefighters');
         $termin_aktuell = $params->get('show_termin_aktuell','0');
-		if ($termin_aktuell) :  $query->where('( a.datum_ende > CURRENT_TIMESTAMP() )'); endif;
+		if ($termin_aktuell) :  $query->where('( a.datum_ende > CURRENT_TIMESTAMP() OR a.datum_start > CURRENT_TIMESTAMP() )'); endif;
    
 
 		//Filtering abteilungen

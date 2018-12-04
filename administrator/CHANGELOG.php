@@ -2,7 +2,12 @@
 <h1>Firefighters Team Manager für das Joomla-CMS</h1>
 <hr>
 
-<h3>Changelog <small>Version 1.09</small></h3>
+<h3>Changelog <small>Version 1.10</small></h3>
+<ul>
+# Anzeige nur aktuelle Termine
+</ul>
+
+<h3>Changelog <small>Version 1.09.0</small></h3>
 <ul>
 # Überlagerung Pagination
 # Pagination der versch. Übersichten

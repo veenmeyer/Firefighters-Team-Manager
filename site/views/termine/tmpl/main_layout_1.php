@@ -14,7 +14,7 @@ defined('_JEXEC') or die;
 
 <form action="<?php echo JRoute::_('index.php?option=com_firefighters&view=termine'); ?>" method="post" name="adminForm" id="adminForm">
 
-   <div class="container">
+   <div class="ftm_container">
 		<div class="row">
 			<div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
     <?php echo JLayoutHelper::render('default_filter', array('view' => $this), dirname(__FILE__)); ?>
@@ -29,9 +29,13 @@ defined('_JEXEC') or die;
 						  $curTime = date('H:i', $curDate);
 						  $endDate = strtotime($item->datum_ende); 
 						  $endTime = date('H:i', $endDate);
-						  
+
 						  $abgelaufen = '';
+						  if (!$item->datum_ende = "0000-00-00 00:00:00 ") :
 						  if ($curDate>$endDate) : $abgelaufen = ' <font color="green"><i class="icon-checkmark" ></i></font color>';endif;
+						  else:
+						  if (date("Y-m-d H:i:s",$curDate)<date("Y-m-d H:i:s")) : $abgelaufen = ' <font color="green"><i class="icon-checkmark" ></i></font color>';endif;
+						  endif;
 						  
 			?>
 						<time>

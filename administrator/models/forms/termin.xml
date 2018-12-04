@@ -2,45 +2,63 @@
 <form>
 	<fieldset>
 
-              <field name="id" type="text" default="0" label="COM_FIREFIGHTERS_FORM_LBL_TERMIN_ID"
-            readonly="true" class="readonly"
-            description="JGLOBAL_FIELD_ID_DESC" /> 
+        <field 	name="id" 
+				type="text" 
+				default="0" 
+				label="COM_FIREFIGHTERS_FORM_LBL_TERMIN_ID"
+				readonly="true" 
+				class="readonly"
+				description="JGLOBAL_FIELD_ID_DESC" 
+				/> 
 
-       <field name="name" type="text"
-                
-            label="COM_FIREFIGHTERS_FORM_LBL_TERMIN_NAME"
-            description="COM_FIREFIGHTERS_FORM_DESC_TERMIN_NAME" 
-                
-                
-                 required="true" 
-            class="ftm_events_name"
-            filter="safehtml"
-            size="200"
-            maxlength="500" /> 
+       <field 	name="name" 
+				type="text"
+				label="COM_FIREFIGHTERS_FORM_LBL_TERMIN_NAME"
+				description="COM_FIREFIGHTERS_FORM_DESC_TERMIN_NAME" 
+                required="true" 
+				class="ftm_events_name"
+				filter="safehtml"
+				size="200"
+				maxlength="500" 
+				/> 
 
-       <field name="bild" type="media"
-                
-            label="COM_FIREFIGHTERS_FORM_LBL_TERMIN_BILD"
-            description="COM_FIREFIGHTERS_FORM_DESC_TERMIN_BILD" 
-                
-                
-                
-            directory="images" /> 
+       <field 	name="bild" 
+				type="media"
+				label="COM_FIREFIGHTERS_FORM_LBL_TERMIN_BILD"
+				description="COM_FIREFIGHTERS_FORM_DESC_TERMIN_BILD" 
+				directory="images" 
+				/> 
 
-       <field name="email" type="radio" buttons="true"
-                                                class="btn-group btn-group-yesno" default="1"
-        
-        
-            label="COM_FIREFIGHTERS_FORM_LBL_TERMIN_EMAIL"
-            description="COM_FIREFIGHTERS_FORM_DESC_TERMIN_EMAIL" ><option value="1">COM_FIREFIGHTERS_TERMINE_EMAIL_OPTION_ON</option><option value="0">COM_FIREFIGHTERS_TERMINE_EMAIL_OPTION_OFF</option></field> 
+       <field 	name="email" 
+				type="radio" 
+				buttons="true"
+                class="btn-group btn-group-yesno" 
+				default="1"
+				label="COM_FIREFIGHTERS_FORM_LBL_TERMIN_EMAIL"
+				description="COM_FIREFIGHTERS_FORM_DESC_TERMIN_EMAIL" >
+				<option value="1">COM_FIREFIGHTERS_TERMINE_EMAIL_OPTION_ON</option>
+				<option value="0">COM_FIREFIGHTERS_TERMINE_EMAIL_OPTION_OFF</option>
+			</field> 
 
- <field name="abteilungen" type="foreignkey" class="inputbox"
+ <field 	name="abteilungen" 
+			type="foreignkey" 
+			class="inputbox"
             label="COM_FIREFIGHTERS_FORM_LBL_TERMIN_ABTEILUNGEN"
-            description="COM_FIREFIGHTERS_FORM_DESC_TERMIN_ABTEILUNGEN" input_type="list" table="#__firefighters_abteilungen" key_field="id" value_field="name"  multiple="multiple"/> 
+            description="COM_FIREFIGHTERS_FORM_DESC_TERMIN_ABTEILUNGEN" 
+			input_type="list" 	
+			table="#__firefighters_abteilungen" 
+			key_field="id" 
+			value_field="name"  
+			multiple="multiple"
+			/> 
 
-       <field name="filter_abteilungen" type="sql" class="inputbox"
-            onchange="this.form.submit();"
-            query="SELECT 0 AS `id`, '- Please select Abteilungen -' AS `val` UNION SELECT `id`, `name` AS val FROM `#__firefighters_abteilungen`" key_field="id" value_field="val"
+       <field 	name="filter_abteilungen" 
+				type="sql" 
+				class="inputbox"
+				onchange="this.form.submit();"
+				query="SELECT 0 AS `id`, '- Please select Abteilungen -' AS `val` UNION SELECT `id`, `name` AS val FROM `#__firefighters_abteilungen`" 
+				key_field="id" 
+				value_field="val"
              /> 
 
        <field 	name="beschreibung" 
@@ -53,20 +71,32 @@
 				option_off="Yes" /> 
 
        <field 	name="datum_start" 
+				format="%Y-%m-%d %H:%M:00" 
+				timeformat="24" 
+				showtime="true" 
+				singleheader="true" 
+				todaybutton="true" 
+				weeknumbers="true" 
+				filltable="true" 
 				type="calendar" 
 				class="inputbox"
 				required="true" 
 				label="COM_FIREFIGHTERS_FORM_LBL_TERMIN_DATUM_START"
 				description="COM_FIREFIGHTERS_FORM_DESC_TERMIN_DATUM_START" 
-				format="%Y-%m-%d %H:%M:%S"
 				filter="safehtml" /> 
 
        <field 	name="datum_ende" 
+				format="%Y-%m-%d %H:%M:00" 
+				timeformat="24" 
+				showtime="true" 
+				singleheader="true" 
+				todaybutton="true" 
+				weeknumbers="true" 
+				filltable="true" 
 				type="calendar" 
 				class="inputbox"
 				label="COM_FIREFIGHTERS_FORM_LBL_TERMIN_DATUM_ENDE"
 				description="COM_FIREFIGHTERS_FORM_DESC_TERMIN_DATUM_ENDE" 
-				format="%Y-%m-%d %H:%M:%S"
 				filter="safehtml" /> 
 
        <field 	name="email_gesendet" 
