@@ -14,7 +14,7 @@ defined('_JEXEC') or die;
 
 <form action="<?php echo JRoute::_('index.php?option=com_firefighters&view=termine'); ?>" method="post" name="adminForm" id="adminForm">
 
-   <div class="container">
+   <div class="ftm_container">
 		<div class="row">
 			<div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
     <?php echo JLayoutHelper::render('default_filter', array('view' => $this), dirname(__FILE__)); ?>
