@@ -4,6 +4,7 @@
 
 <h3>Changelog <small>Version 1.10</small></h3>
 <ul>
+# State-Problem bei Update auf Joomla 3.9.1
 # Anzeige nur aktuelle Termine
 </ul>
 
