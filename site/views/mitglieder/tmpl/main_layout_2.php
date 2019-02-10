@@ -64,7 +64,7 @@ defined('_JEXEC') or die;
 		<?php if (!$this->params->get('ftm')) : ?>
         <tr><!-- Bitte das Copyright nicht entfernen. Danke. -->
         <td colspan="<?php echo isset($this->items[0]) ? count(get_object_vars($this->items[0])) : 10; ?>">
-			<span class="copyright">Firefighters Team Manager V<?php echo $this->version; ?>  (C) 2017 by Ralf Meyer ( <a class="copyright_link" href="https://einsatzkomponente.de" target="_blank">www.einsatzkomponente.de</a> )</span></td>
+			<span class="copyright">Firefighters Team Manager V<?php echo $this->version; ?>  (C) 2019 by Ralf Meyer ( <a class="copyright_link" href="https://einsatzkomponente.de" target="_blank">www.einsatzkomponente.de</a> )</span></td>
         </tr>
 	<?php endif; ?>
     </tfoot>
@@ -151,6 +151,12 @@ defined('_JEXEC') or die;
 					<?php echo '<b>Funktion: '.$item->funktion.'</b>'; ?><br/><br/>
 					<?php endif; ?>
 					<?php endif; ?>
+					
+					<?php if ($this->params->get('show_mehr_funktionen','0') == '0'  OR $this->params->get('show_mehr_funktionen','0') == '2') : ?>
+					<?php if ($item->mehr_funktionen) : ?>
+					<?php echo '<b>weitere Funktion: '.$item->mehr_funktionen.'</b>'; ?><br/><br/>
+					<?php endif; ?>
+					<?php endif; ?>
 
 					<?php if ($this->params->get('show_dienstgrad','0') == '0'  OR $this->params->get('show_dienstgrad','0') == '2') : ?>
 					<?php if ($item->dienstgrad) : ?>
@@ -228,8 +234,14 @@ defined('_JEXEC') or die;
 					<?php echo '<b>Funktion		: '.$item->funktion.'</b>'; ?><br/>
 				</span>
 					<?php endif; ?>
-	  
-				<?php if ($item->abteilungen) : ?>
+	 
+					<?php if ($item->mehr_funktionen) : ?>
+                <span>
+					<?php echo '<b>weitere Funktion		: '.$item->mehr_funktionen.'</b>'; ?><br/>
+				</span>
+					<?php endif; ?>
+
+					<?php if ($item->abteilungen) : ?>
                 <span>
 					<?php echo '<b>Abteilungen: </b>'.$item->abteilungen; ?><br/>
 				</span>

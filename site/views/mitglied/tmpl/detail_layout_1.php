@@ -98,12 +98,17 @@ if (!$canEdit && JFactory::getUser()->authorise('core.edit.own', 'com_firefighte
 			<?php endif;?>
 
 		
-		<?php if ($this->params->get('show_funktionen','0') == '0'  OR $this->params->get('show_funktionen','0') == '1') : ?>
-		<?php if ($this->item->funktion) : ?>
-        <?php echo 'Funktion(-en): '.$this->item->funktion; ?> <br>
-		<?php endif;?>
-		<?php endif;?>
-		
+					<?php if ($this->params->get('show_funktionen','0') == '0'  OR $this->params->get('show_funktionen','0') == '1') : ?>
+					<?php if ($this->item->funktion) : ?>
+					<?php echo 'Funktion: '.$this->item->funktion; ?> <br>
+					<?php endif;?>
+					<?php endif;?>
+				
+					<?php if ($this->params->get('show_mehr_funktionen','0') == '0'  OR $this->params->get('show_mehr_funktionen','0') == '1') : ?>
+					<?php if ($this->item->mehr_funktionen) : ?>
+					<?php echo 'weitere Funktion: '.$this->item->mehr_funktionen; ?> <br>
+					<?php endif;?>
+					<?php endif;?>
 		
 					<?php if ($this->params->get('show_abteilungen_list','1') == '1') : ?>
 					<?php if ($this->params->get('show_abteilungen','0') == '0'  OR $this->params->get('show_abteilungen','0') == '1') : ?>
