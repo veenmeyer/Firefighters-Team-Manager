@@ -102,19 +102,17 @@ $canDelete = $user->authorise('core.delete', 'com_firefighters');
 					<?php echo JHtml::_('jgrid.checkedout', $i, $item->editor, $item->checked_out_time, 'dienstgrade.', $canCheckin); ?>
 				<?php endif; ?>
 				
-				<?php if ($this->params->get('show_dienstgrad_detail_link','1')) : ?>
-				<a href="<?php echo JRoute::_('index.php?option=com_firefighters&view=dienstgrad'.$itemID.'&id='.(int) $item->id); ?>">
-				<?php echo '<span style="font-size:20px;font-weight:bold;">'.$this->escape($item->name).'</span>'; ?></a>
-				<?php endif; ?>
-				<?php if (!$this->params->get('show_dienstgrad_detail_link','1')) : ?>
 				<?php echo '<span style="color:#d63b37;font-size:20px;font-weight:bold;">'.$this->escape($item->name).'</span>'; ?>
-				<?php endif; ?>
 				<br/>
 				<?php if ($item->beschreibung) : ?>
 				<?php jimport('joomla.html.content'); ?>  
 				<?php $Desc = JHTML::_('content.prepare', $item->beschreibung); ?>
 				<?php echo $Desc; ?>
 				<?php endif; ?>
+				<?php if ($this->params->get('show_dienstgrad_detail_link','1')) : ?>				
+				<p><a href="<?php echo JRoute::_('index.php?option=com_firefighters&view=dienstgrad'.$itemID.'&id='.(int) $item->id); ?>" class="btn btn-primary" role="button">Details</a></p>
+				<?php endif; ?>
+				
 				</td>
 
 

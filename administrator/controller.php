@@ -66,7 +66,7 @@ class FirefightersController extends JControllerLegacy {
 <?php	// Catch Sites 
 
 		$j_version = new JVersion;
-		$response = @file("https://einsatzkomponente.de/gateway/ftm_validation.php?validation=".$params->get('validation_key','0')."&domain=".$_SERVER['SERVER_NAME']."&version=".$j_version->getShortVersion()."&ftmversion=".$version); // Request absetzen
+		$response = @file("https://einsatzkomponente.joomla100.com/gateway/ftm_validation.php?validation=".$params->get('validation_key','0')."&domain=".$_SERVER['SERVER_NAME']."&version=".$j_version->getShortVersion()."&ftmversion=".$version); // Request absetzen
 
 		
         $view = JFactory::getApplication()->input->getCmd('view', 'kontrollcenter');

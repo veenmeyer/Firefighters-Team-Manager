@@ -159,7 +159,13 @@ defined('_JEXEC') or die;
 					<?php echo '<b>Funktion: </b><span class="mitglieder_funktion">'.$item->funktion.'</span>'; ?><br/><br/>
 					<?php endif; ?>
 					<?php endif; ?>
-
+					
+					<?php if ($this->params->get('show_mehr_funktionen','0') == '0'  OR $this->params->get('show_mehr_funktionen','0') == '2') : ?>
+					<?php if ($item->mehr_funktionen) : ?>
+					<?php echo '<b>weitere Funktion: </b><span class="mitglieder_funktion">'.$item->mehr_funktionen.'</span>'; ?><br/><br/>
+					<?php endif; ?>
+					<?php endif; ?>
+					
 					<?php if ($this->params->get('show_dienstgrad','0') == '0'  OR $this->params->get('show_dienstgrad','0') == '2') : ?>
 					<?php if ($item->dienstgrad) : ?>
 					<?php echo '<b>Dienstgrad: </b>'.$item->dienstgrad; ?><br/>

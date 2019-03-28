@@ -287,6 +287,22 @@
 					<option
 						value="2">Übersicht</option>
 	  		</field>
+		
+	  		<field
+				name="show_mehr_funktionen"
+				type="radio"
+				class="btn-group btn-group-yesno"
+				default="1"
+				label="weitere Funktionen :"
+				description="Wo sollen die weiteren Funktionen angezeigt werden ?" >
+					<option
+						value="1">Detail</option>
+					<option
+						value="0">beide</option>
+					<option
+						value="2">Übersicht</option>
+	  		</field>
+
 			
 	  		<field
 				name="show_abteilungen_list"
